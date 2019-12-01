@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_184606) do
+ActiveRecord::Schema.define(version: 2019_12_01_215845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rides", force: :cascade do |t|
+    t.bigint "requester_id_id", null: false
+    t.datetime "requested_at", null: false
+    t.string "origin", null: false
+    t.string "destination", null: false
+    t.datetime "pickup_time", null: false
+    t.integer "number_of_passengers", null: false
+    t.string "notes"
+    t.integer "distance"
+    t.boolean "claimed", default: false
+    t.bigint "driver_id_id"
+    t.boolean "completed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["driver_id_id"], name: "index_rides_on_driver_id_id"
+    t.index ["requester_id_id"], name: "index_rides_on_requester_id_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,9 +50,18 @@ ActiveRecord::Schema.define(version: 2019_10_01_184606) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "nationality", null: false
+    t.string "gender", null: false
+    t.string "ministry"
+    t.bigint "phone_number", null: false
+    t.integer "ride_tokens", default: 4
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rides", "users", column: "driver_id_id"
+  add_foreign_key "rides", "users", column: "requester_id_id"
 end
