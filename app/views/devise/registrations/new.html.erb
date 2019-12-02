@@ -41,6 +41,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :alternate_contact_method %>
+    <%= f.select :alternate_contact_method, options_for_select([["WeChat", "WeChat"], ["Facebook", "Facebook"], ["Whatsapp", "Whatsapp"], ["Instagram", "Instagram"], ["Line", "Line"]]) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :alternate_contact_name %><br>
+    <%= f.text_field :alternate_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :international, "I am an international student" %><br>
+    <%= f.check_box :international %><br>
+  </div>
+
+  <div class="field">
     <%= f.label :nationality %><br />
     <%= f.text_field :nationality %>
   </div>
