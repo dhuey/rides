@@ -1,0 +1,18 @@
+<%= form_for @ride do |f| %>
+  <%= f.label :origin, "Where are you now?" %><br>
+  <%= f.text_field :origin %><br>
+
+  <%= f.label :destination, "Where do you need to go?" %><br>
+  <%= f.text_field :destination %><br>
+
+  <%= f.label :pickup_time, "What time do you need a ride?" %><br>
+  <%= f.datetime_select :pickup_time %><br>
+
+  <%= f.label :number_of_passengers, "How many passengers?" %><br>
+  <%= f.text_field :number_of_passengers %><br>
+
+  <%= f.label :notes, "Anything else we need to know?" %><br>
+  <%= f.text_area :notes %><br>
+
+  <%= f.submit "Submit" %>
+<% end %>
