@@ -1,0 +1,4 @@
+<%= link_to "< Your rides", rides_path %>
+<h1><%= "#{@ride.origin} to #{@ride.destination}" %></h1>
+<h2><%= "#{@ride.pickup_time}" %></h2>
+<%= link_to "Edit ride", edit_ride_path(@ride) %>

@@ -1,4 +1,5 @@
 <%= form_for @ride do |f| %>
+  <%= render "devise/shared/error_messages", resource: @ride %>
   <%= f.label :origin, "Where are you now?" %><br>
   <%= f.text_field :origin %><br>
 
