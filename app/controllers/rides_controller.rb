@@ -39,6 +39,12 @@ class RidesController < ApplicationController
     @ride = Ride.find(params[:id])
   end
 
+  def destroy
+    @ride = Ride.find(params[:id])
+    @ride.destroy
+    redirect_to rides_path, notice: "We deleted your ride."
+  end
+
   private
 
   def ride_params
