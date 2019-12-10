@@ -1,4 +1,16 @@
-<%= link_to "< Your rides", rides_path %>
+<% if current_user.international? %>
+  <%= link_to "< Your rides", rides_path %>
+<% else %>
+ <%= link_to "< Pending rides", pending_rides_path %>
+<% end %>
+
 <h1><%= "#{@ride.origin} to #{@ride.destination}" %></h1>
 <h2><%= "#{@ride.pickup_time}" %></h2>
-<%= link_to "Edit ride", edit_ride_path(@ride) %>
+
+<% if @ride.requester_id == current_user.id %>
+  <%= link_to "Edit ride", edit_ride_path(@ride) %>
+<% end %>
+
+<% if current_user.driver? %>
+  <%= link_to "Claim ride", ride_path(@ride, ride: {id: @ride.id, claimed: true, driver_id: current_user.id}), method: :patch, ride: { claimed: true, driver_id: current_user.id } %>
+<% end %>

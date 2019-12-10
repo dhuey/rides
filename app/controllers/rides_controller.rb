@@ -4,6 +4,8 @@ class RidesController < ApplicationController
   def index
     if current_user.international?
       @rides = Ride.where(requester_id: current_user.id).order(pickup_time: :desc)
+    else
+      @rides = Ride.where(driver_id: current_user.id).order(pickup_time: :desc)
     end
   end
 
@@ -40,6 +42,6 @@ class RidesController < ApplicationController
   private
 
   def ride_params
-    params.require(:ride).permit(:origin, :destination, :pickup_time, :number_of_passengers, :notes)
+    params.require(:ride).permit(:origin, :destination, :pickup_time, :number_of_passengers, :notes, :claimed, :driver_id)
   end
 end
