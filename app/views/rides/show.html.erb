@@ -12,5 +12,9 @@
 <% end %>
 
 <% if current_user.driver? %>
-  <%= link_to "Claim ride", ride_path(@ride, ride: {id: @ride.id, claimed: true, driver_id: current_user.id}), method: :patch, ride: { claimed: true, driver_id: current_user.id } %>
+  <% if @ride.unclaimed? %>
+    <%= link_to "Claim ride", ride_path(@ride, ride: { id: @ride.id, claimed: true, driver_id: current_user.id }), method: :patch %>
+  <% else %>
+    <%= link_to "Unclaim ride", ride_path(@ride, ride: { id: @ride.id, claimed: false, driver_id: nil }), method: :patch %>
+  <% end %>
 <% end %>

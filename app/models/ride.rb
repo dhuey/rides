@@ -7,8 +7,13 @@ class Ride < ApplicationRecord
 
   def create_with_requester(user)
     self.requester_id= user.id
+    self.requester_gender= user.gender
     self.requested_at= DateTime.now
     return false unless self.save
     true
+  end
+
+  def unclaimed?
+    claimed == false
   end
 end
