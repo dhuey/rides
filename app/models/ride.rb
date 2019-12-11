@@ -17,6 +17,9 @@ class Ride < ApplicationRecord
     claimed == false
   end
 
+  def incomplete?
+    completed == false
+  end
   def formatted_pickup_time
     self.pickup_time.strftime("%b %d, %Y at %l:%M %P")
   end
