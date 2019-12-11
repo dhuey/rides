@@ -16,4 +16,8 @@ class Ride < ApplicationRecord
   def unclaimed?
     claimed == false
   end
+
+  def formatted_pickup_time
+    self.pickup_time.strftime("%b %d, %Y at %l:%M %P")
+  end
 end

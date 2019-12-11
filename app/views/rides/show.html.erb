@@ -5,7 +5,17 @@
 <% end %>
 
 <h1><%= "#{@ride.origin} to #{@ride.destination}" %></h1>
-<h2><%= "#{@ride.pickup_time}" %></h2>
+<h2>Pickup time: <%= "#{@ride.formatted_pickup_time}" %></h2>
+
+<% if current_user.driver? %>
+  <p><strong>Requester:</strong> <%= "#{@ride.requester.full_name}" %></p>
+  <p><strong>Phone:</strong> <%= "#{@ride.requester.phone_number}" %></p>
+  <% if @ride.requester.alternate_contact_method? && @ride.requester.alternate_contact_name? %>
+    <p><strong>Alternate contact:</strong> <i><%= @ride.requester.alternate_contact_method %> -</i> <%= @ride.requester.alternate_contact_name %>
+  <% end %>
+<% end %>
+<p><strong>Number of passengers:</strong> <%= "#{@ride.number_of_passengers}" %></p>
+<p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
 
 <% if @ride.requester_id == current_user.id %>
   <%= link_to "Edit ride", edit_ride_path(@ride) %>

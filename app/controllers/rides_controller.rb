@@ -20,6 +20,8 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.new(ride_params)
     if @ride.create_with_requester(current_user)
+      notifier = Notifier.new(@ride)
+      notifier.request_ride
       redirect_to ride_path(@ride), notice: "We created your ride! Sit back and relax."
     else
       render "new", alert: "We couldn't create your ride. Let's try again."

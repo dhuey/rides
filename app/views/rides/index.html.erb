@@ -7,7 +7,7 @@
     <% @rides.each do |ride| %>
       <div>
         <h2><%= link_to("#{ride.origin} to #{ride.destination}", ride_path(ride)) %></h2>
-        <p><%= "#{ride.pickup_time}" %></p>
+        <p><%= "#{ride.formatted_pickup_time}" %></p>
       </div>
     <% end %>
   <% end %>
