@@ -62,6 +62,20 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "rides_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = {
+    :host => "link-rides.herokuapp.com",
+    :protocol => 'https'
+  }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'link-rides.herokuapp.com',
+    user_name:            ENV['MAILER_EMAIL'],
+    password:             ENV['MAILER_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto: true }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
