@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :gender,
-      :phone_number, :nationality, :ministry, :international, :alternate_contact_method, :alternate_contact_name])
+      :phone_number, :nationality, :ministry, :international, :alternate_contact_method, :alternate_contact_name, :email_interest])
   end
 end

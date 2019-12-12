@@ -13,6 +13,11 @@ class User < ApplicationRecord
   validates :nationality, presence: true, if: :international?
 
   scope :driver, -> { where(international: false) }
+  scope :international, -> { where(international: true) }
+
+  def self.email_list
+    User.international.where(email_interest: true).pluck(:email)
+  end
 
   def driver?
     !international?
