@@ -17,7 +17,6 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-gem 'rollbar'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -32,6 +31,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'jquery-rails'
+
+group :production do
+  gem 'rollbar'
+end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
