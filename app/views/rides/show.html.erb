@@ -16,6 +16,9 @@
 <% end %>
 <p><strong>Number of passengers:</strong> <%= "#{@ride.number_of_passengers}" %></p>
 <p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
+<% if @ride.claimed? %>
+  <p><strong>Driver: </strong> <%="#{@ride.driver.full_name}" %></p>
+<% end %>
 
 <% if @ride.requester_id == current_user.id && @ride.incomplete? %>
   <%= link_to "Edit ride", edit_ride_path(@ride) %>
