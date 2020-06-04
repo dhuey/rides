@@ -6,7 +6,7 @@
   <% else %>
     <% @rides.each do |ride| %>
       <div>
-        <%= link_to("#{ride.origin} to #{ride.destination} #{ '(Driver found!)' if ride.claimed?}", ride_path(ride), class: "ride-title") %>
+        <%= link_to("#{ride.origin} to #{ride.destination} #{ '(Driver found!)' if ride.claimed? && current_user.international?}", ride_path(ride), class: "ride-title") %>
         <p><%= "#{ride.formatted_pickup_time}" %></p>
       </div>
     <% end %>
