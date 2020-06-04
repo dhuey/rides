@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.first_name %>,</h1>
+
+    <p><%= @ride.driver.full_name %> has claimed your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %></p>
+
+    <p>We hope you all have a good time!</p>
+
+    <p>Best,<br>
+      LINK Rides</p>
+  </body>
+  </html>
