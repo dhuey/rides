@@ -1,5 +1,4 @@
 class RidesController < ApplicationController
-  include ActiveModel::Dirty
   before_action :authenticate_user!
 
   def index
