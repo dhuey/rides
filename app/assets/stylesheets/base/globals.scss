@@ -30,6 +30,10 @@ $accent-color: #707070;
   font-weight: bold;
 }
 
+.advance-btn:hover, .advance-btn:active {
+  background-color: #1F50C3;
+}
+
 .login-field {
   border: 1px solid $accent-color;
   border-radius: 1em;
