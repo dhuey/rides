@@ -1,3 +1,60 @@
+$brand-color: #2766F4;
+$accent-color: #707070;
+
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
+
+
 .alert {
   width: 100%;
 }
+
+.advance-btn {
+  color: white;
+  background-color: $brand-color;
+  border-radius: 1em;
+  border: none;
+  padding: .2em 1.2em;
+  margin-bottom: 1em;
+}
+
+.login-field {
+  border: 1px solid $accent-color;
+  border-radius: 1em;
+  padding-left: 1em;
+  background-color: white;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  margin-bottom: .8em;
+}
+
+.remember {
+  margin-bottom: 1em;
+  margin-left: .4em;
+}
+
+.small-text {
+  font-size: .8em;
+  line-height: .95em;
+}
+
+label {
+  margin-bottom: .2em;
+}
+
+.display-none {
+  display: none;
+}
+
