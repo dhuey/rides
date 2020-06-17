@@ -51,3 +51,46 @@
 .ride-time > p {
   margin-bottom: .1em;
 }
+
+.green {
+  color: green;
+  width: 100%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  height: 42px;
+  background-color: white;
+}
+
+.red {
+  color: red;
+  width: 100%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  margin-top: -1px;
+  height: 42px;
+  background-color: white;
+}
+
+.blue {
+  color: $brand-color;
+  width: 100%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  height: 42px;
+  background-color: white;
+}
+
+.green:hover {
+  background-color: #f4f4f4;
+}
+
+.blue:hover {
+  background-color: #f4f4f4;
+}
+
+.red:hover {
+  background-color: #f4f4f4;
+}

@@ -24,6 +24,7 @@ a:hover {
 }
 
 .advance-btn {
+  display: inline-block;
   color: white;
   background-color: $brand-color;
   border-radius: 1em;
@@ -31,6 +32,7 @@ a:hover {
   padding: .2em 1.2em;
   margin-bottom: 1em;
   font-weight: bold;
+  height: 42px;
 }
 
 .advance-btn:hover, .advance-btn:active {
@@ -85,4 +87,33 @@ label {
 select {
   margin-bottom: .8em;
   margin-left: .4em;
+}
+
+.green {
+  color: green;
+  width: 100%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  height: 42px;
+  background-color: white;
+}
+
+.red {
+  color: red;
+  width: 100%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  margin-top: -1px;
+  height: 42px;
+  background-color: white;
+}
+
+.green:hover {
+  background-color: #f4f4f4;
+}
+
+.red:hover {
+  background-color: #f4f4f4;
 }
