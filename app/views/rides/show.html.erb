@@ -21,10 +21,10 @@
     <p><strong>Driver: </strong> <%="#{@ride.driver.full_name}" %></p>
   <% end %>
 
-  <% if @ride.requester_id == current_user.id && @ride.incomplete? %>
-    <%= link_to "Edit ride", edit_ride_path(@ride) %>
-    <%= link_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }%>
-  <% end %>
+<% if @ride.requester_id == current_user.id && @ride.incomplete? %>
+  <%= button_to "Edit ride", edit_ride_path(@ride), class: "blue" %>
+  <%= button_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
+<% end %>
 
   <% if current_user.driver? %>
     <% if @ride.unclaimed? %>
