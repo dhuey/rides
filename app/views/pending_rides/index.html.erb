@@ -8,9 +8,9 @@
       <%= link_to(ride_path(ride)) do %>
         <div class="ride-box">
             <div class="ride-label"><p><strong><%= "#{ride.origin} to #{ride.destination}" %></strong></p></div>
-            <div class="ride-time"><p><%= "#{ride.short_pickup_time} >" %></p></div>
+            <div class="ride-select-arrow"><p>></p></div>
             <div style="clear:both;"></div>
-            <div class="ride-desc"><p><%= "#{ride.requester.full_name} requested a ride for #{pluralize(ride.number_of_passengers, "passenger")}" %></p></div>
+            <div class="ride-desc"><p><%= "#{ride.requester.full_name} requested a ride for #{pluralize(ride.number_of_passengers, "passenger")} for #{ride.formatted_pickup_time}" %></p></div>
         </div>
       <% end %>
     <% end %>

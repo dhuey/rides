@@ -7,7 +7,7 @@
 }
 
 .ride-list-container {
-  width: 90%;
+  width: 95%;
   max-width: 500px;
   margin: auto;
 }
@@ -30,23 +30,24 @@
   display: inline-block;
   float: left;
   white-space: nowrap;
+  padding-left: 4em;
 }
 
-.ride-time {
-  display: inline-block;
+.ride-select-arrow {
   float: right;
   text-align: right;
   color: $accent-color;
+  height: 1em;
 }
 
 .ride-desc {
   color: $accent-color;
-  padding-left: 1em;
+  padding-left: 4em;
 }
 
 .ride-label > p {
-  margin-bottom: .2em;
+  margin-bottom: .1em;
 }
 .ride-time > p {
-  margin-bottom: .2em;
+  margin-bottom: .1em;
 }
