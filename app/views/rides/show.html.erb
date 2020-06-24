@@ -2,7 +2,7 @@
   <% if current_user.international? %>
     <%= link_to "< Your rides", rides_path %>
   <% else %>
-   <%= link_to "< Rides awaiting a driver", pending_rides_path %>
+   <%= driver_back_button %>
   <% end %>
 
   <h1><%= "#{@ride.origin} to #{@ride.destination}" %></h1>
