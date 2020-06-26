@@ -5,6 +5,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: "We updated your profile!"
+    else
+      render "edit", alert: "We couldn't update your profile. Let's try again."
+    end
+  end
+
   def show
     @user = User.find(params[:id])
   end
