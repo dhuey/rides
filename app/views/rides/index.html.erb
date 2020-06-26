@@ -8,7 +8,7 @@
     <% @rides.each do |ride| %>
       <%= link_to(ride_path(ride)) do %>
         <div class="ride-box">
-            <div class="ride-label"><p><strong><%= "#{ride.origin} to #{ride.destination} #{ '(Driver found!)' if ride.claimed? && current_user.international?}" %></strong></p></div>
+            <div class="ride-label"><p><strong><%= "#{ride.origin} to #{ride.destination}" %></strong></p></div>
             <div class="ride-select-arrow"><p>></p></div>
             <div style="clear:both;"></div>
             <div class="ride-desc"><p><%= ride_message(ride) %></p></div>

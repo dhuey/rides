@@ -22,7 +22,7 @@
   <% end %>
 
 <% if @ride.requester_id == current_user.id && @ride.incomplete? %>
-  <%= button_to "Edit ride", edit_ride_path(@ride), class: "blue" %>
+  <%= button_to "Edit ride", edit_ride_path(@ride), method: :get, class: "blue" %>
   <%= button_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
 <% end %>
 
