@@ -1,2 +1,14 @@
-<p><strong><%= @user.full_name %></strong></p>
+<h1><%= @user.full_name %></h1>
+<h2><%= @user.nationality %></h2>
 <p><em><%= @user.email %></em></p>
+<p>Phone: <%= @user.phone_number %></p>
+<% if @user.alternate_contact_method && @user.alternate_contact_name %>
+  <p><%= "#{@user.alternate_contact_method}: #{@user.alternate_contact_name}" %></p>
+<% end %>
+<% if @user.ministry %>
+  <p><%= @user.ministry %></p>
+<% end %>
+
+<% if @user == current_user %>
+  <%= button_to "Edit Profile", edit_user_path(@user), method: :get, class: "blue" %>
+<% end %>

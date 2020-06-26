@@ -12,6 +12,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:origin, :destination, :pickup_time, :number_of_passengers, :notes, :claimed, :driver_id, :completed)
+    params.require(:user).permit(:email, :alternate_contact_method, :alternate_contact_name, :phone, :ministry, :email_interest)
   end
 end
