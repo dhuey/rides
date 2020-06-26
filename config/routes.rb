@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :rides
   get "pending_rides", to: "pending_rides#index"
+  resources :users, only: [:show, :edit]
 end
