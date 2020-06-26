@@ -1,41 +1,44 @@
-<% if current_user.international? %>
-  <%= link_to "< Your rides", rides_path %>
-<% else %>
- <%= link_to "< Pending rides", pending_rides_path %>
-<% end %>
-
-<h1><%= "#{@ride.origin} to #{@ride.destination}" %></h1>
-<h2>Pickup time: <%= "#{@ride.formatted_pickup_time}" %></h2>
-
-<% if current_user.driver? %>
-  <p><strong>Requester:</strong> <%= "#{@ride.requester.full_name}" %></p>
-  <p><strong>Phone:</strong> <%= "#{@ride.requester.phone_number}" %></p>
-  <% if @ride.requester.alternate_contact_method? && @ride.requester.alternate_contact_name? %>
-    <p><strong>Alternate contact:</strong> <i><%= @ride.requester.alternate_contact_method %> -</i> <%= @ride.requester.alternate_contact_name %>
-  <% end %>
-<% end %>
-<p><strong>Number of passengers:</strong> <%= "#{@ride.number_of_passengers}" %></p>
-<p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
-<% if @ride.claimed? %>
-  <p><strong>Driver: </strong> <%="#{@ride.driver.full_name}" %></p>
-<% end %>
-
-<% if @ride.requester_id == current_user.id && @ride.incomplete? %>
-  <%= link_to "Edit ride", edit_ride_path(@ride) %>
-  <%= link_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }%>
-<% end %>
-
-<% if current_user.driver? %>
-  <% if @ride.unclaimed? %>
-    <%= link_to "Claim ride", ride_path(@ride, ride: { id: @ride.id, claimed: true, driver_id: current_user.id }), method: :patch %>
+<div class="ride-list-container">
+  <% if current_user.international? %>
+    <%= link_to "< Your rides", rides_path %>
   <% else %>
-    <% if current_user == @ride.driver && @ride.incomplete? %>
-      <%= link_to "Unclaim ride", ride_path(@ride, ride: { id: @ride.id, claimed: false, driver_id: nil }), method: :patch %><br>
-      <%= link_to "Complete ride", ride_path(@ride, ride: { id: @ride.id, completed: true }), method: :patch, data: { confirm: "Are you sure you want to complete this ride?" } %>
+   <%= driver_back_button %>
+  <% end %>
+
+  <h1><%= "#{@ride.origin} to #{@ride.destination}" %></h1>
+  <p><%= "#{@ride.formatted_pickup_time}" %></p>
+
+  <% if current_user.driver? %>
+    <p><strong>Requester:</strong> <%= "#{@ride.requester.full_name}" %></p>
+    <p><strong>Phone:</strong> <%= "#{@ride.requester.phone_number}" %></p>
+    <% if @ride.requester.alternate_contact_method? && @ride.requester.alternate_contact_name? %>
+      <p><strong>Alt contact:</strong> <i><%= @ride.requester.alternate_contact_method %> -</i> <%= @ride.requester.alternate_contact_name %></p>
     <% end %>
   <% end %>
-
-  <% if @ride.completed %>
-    <p><em>This ride has been completed</em></p>
+  <p><strong>Passengers:</strong> <%= "#{@ride.number_of_passengers}" %></p>
+  <p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
+  <% if @ride.claimed? %>
+    <p><strong>Driver: </strong> <%="#{@ride.driver.full_name}" %></p>
   <% end %>
+
+<% if @ride.requester_id == current_user.id && @ride.incomplete? %>
+  <%= button_to "Edit ride", edit_ride_path(@ride), method: :get, class: "blue" %>
+  <%= button_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
 <% end %>
+
+  <% if current_user.driver? %>
+    <% if @ride.unclaimed? %>
+      <%= button_to "Claim ride", ride_path(@ride, ride: { id: @ride.id, claimed: true, driver_id: current_user.id }), class: "blue", method: :patch %>
+    <% else %>
+      <% if current_user == @ride.driver && @ride.incomplete? %>
+        <%= button_to "Complete ride", ride_path(@ride, ride: { id: @ride.id, completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
+        <%= button_to "Unclaim ride", ride_path(@ride, ride: { id: @ride.id, claimed: false, driver_id: nil }), class: "red", method: :patch %>
+
+      <% end %>
+    <% end %>
+
+    <% if @ride.completed %>
+      <p><em>This ride has been completed</em></p>
+    <% end %>
+  <% end %>
+</div>

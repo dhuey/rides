@@ -5,3 +5,95 @@
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
+
+.ride-list-container {
+  width: 95%;
+  max-width: 500px;
+  margin: auto;
+}
+
+.ride-box {
+  border: 1px solid $accent-color;
+  border-left: 0px;
+  border-right: 0px;
+  color: black;
+  margin-bottom: -1px;
+  padding-left: .5em;
+  padding-right: .5em;
+}
+
+.ride-box:hover {
+  background-color: #f4f4f4;
+}
+
+.ride-label {
+  display: inline-block;
+  float: left;
+  white-space: nowrap;
+  padding-left: 4em;
+}
+
+.ride-select-arrow {
+  float: right;
+  text-align: right;
+  color: $accent-color;
+  height: 1em;
+}
+
+.ride-desc {
+  color: $accent-color;
+  padding-left: 4em;
+}
+
+.ride-label > p {
+  margin-bottom: .1em;
+}
+.ride-time > p {
+  margin-bottom: .1em;
+}
+
+.green {
+  color: green;
+  width: 105%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  height: 42px;
+  background-color: white;
+  border-radius: 0;
+}
+
+.red {
+  color: red;
+  width: 105%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  margin-top: -1px;
+  height: 42px;
+  background-color: white;
+  border-radius: 0;
+}
+
+.blue {
+  color: $brand-color;
+  width: 105%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  height: 42px;
+  background-color: white;
+  border-radius: 0;
+}
+
+.green:hover {
+  background-color: #f4f4f4;
+}
+
+.blue:hover {
+  background-color: #f4f4f4;
+}
+
+.red:hover {
+  background-color: #f4f4f4;
+}

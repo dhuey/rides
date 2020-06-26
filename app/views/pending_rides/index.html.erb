@@ -1,12 +1,18 @@
-<%= link_to "< Home", root_path %><br>
-<h1>Rides awaiting a driver</h1>
+<div class="ride-list-container">
+  <%= link_to "< Home", root_path %><br>
+  <h1>Rides awaiting a driver</h1>
   <% unless @rides.present? %>
     <p>No rides available</p>
   <% else %>
     <% @rides.each do |ride| %>
-      <div>
-        <h2><%= link_to("#{ride.origin} to #{ride.destination}", ride_path(ride)) %></h2>
-        <p><%= "#{ride.formatted_pickup_time}" %></p>
-      </div>
+      <%= link_to(ride_path(ride)) do %>
+        <div class="ride-box">
+            <div class="ride-label"><p><strong><%= "#{ride.origin} to #{ride.destination}" %></strong></p></div>
+            <div class="ride-select-arrow"><p>></p></div>
+            <div style="clear:both;"></div>
+            <div class="ride-desc"><p><%= "#{ride.requester.full_name} requested a ride for #{pluralize(ride.number_of_passengers, "passenger")} for #{ride.formatted_pickup_time}" %></p></div>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
+</div>

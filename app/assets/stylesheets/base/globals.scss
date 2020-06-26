@@ -1,3 +1,120 @@
+$brand-color: #2766F4;
+$accent-color: #707070;
+
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .alert {
   width: 100%;
+}
+
+.advance-btn {
+  display: inline-block;
+  color: white;
+  background-color: $brand-color;
+  border-radius: 1em;
+  border: none;
+  padding: .2em 1.2em;
+  margin-bottom: 1em;
+  font-weight: bold;
+  height: 42px;
+}
+
+.advance-btn:hover, .advance-btn:active {
+  background-color: #1F50C3;
+}
+
+.login-field {
+  border: 1px solid $accent-color;
+  border-radius: 1em;
+  padding-left: 1em;
+  background-color: white;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  margin-bottom: .8em;
+  min-height: 28px;
+}
+
+.sign-up-field {
+  width: 100%;
+}
+.remember {
+  margin-bottom: 1em;
+  margin-left: .4em;
+}
+
+.small-text {
+  font-size: .8em;
+  line-height: .95em;
+}
+
+label {
+  margin-bottom: .2em;
+  font-size: .8em;
+  line-height: .95em;
+}
+
+.sign-up-form {
+  width: 90%;
+  max-width: 350px;
+  margin: auto;
+}
+
+.display-title {
+  margin-top: 3em;
+  margin-bottom: .6em;
+}
+
+.display-none {
+  display: none;
+}
+
+select {
+  margin-bottom: .8em;
+  margin-left: .4em;
+}
+
+.green {
+  color: green;
+  width: 100%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  height: 42px;
+  background-color: white;
+}
+
+.red {
+  color: red;
+  width: 100%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  margin-top: -1px;
+  height: 42px;
+  background-color: white;
+}
+
+.green:hover {
+  background-color: #f4f4f4;
+}
+
+.red:hover {
+  background-color: #f4f4f4;
 }
