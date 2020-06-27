@@ -6,12 +6,6 @@
   font-size: 1.5rem;
 }
 
-.ride-list-container {
-  width: 95%;
-  max-width: 500px;
-  margin: auto;
-}
-
 .ride-box {
   border: 1px solid $accent-color;
   border-left: 0px;
@@ -50,50 +44,4 @@
 }
 .ride-time > p {
   margin-bottom: .1em;
-}
-
-.green {
-  color: green;
-  width: 105%;
-  border: 1px solid $accent-color;
-  border-left: 0;
-  border-right: 0;
-  height: 42px;
-  background-color: white;
-  border-radius: 0;
-}
-
-.red {
-  color: red;
-  width: 105%;
-  border: 1px solid $accent-color;
-  border-left: 0;
-  border-right: 0;
-  margin-top: -1px;
-  height: 42px;
-  background-color: white;
-  border-radius: 0;
-}
-
-.blue {
-  color: $brand-color;
-  width: 105%;
-  border: 1px solid $accent-color;
-  border-left: 0;
-  border-right: 0;
-  height: 42px;
-  background-color: white;
-  border-radius: 0;
-}
-
-.green:hover {
-  background-color: #f4f4f4;
-}
-
-.blue:hover {
-  background-color: #f4f4f4;
-}
-
-.red:hover {
-  background-color: #f4f4f4;
 }

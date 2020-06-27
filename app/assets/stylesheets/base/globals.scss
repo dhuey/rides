@@ -1,6 +1,11 @@
 $brand-color: #2766F4;
 $accent-color: #707070;
 
+body {
+  width: 95%;
+  max-width: 500px;
+  margin: auto;
+}
 
 ::-webkit-input-placeholder {
    font-style: italic;
@@ -92,26 +97,43 @@ select {
 
 .green {
   color: green;
-  width: 100%;
+  width: 105%;
   border: 1px solid $accent-color;
   border-left: 0;
   border-right: 0;
   height: 42px;
   background-color: white;
+  border-radius: 0;
 }
 
 .red {
   color: red;
-  width: 100%;
+  width: 105%;
   border: 1px solid $accent-color;
   border-left: 0;
   border-right: 0;
   margin-top: -1px;
   height: 42px;
   background-color: white;
+  border-radius: 0;
+}
+
+.blue {
+  color: $brand-color;
+  width: 105%;
+  border: 1px solid $accent-color;
+  border-left: 0;
+  border-right: 0;
+  height: 42px;
+  background-color: white;
+  border-radius: 0;
 }
 
 .green:hover {
+  background-color: #f4f4f4;
+}
+
+.blue:hover {
   background-color: #f4f4f4;
 }
 

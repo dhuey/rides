@@ -5,3 +5,5 @@
 <% else %>
   <%= render 'international' %>
 <% end %>
+
+<%= button_to "Your profile", user_path(current_user), method: :get, class: "advance-btn" %>
