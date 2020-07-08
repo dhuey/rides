@@ -10,6 +10,14 @@
   <p><%= @user.ministry %></p>
 <% end %>
 
+<% if @user.driver? %>
+  <h3>Vehicles</h3>
+  <%= render "vehicles/vehicles", user: @user %>
+<% end %>
+
 <% if @user == current_user %>
   <%= button_to "Edit Profile", edit_user_path(@user), method: :get, class: "blue" %>
+<% end %>
+<% if @user == current_user && current_user.vehicles.any? %>
+  <%= button_to "Add a vehicle", new_user_vehicle_path(@user), method: :get, class: "blue vehicle-button" %>
 <% end %>

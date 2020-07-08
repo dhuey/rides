@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :confirmable, :registerable,
          :recoverable, :rememberable, :timeoutable, :trackable, :validatable
 
+  has_many :vehicles, dependent: :destroy
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :phone_number, presence: true
