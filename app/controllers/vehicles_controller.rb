@@ -38,8 +38,12 @@ class VehiclesController < ApplicationController
 
   def destroy
     @vehicle = Vehicle.find(params[:id])
-    @vehicle.destroy
-    redirect_to user_path(@vehicle.user_id), notice: "We deleted your vehicle."
+    if @vehicle.active_rides?
+      redirect_to user_path(@vehicle.user_id), alert: "You have one or more incomplete rides with this vehicle. Unclaim any pending rides before deleting this vehicle."
+    else
+      @vehicle.destroy
+      redirect_to user_path(@vehicle.user_id), notice: "We deleted your vehicle."
+    end
   end
 
   private
