@@ -19,6 +19,9 @@
 <p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
 <% if @ride.claimed? %>
   <p><strong>Driver: </strong> <%="#{@ride.driver.full_name}" %></p>
+  <p><strong>Vehicle: </strong> <%= "#{@ride.vehicle.year} #{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model}" %></p>
+  <p><strong>License Plate: </strong> <%= "#{@ride.vehicle.license_plate}" %></p>
+
 <% end %>
 
 <% if @ride.requester_id == current_user.id && @ride.incomplete? %>
