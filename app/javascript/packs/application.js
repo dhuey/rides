@@ -4,12 +4,20 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
+require("jquery")
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+
 import flatpickr from "flatpickr"
 require ("flatpickr/dist/flatpickr.css")
+
+if (document.readyState === "interactive") {
+  const event = document.createEvent("Event");
+  event.initEvent("turbolinks:load", true, true);
+  document.dispatchEvent(event);
+}
 
 document.addEventListener("turbolinks:load", () => {
   flatpickr(".timepicker", {
