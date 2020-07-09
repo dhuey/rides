@@ -1,12 +1,13 @@
-document.addEventListener("turbolinks:load", () => {
-  $("#which-vehicle").click(function() {
+$("#which-vehicle").click(function() {
   $(this).hide();
   $("#vehicle-select").animate({
-      height: 'show'
-    });
+    height: 'show'
   });
+});
 
-  $("#no-vehicle").click(function() {
-    $("#vehicle-add").show();
+$("#no-vehicle").click(function() {
+  $(this).hide();
+  $("#vehicle-add").animate({
+    height: 'show'
   });
 });

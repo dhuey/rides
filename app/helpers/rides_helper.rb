@@ -29,7 +29,7 @@ module RidesHelper
     if current_user.vehicles.any?
       link_to "Claim ride", "javascript:;", class: "blue-link", id: "which-vehicle"
     else
-      button_to "Claim ride", "javascript:void(0)", class: "blue", id: "no-vehicle"
+      link_to "Claim ride", "javascript:;", class: "blue-link", id: "no-vehicle"
     end
   end
 end
