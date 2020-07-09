@@ -1,7 +1,7 @@
 class Ride < ApplicationRecord
   belongs_to :requester, class_name: "User", foreign_key: :requester_id
   belongs_to :driver, class_name: "User", foreign_key: :driver_id, optional: true
-  has_one :vehicle, foreign_key: :vehicle_id, required: false
+  belongs_to :vehicle, foreign_key: :vehicle_id, required: false
 
   scope :unclaimed, -> { where(claimed: false) }
   scope :incomplete, -> { where(completed: false) }

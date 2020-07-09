@@ -41,6 +41,7 @@ class VehiclesController < ApplicationController
     if @vehicle.active_rides?
       redirect_to user_path(@vehicle.user_id), alert: "You have one or more incomplete rides with this vehicle. Unclaim any pending rides before deleting this vehicle."
     else
+      @vehicle.remove_inactive_rides
       @vehicle.destroy
       redirect_to user_path(@vehicle.user_id), notice: "We deleted your vehicle."
     end
