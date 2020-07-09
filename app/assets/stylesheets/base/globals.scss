@@ -97,36 +97,26 @@ select {
 
 .green {
   color: green;
-  width: 105%;
-  border: 1px solid $accent-color;
-  border-left: 0;
-  border-right: 0;
-  height: 42px;
-  background-color: white;
-  border-radius: 0;
+  @include wide-button;
 }
 
 .red {
   color: red;
-  width: 105%;
-  border: 1px solid $accent-color;
-  border-left: 0;
-  border-right: 0;
+  @include wide-button;
   margin-top: -1px;
-  height: 42px;
-  background-color: white;
-  border-radius: 0;
 }
 
 .blue {
   color: $brand-color;
-  width: 105%;
-  border: 1px solid $accent-color;
-  border-left: 0;
-  border-right: 0;
-  height: 42px;
-  background-color: white;
-  border-radius: 0;
+  @include wide-button;
+}
+
+.blue-link {
+  @include wide-button;
+  color: $brand-color;
+  display: block;
+  text-align: center;
+  padding-top: .5em;
 }
 
 .green:hover {

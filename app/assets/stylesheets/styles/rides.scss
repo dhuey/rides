@@ -45,3 +45,23 @@
 .ride-time > p {
   margin-bottom: .1em;
 }
+
+#vehicle-select {
+  display: none;
+}
+
+#vehicle-add {
+  display: none;
+}
+
+.blue-link {
+  @include wide-button;
+  color: $brand-color;
+  display: block;
+  text-align: center;
+  padding-top: .5em;
+}
+
+.blue-link:hover {
+  background-color: #f4f4f4;
+}

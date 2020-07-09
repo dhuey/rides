@@ -28,11 +28,30 @@
 
 <% if current_user.driver? %>
   <% if @ride.unclaimed? %>
-    <%= button_to "Claim ride", ride_path(@ride, ride: { id: @ride.id, claimed: true, driver_id: current_user.id }), class: "blue", method: :patch %>
+    <%= javascript_pack_tag "rides" %>
+    <%= driver_claim_button %>
+    <% if current_user.vehicles.any? %>
+      <div id="vehicle-select">
+        <%= form_for @ride, method: :patch do |f| %>
+          <%= f.hidden_field :driver_id, value: current_user.id %>
+          <%= f.hidden_field :claimed, value: true %>
+          <div class="field">
+            <%= f.label :vehicle_id, "Which vehicle will you be driving?" %>
+            <%= f.select :vehicle_id, options_from_collection_for_select(current_user.vehicles, :id, :easy_name) %>
+          </div>
+          <%= f.submit "Claim ride with this vehicle", class: "advance-btn" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div id="vehicle-add">
+        <p><em>You haven't added any vehicles yet. Click the button below to get started!</em></p>
+        <%= button_to "Add a vehicle", new_user_vehicle_path(current_user), method: :get, class: "advance-btn" %>
+      </div>
+    <% end %>
   <% else %>
     <% if current_user == @ride.driver && @ride.incomplete? %>
       <%= button_to "Complete ride", ride_path(@ride, ride: { id: @ride.id, completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
-      <%= button_to "Unclaim ride", ride_path(@ride, ride: { id: @ride.id, claimed: false, driver_id: nil }), class: "red", method: :patch %>
+      <%= button_to "Unclaim ride", ride_path(@ride, ride: { id: @ride.id, claimed: false, driver_id: nil, vehicle_id: nil }), class: "red", method: :patch %>
 
     <% end %>
   <% end %>
