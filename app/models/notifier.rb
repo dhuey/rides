@@ -18,7 +18,7 @@ class Notifier
       request = Net::HTTP::Post.new(uri)
       request.content_type = "application/json"
       request.body = JSON.dump({
-        "bot_id" => "87bd98db787a285619bbb9490a",
+        "bot_id" => ENV["MALE_GROUPME"],
         "text" => "A new ride for #{@number_of_passengers} passenger(s) has been requested for #{@pickup_time}. #{Rails.application.routes.url_helpers.ride_url(@ride)}"
       })
 
@@ -34,7 +34,7 @@ class Notifier
       request = Net::HTTP::Post.new(uri)
       request.content_type = "application/json"
       request.body = JSON.dump({
-        "bot_id" => "a7c4ba60bb757c4949a15d20d5",
+        "bot_id" => ENV["FEMALE_GROUPME"],
         "text" => "A new ride for #{@number_of_passengers} passenger(s) has been requested for #{@pickup_time}. #{Rails.application.routes.url_helpers.ride_url(@ride)}"
       })
 
