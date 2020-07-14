@@ -8,9 +8,9 @@
     <%= f.label :destination, "Where do you need to go?", class: "sign-up-label" %>
     <%= f.text_field :destination, class: "login-field sign-up-field" %>
   </div>
-  <div class="field">
+  <div class="field timepicker">
     <%= f.label :pickup_time, "What time do you need a ride?", class: "sign-up-label" %>
-    <%= f.text_field :pickup_time, class: "login-field sign-up-field timepicker" %>
+    <%= f.text_field :pickup_time, class: "login-field sign-up-field", autocomplete: "off" %>
   </div>
   <div class="field">
     <%= f.label :number_of_passengers, "How many passengers?", class: "sign-up-label" %>

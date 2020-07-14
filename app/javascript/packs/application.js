@@ -23,7 +23,8 @@ document.addEventListener("turbolinks:load", () => {
   flatpickr(".timepicker", {
     enableTime: true,
     dateFormat: "Y-m-d H:i",
-    minDate: "today"
+    minDate: "today",
+    static: true
   })
 });
 
