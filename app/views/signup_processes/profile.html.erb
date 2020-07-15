@@ -45,7 +45,17 @@
         <%= f.label :ministry, class: "sign-up-label" %>
         <%= f.text_field :ministry, class: "login-field sign-up-field" %>
       </div>
+
+      <div class="field" style="margin-top: .8em; line-height: 1em;">
+        <%= f.label :valid_driver, "I certify that I have a valid driver's license and car insurance", class: "sign-up-label" %>
+        <%= f.check_box :valid_driver %>
+      </div>
     <% end %>
+
+    <div class="field" style="margin-top: .8em; line-height: 1em;">
+        <%= f.label :accept_tac, "I have read and agree to the Terms and Conditions", class: "sign-up-label" %>
+        <%= f.check_box :accept_tac %>
+      </div>
 
     <div class="actions d-flex justify-content-center">
       <%= f.submit "Submit", class: "advance-btn" %>

@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :phone_number, uniqueness: true, if: :active?
   validates :nationality, presence: true, if: :international_and_active?
   validates :ministry, presence: true, if: :driver_and_active?
+  validate :accepted_tac
+  validate :valid_driver_check
 
   scope :driver, -> { where(international: false) }
   scope :international, -> { where(international: true) }
@@ -41,6 +43,22 @@ class User < ApplicationRecord
 
   def driver_and_active?
     self.driver? && self.active?
+  end
+
+  def accepted_tac
+    if self.active?
+      unless self.accept_tac == true
+        errors.add(:base, "You must accept the terms and conditions")
+      end
+    end
+  end
+
+  def valid_driver_check
+    if self.active? && self.driver?
+      unless self.valid_driver == true
+        errors.add(:base, "You must certify that you have a valid driver's license and insurance")
+      end
+    end
   end
 
   def signup_completed?

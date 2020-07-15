@@ -19,7 +19,7 @@ class SignupProcessesController < ApplicationController
   private
 
   def signup_process_params
-    params.require(:user).permit(:first_name, :last_name, :gender, :status, :phone_number,
+    params.require(:user).permit(:first_name, :last_name, :gender, :status, :phone_number, :accept_tac, :valid_driver,
       :nationality, :ministry, :international, :alternate_contact_method, :alternate_contact_name, :email_interest)
   end
 end
