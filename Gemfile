@@ -32,6 +32,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'jquery-rails'
 gem 'rollbar'
+gem 'wicked'
 
 group :production do
   gem 'sendgrid-ruby'
