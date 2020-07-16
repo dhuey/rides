@@ -4,6 +4,7 @@
 <%= form_for(@user, url: wizard_path) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
   <div class="sign-up-form">
+    <%= f.hidden_field :user, { :value => @current_user } %>
 
     <div class="type-select text-center">
       <%= f.radio_button :international, true, class: "type-radio" %>
