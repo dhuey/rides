@@ -63,6 +63,7 @@ class User < ApplicationRecord
 
   def signup_completed?
     unless self.first_name? && self.last_name? && self.phone_number?
+      raise
       return false
     end
     if self.international?

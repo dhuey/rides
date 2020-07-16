@@ -150,6 +150,10 @@ select {
   color: white;
 }
 
+.type-selected:hover {
+  background-color: $brand-color
+}
+
 .type-select input {
   position: absolute;
   opacity: 0;
