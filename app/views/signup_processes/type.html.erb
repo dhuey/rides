@@ -4,10 +4,21 @@
 <%= form_for(@user, url: wizard_path) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
   <div class="sign-up-form">
-    <div class="field">
-      <p class="text-center">Are you an international student?</p>
-      <%= f.label :international, "I am an international student", class: "sign-up-label" %>
-      <%= f.check_box :international %><br>
+
+    <div class="type-select text-center">
+      <%= f.radio_button :international, true, class: "type-radio" %>
+      <%= f.label :international, value: true do %>
+        <h2 class="text-center">Yes</h2>
+        <p class="text-center">I am an international student</p>
+      <% end %>
+    </div>
+
+    <div class="type-select text-center">
+      <%= f.radio_button :international, false, class: "type-radio" %>
+      <%= f.label :international, value: false do %>
+        <h2 class="text-center">No</h2>
+        <p class="text-center">I am a driver</p>
+      <% end %>
     </div>
 
     <div class="actions d-flex justify-content-center">

@@ -1,5 +1,6 @@
 $brand-color: #2766F4;
 $accent-color: #707070;
+$light-grey: #dddddd;
 
 body {
   width: 95%;
@@ -133,4 +134,26 @@ select {
 
 .next-link {
   padding-top: .5em;
+}
+
+.type-select {
+  border-radius: 1em;
+  padding-top: .9em;
+  margin-bottom: 1em;
+}
+.type-select:hover {
+  background-color: $light-grey;
+}
+
+.type-selected {
+  background-color: $brand-color;
+  color: white;
+}
+
+.type-select input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
