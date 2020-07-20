@@ -20,11 +20,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
         sign_in(resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       else
-        if sign_in(resource)
-          raise "signed-in"
-        else
-          raise "nope"
-        end
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         # expire_data_after_sign_in!
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
