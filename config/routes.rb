@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :rides
   get "pending_rides", to: "pending_rides#index"
+  get "terms_and_conditions", to: "terms_and_conditions#index"
   resources :users, only: [:show, :edit, :update] do
     resources :vehicles
   end
