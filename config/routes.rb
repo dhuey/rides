@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
+    registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
   if Rails.env.staging?
@@ -9,7 +10,10 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :rides
   get "pending_rides", to: "pending_rides#index"
+  get "terms_and_conditions", to: "terms_and_conditions#index"
   resources :users, only: [:show, :edit, :update] do
     resources :vehicles
   end
+
+  resources :signup_processes
 end

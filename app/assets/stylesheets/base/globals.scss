@@ -1,5 +1,6 @@
 $brand-color: #2766F4;
 $accent-color: #707070;
+$light-grey: #dddddd;
 
 body {
   width: 95%;
@@ -57,7 +58,7 @@ a:hover {
 }
 
 .sign-up-field {
-  width: 100%;
+  width: 100% !important;
 }
 .remember {
   margin-bottom: 1em;
@@ -129,4 +130,38 @@ select {
 
 .red:hover {
   background-color: #f4f4f4;
+}
+
+.next-link {
+  padding-top: .5em;
+}
+
+.type-select {
+  border-radius: 1em;
+  padding-top: .9em;
+  margin-bottom: 1em;
+}
+.type-select:hover {
+  background-color: $light-grey;
+}
+
+.type-selected {
+  background-color: $brand-color;
+  color: white;
+}
+
+.type-selected:hover {
+  background-color: $brand-color
+}
+
+.type-select input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.tac-label {
+  margin-bottom: 2em;
 }

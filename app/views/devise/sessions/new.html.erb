@@ -3,7 +3,7 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <div class="d-flex justify-content-center"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email address", class: "login-field" %></div>
+    <div class="d-flex justify-content-center"><%= f.email_field :email, autocomplete: "email", placeholder:"email address", class: "login-field" %></div>
   </div>
 
   <div class="field">
