@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_210454) do
+ActiveRecord::Schema.define(version: 2020_07_16_211254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,18 +53,21 @@ ActiveRecord::Schema.define(version: 2020_07_08_210454) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "nationality", null: false
-    t.string "gender", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "nationality"
+    t.string "gender"
     t.string "ministry"
-    t.bigint "phone_number", null: false
+    t.bigint "phone_number"
     t.integer "ride_tokens", default: 4
-    t.boolean "international", default: false
+    t.boolean "international"
     t.string "alternate_contact_method"
     t.string "alternate_contact_name"
     t.boolean "email_interest", default: true, null: false
     t.boolean "driver_verified", default: false
+    t.string "status"
+    t.boolean "accept_tac"
+    t.boolean "valid_driver"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

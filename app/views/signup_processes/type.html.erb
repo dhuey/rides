@@ -1,0 +1,29 @@
+<h1 class="text-center display-title">Sign up</h1>
+<p class="text-center">Next, answer one quick question:</p>
+
+<%= form_for(@user, url: wizard_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+  <div class="sign-up-form">
+    <%= f.hidden_field :user, { :value => @current_user } %>
+
+    <div class="type-select text-center">
+      <%= f.radio_button :international, true, class: "type-radio" %>
+      <%= f.label :international, value: true do %>
+        <h2 class="text-center">Yes</h2>
+        <p class="text-center">I am an international student</p>
+      <% end %>
+    </div>
+
+    <div class="type-select text-center">
+      <%= f.radio_button :international, false, class: "type-radio" %>
+      <%= f.label :international, value: false do %>
+        <h2 class="text-center">No</h2>
+        <p class="text-center">I am a driver</p>
+      <% end %>
+    </div>
+
+    <div class="actions d-flex justify-content-center">
+      <%= f.submit "Next ->", class: "advance-btn" %>
+    </div>
+  </div>
+<% end %>
