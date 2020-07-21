@@ -22,8 +22,10 @@ if (document.readyState === "interactive") {
 document.addEventListener("turbolinks:load", () => {
   flatpickr(".timepicker", {
     enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    minDate: "today"
+    dateFormat: "M d, Y at h:i K",
+    minDate: "today",
+    minTime: Date.now(),
+    appendTo: window.document.querySelector('#time-wrap')
   })
 });
 
@@ -33,7 +35,6 @@ document.addEventListener("turbolinks:load", () => {
  });
 
 $('.type-radio:checked').parent().addClass('type-selected');
-
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
