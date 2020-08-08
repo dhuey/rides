@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :vehicles, dependent: :destroy
 
-  validates :first_name, :last_name, :phone_number, presence: true, if: :active?
+  validates :first_name, :last_name, :phone_number, :gender, presence: true, if: :active?
   validates :email, presence: true, uniqueness: true
   validates :phone_number, uniqueness: true, if: :active?
   validates :nationality, presence: true, if: :international_and_active?

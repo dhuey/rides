@@ -15,7 +15,7 @@
 
     <div class="field">
       <%= f.label :gender, class: "sign-up-label" %>
-      <%= f.select :gender, options_for_select([["Male", "male"], ["Female", "female"]])%>
+      <%= f.select :gender, options_for_select([["Male", "male"], ["Female", "female"]]), include_blank: "Please select one" %>
     </div>
 
     <div class="field">
@@ -30,7 +30,7 @@
       </div>
       <div class="field">
         <%= f.label :alternate_contact_method, class: "sign-up-label" %>
-        <%= f.select :alternate_contact_method, options_for_select([["WeChat", "WeChat"], ["Facebook", "Facebook"], ["Whatsapp", "Whatsapp"], ["Instagram", "Instagram"], ["Line", "Line"]]), class: "login-field sign-up-field" %>
+        <%= f.select :alternate_contact_method, options_for_select([["WeChat", "WeChat"], ["Facebook", "Facebook"], ["Whatsapp", "Whatsapp"], ["Instagram", "Instagram"], ["Line", "Line"]]), include_blank: "Please select one", class: "login-field sign-up-field" %>
       </div>
       <div class="field">
         <%= f.label :alternate_contact_name, class: "sign-up-label" %>
