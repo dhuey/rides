@@ -18,7 +18,7 @@ module RidesHelper
   end
 
   def driver_back_button
-    if URI(request.referrer).path == "/pending_rides"
+    if request.referrer && URI(request.referrer).path == "/pending_rides"
       link_to "< Rides awaiting a driver", pending_rides_path
     else
       link_to "< Your rides", rides_path
