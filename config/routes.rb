@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "pending_rides", to: "pending_rides#index"
   get "terms_and_conditions", to: "terms_and_conditions#index"
   get "admin_dashboard", to: "admin_dashboard#index"
+  get "unverified_drivers", to: "unverified_drivers#index"
   resources :users, only: [:show, :edit, :update] do
     resources :vehicles
   end

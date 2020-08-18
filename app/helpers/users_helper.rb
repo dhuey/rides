@@ -23,4 +23,12 @@ module UsersHelper
       [["Please select one", "nil"], ["WeChat", "WeChat"], ["Facebook", "Facebook"], ["Whatsapp", "Whatsapp"], ["Instagram", "Instagram"], ["Line", "Line"], ["None", "nil"]]
     end
   end
+
+  def user_back_button(user)
+    if request.referrer && URI(request.referrer).path == "/unverified_drivers"
+      link_to "< Unverified drivers", unverified_drivers_path
+    else
+      link_to "< Your profile", user_path(user)
+    end
+  end
 end
