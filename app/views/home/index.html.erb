@@ -1,6 +1,8 @@
 <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 <h1>Welcome, <%= current_user.first_name %></h1>
-<% if current_user.driver? %>
+<% if current_user.admin? %>
+  <%= render 'admin' %>
+<% elsif current_user.driver? %>
   <%= render 'driver' %>
 <% else %>
   <%= render 'international' %>
