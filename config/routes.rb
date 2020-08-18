@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :rides
   get "pending_rides", to: "pending_rides#index"
   get "terms_and_conditions", to: "terms_and_conditions#index"
+  get "admin_dashboard", to: "admin_dashboard#index"
   resources :users, only: [:show, :edit, :update] do
     resources :vehicles
   end
