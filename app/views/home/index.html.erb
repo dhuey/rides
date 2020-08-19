@@ -8,5 +8,5 @@
 
 <%= button_to "Your profile", user_path(current_user), method: :get, class: "advance-btn" %>
 <% if current_user.admin? %>
-  <%= button_to "Admin Dashboard", admin_dashboard_path, method: :get, class: "advance-btn" %>
+  <%= button_to "Admin dashboard", admin_dashboard_path, method: :get, class: "advance-btn" %>
 <% end %>
