@@ -14,7 +14,9 @@
   <h3>Vehicles</h3>
   <% if user.vehicles.any? %>
     <ul>
-      <li><%= link_to "#{vehicle.year} #{vehicle.color} #{vehicle.make} #{vehicle.model}", user_vehicle_path(user, vehicle) %></li>
+      <% user.vehicles.each do |vehicle| %>
+        <li><%= link_to "#{vehicle.year} #{vehicle.color} #{vehicle.make} #{vehicle.model}", user_vehicle_path(user, vehicle) %></li>
+      <% end %>
     </ul>
   <% else %>
     <p><em>This user hasn't added any vehicles yet</em></p>
