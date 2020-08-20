@@ -11,11 +11,10 @@
 <% end %>
 
 <% if @user.driver? %>
-  <h3>Vehicles</h3>
   <%= render "vehicles/vehicles", user: @user %>
 <% end %>
 
-<% if @user == current_user %>
+<% if @user == current_user || current_user.admin? %>
   <%= button_to "Edit Profile", edit_user_path(@user), method: :get, class: "blue" %>
 <% end %>
 <% if @user == current_user && current_user.vehicles.any? %>

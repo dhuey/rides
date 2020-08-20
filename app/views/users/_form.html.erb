@@ -12,7 +12,7 @@
 
   <div class="field">
     <%= f.label :alternate_contact_method, class: "sign-up-label" %>
-    <%= f.select :alternate_contact_method, options_for_select([["WeChat", "WeChat"], ["Facebook", "Facebook"], ["Whatsapp", "Whatsapp"], ["Instagram", "Instagram"], ["Line", "Line"]]), class: "login-field sign-up-field" %>
+    <%= f.select :alternate_contact_method, options_for_select(contact_methods(@user)), class: "login-field sign-up-field" %>
   </div>
 
   <div class="field">
@@ -31,6 +31,21 @@
     <%= f.label :email_interest, "I would like to receive information about events for international students", class: "sign-up-label" %>
     <%= f.check_box :email_interest %>
   </div>
+
+  <% if @current_user.admin? %>
+    <div class="field">
+      <%= f.label :gender, class: "sign-up-label" %>
+      <%= f.select :gender, options_for_select([["#{@user.gender.capitalize}", "#{@user.gender}"], ["#{opposite_gender(@user).capitalize}", "#{opposite_gender(@user)}"]])%>
+    </div>
+    <div class="field" style="margin-top: .8em; line-height: 1em;">
+      <%= f.label :driver_verified, "Driver verified?", class: "sign-up-label" %>
+      <%= f.check_box :driver_verified %>
+    </div>
+    <div class="field" style="margin-top: .8em; line-height: 1em;">
+      <%= f.label :admin, "Administrator?", class: "sign-up-label" %>
+      <%= f.check_box :admin %>
+    </div>
+  <% end %>
 
   <div class="actions d-flex justify-content-center">
     <%= f.submit "Save", class: "advance-btn" %>

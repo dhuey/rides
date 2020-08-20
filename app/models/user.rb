@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   scope :driver, -> { where(international: false) }
   scope :international, -> { where(international: true) }
+  scope :unverified, -> { where(driver_verified: false) }
 
   def self.email_list
     User.international.where(email_interest: true).pluck(:email)
