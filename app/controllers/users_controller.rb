@@ -21,6 +21,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :alternate_contact_method, :alternate_contact_name, :phone_number, :ministry, :email_interest)
+    params.require(:user).permit(:email, :alternate_contact_method, :alternate_contact_name, :phone_number, :ministry, :email_interest, :driver_verified, :admin, :gender)
   end
 end
