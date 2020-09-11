@@ -5,6 +5,7 @@ class Ride < ApplicationRecord
 
   scope :unclaimed, -> { where(claimed: false) }
   scope :incomplete, -> { where(completed: false) }
+  scope :unarchived, -> { where(archived_at: nil) }
 
   def create_with_requester(user)
     self.requester_id= user.id
@@ -28,5 +29,13 @@ class Ride < ApplicationRecord
 
   def short_pickup_time
     self.pickup_time.strftime("%m/%d at %l:%M %P")
+  end
+
+  def archived?
+    archived_at != nil
+  end
+
+  def unarchived?
+    archived_at == nil
   end
 end
