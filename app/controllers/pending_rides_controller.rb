@@ -3,7 +3,7 @@ class PendingRidesController < ApplicationController
   before_action :check_verification
 
   def index
-    @rides = Ride.incomplete.unclaimed.where(requester_gender: current_user.gender).order(pickup_time: :asc)
+    @rides = Ride.unarchived.incomplete.unclaimed.where(requester_gender: current_user.gender).order(pickup_time: :asc)
   end
 
   private

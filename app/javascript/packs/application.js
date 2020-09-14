@@ -20,15 +20,16 @@ if (document.readyState === "interactive") {
 }
 
 document.addEventListener("turbolinks:load", () => {
-  var coeff = 1000 * 60 * 5;
-  var date = new Date();  //or use any other date
-  var rounded = new Date(Math.ceil(date.getTime() / coeff) * coeff)
+   var coeff = 1000 * 60 * 5;
+   var date = new Date();  //or use any other date
+   var rounded = new Date(Math.ceil(date.getTime() / coeff) * coeff)
 
   flatpickr(".timepicker", {
     enableTime: true,
     dateFormat: "M d, Y at h:i K",
     minDate: "today",
-    minTime: rounded,
+    defaultHour: date.getHours(),
+    defaultMinute: rounded.getMinutes(),
     appendTo: window.document.querySelector('#time-wrap')
   })
 });

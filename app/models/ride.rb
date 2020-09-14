@@ -5,6 +5,16 @@ class Ride < ApplicationRecord
 
   scope :unclaimed, -> { where(claimed: false) }
   scope :incomplete, -> { where(completed: false) }
+  scope :unarchived, -> { where(archived_at: nil) }
+
+  validate :pickup_time_cannot_be_in_the_past
+  validates :origin, :destination, :pickup_time, :number_of_passengers, presence: true
+
+  def pickup_time_cannot_be_in_the_past
+    if pickup_time.present? && pickup_time < DateTime.current
+      errors.add(:pickup_time, "can't be in the past")
+    end
+  end
 
   def create_with_requester(user)
     self.requester_id= user.id
@@ -28,5 +38,13 @@ class Ride < ApplicationRecord
 
   def short_pickup_time
     self.pickup_time.strftime("%m/%d at %l:%M %P")
+  end
+
+  def archived?
+    archived_at != nil
+  end
+
+  def unarchived?
+    archived_at == nil
   end
 end

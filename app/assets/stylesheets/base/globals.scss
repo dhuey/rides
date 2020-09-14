@@ -8,6 +8,14 @@ body {
   margin: auto;
 }
 
+#error_explanation {
+padding: 1em;
+color: #721c24;
+background-color: #f8d7da;
+border: 2px solid;
+border-color: #f5c6cb;
+}
+
 ::-webkit-input-placeholder {
    font-style: italic;
 }

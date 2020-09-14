@@ -15,23 +15,27 @@
     <p><strong>Alt contact:</strong> <i><%= @ride.requester.alternate_contact_method %> -</i> <%= @ride.requester.alternate_contact_name %></p>
   <% end %>
 <% end %>
+
 <p><strong>Passengers:</strong> <%= "#{@ride.number_of_passengers}" %></p>
 <p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
+
 <% if @ride.claimed? %>
   <p><strong>Driver: </strong> <%="#{@ride.driver.full_name}" %></p>
     <% if @ride.vehicle.present? %>
-    <p><strong>Vehicle: </strong> <%= "#{@ride.vehicle.year} #{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model}" %></p>
-    <p><strong>License Plate: </strong> <%= "#{@ride.vehicle.license_plate}" %></p>
-  <% end %>
+      <p><strong>Vehicle: </strong> <%= "#{@ride.vehicle.year} #{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model}" %></p>
+      <p><strong>License Plate: </strong> <%= "#{@ride.vehicle.license_plate}" %></p>
+    <% end %>
 
 <% end %>
 
-<% if @ride.requester_id == current_user.id && @ride.incomplete? %>
-<%= button_to "Edit ride", edit_ride_path(@ride), method: :get, class: "blue" %>
-<%= button_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
-<% end %>
+<% if @ride.archived? %>
+  <p><em>This ride has been archived.</em></p>
 
-<% if current_user.driver? %>
+<% elsif @ride.requester_id == current_user.id && @ride.incomplete? %>
+  <%= button_to "Edit ride", edit_ride_path(@ride), method: :get, class: "blue" %>
+  <%= button_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
+
+<% elsif current_user.driver? %>
   <% if @ride.unclaimed? %>
     <%= javascript_pack_tag "rides", 'data-turbolinks-track': 'reload', defer: true %>
     <%= driver_claim_button %>
@@ -60,8 +64,16 @@
 
     <% end %>
   <% end %>
+<% end %>
 
-  <% if @ride.completed %>
-    <p><em>This ride has been completed</em></p>
-  <% end %>
+<% if @ride.completed %>
+  <p><em>This ride has been completed</em></p>
+<% end %>
+
+<% if current_user.admin? && @ride.claimed? && current_user.id != @ride.driver_id %>
+  <%= button_to "Complete ride (admin override)", ride_path(@ride, ride: { id: @ride.id, completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
+<% end %>
+
+<% if current_user.admin? && @ride.unarchived? %>
+  <%= button_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
 <% end %>

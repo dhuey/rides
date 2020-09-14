@@ -3,9 +3,9 @@ class RidesController < ApplicationController
 
   def index
     if current_user.international?
-      @rides = Ride.where(requester_id: current_user.id).order(pickup_time: :desc)
+      @rides = Ride.unarchived.where(requester_id: current_user.id).order(pickup_time: :desc)
     else
-      @rides = Ride.where(driver_id: current_user.id).order(pickup_time: :desc)
+      @rides = Ride.unarchived.where(driver_id: current_user.id).order(pickup_time: :desc)
     end
   end
 
@@ -49,7 +49,7 @@ class RidesController < ApplicationController
 
   def destroy
     @ride = Ride.find(params[:id])
-    @ride.destroy
+    @ride.update(archived_at: DateTime.current)
     redirect_to rides_path, notice: "We deleted your ride."
   end
 
