@@ -11,8 +11,10 @@ class Ride < ApplicationRecord
   validates :origin, :destination, :pickup_time, :number_of_passengers, presence: true
 
   def pickup_time_cannot_be_in_the_past
-    if pickup_time.present? && pickup_time < DateTime.current
-      errors.add(:pickup_time, "can't be in the past")
+    unless claimed? || completed?
+      if pickup_time.present? && pickup_time < DateTime.current
+        errors.add(:pickup_time, "can't be in the past")
+      end
     end
   end
 

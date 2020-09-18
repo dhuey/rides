@@ -39,7 +39,11 @@ class RidesController < ApplicationController
         RidesMailer.ride_claimed_email(@ride).deliver_later
       end
     else
-      render "edit", alert: "We couldn't update your ride. Let's try again."
+      if current_user.international?
+        render "edit", alert: "We couldn't update your ride. Let's try again."
+      else
+        redirect_to ride_path(@ride), alert: "Sorry, we messed up. Try that again later."
+      end
     end
   end
 
