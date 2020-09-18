@@ -71,9 +71,9 @@
 <% end %>
 
 <% if current_user.admin? && @ride.claimed? && current_user.id != @ride.driver_id %>
-  <%= button_to "Complete ride (admin override)", ride_path(@ride, ride: { id: @ride.id, completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
+  <%= button_to "Complete ride (admin override)", ride_path(@ride, ride: { completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
 <% end %>
 
 <% if current_user.admin? && @ride.unarchived? %>
-  <%= button_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
+  <%= button_to "Delete ride (admin override)", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
 <% end %>
