@@ -70,7 +70,7 @@
   <p><em>This ride has been completed</em></p>
 <% end %>
 
-<% if current_user.admin? && @ride.claimed? && current_user.id != @ride.driver_id %>
+<% if current_user.admin? && @ride.claimed? && @ride.incomplete? && current_user.id != @ride.driver_id %>
   <%= button_to "Complete ride (admin override)", ride_path(@ride, ride: { completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
 <% end %>
 
