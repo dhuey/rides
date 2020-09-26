@@ -1,6 +1,6 @@
 module AdminDashboardHelper
   def pending_rides_count
-    Ride.where(claimed: false).count
+    Ride.unarchived.where(claimed: false).count
   end
 
   def unverified_driver_count
@@ -20,10 +20,10 @@ module AdminDashboardHelper
   end
 
   def completed_rides_this_week_count
-    Ride.where(completed: true).where("pickup_time > ?", Date.today - 1.week).count
+    Ride.unarchived.where(completed: true).where("pickup_time > ?", Date.today - 1.week).count
   end
 
   def completed_rides_count
-    Ride.where(completed: true).count
+    Ride.unarchived.where(completed: true).count
   end
 end
