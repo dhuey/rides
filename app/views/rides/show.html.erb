@@ -1,4 +1,3 @@
-
 <% if current_user.international? %>
   <%= link_to "< Your rides", rides_path %>
 <% else %>
@@ -60,7 +59,7 @@
   <% else %>
     <% if current_user == @ride.driver && @ride.incomplete? %>
       <%= button_to "Complete ride", ride_path(@ride, ride: { completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
-      <%= button_to "Unclaim ride", ride_path(@ride, ride: { id: @ride.id, claimed: false, driver_id: nil, vehicle_id: nil }), class: "red", method: :patch %>
+      <%= button_to "Unclaim ride", ride_path(@ride, ride: { claimed: false, driver_id: nil, vehicle_id: nil }), class: "red", method: :patch %>
 
     <% end %>
   <% end %>

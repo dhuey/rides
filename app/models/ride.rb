@@ -10,8 +10,16 @@ class Ride < ApplicationRecord
   validate :pickup_time_cannot_be_in_the_past
   validates :origin, :destination, :pickup_time, :number_of_passengers, presence: true
 
+  after_update :send_claimed_email
+
+  def send_claimed_email
+    if saved_change_to_claimed? && claimed == true
+      RidesMailer.ride_claimed_email(self).deliver_later
+    end
+  end
+
   def pickup_time_cannot_be_in_the_past
-    unless claimed? || completed? || archived_at?
+    unless claimed_changed? || completed_changed? || archived_at_changed?
       if pickup_time.present? && pickup_time < DateTime.current
         errors.add(:pickup_time, "can't be in the past")
       end
