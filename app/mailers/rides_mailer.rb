@@ -16,4 +16,16 @@ class RidesMailer < ApplicationMailer
     @user = @ride.requester
     mail(to: @user.email, subject: 'Your ride has been deleted')
   end
+
+  def driver_completed_email(ride)
+    @ride = ride
+    @user = @ride.driver
+    mail(to: @user.email, subject: 'You completed a ride!')
+  end
+
+  def requester_completed_email(ride)
+    @ride = ride
+    @user = @ride.requester
+    mail(to: @user.email, subject: 'Your ride was completed!')
+  end
 end

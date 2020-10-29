@@ -12,6 +12,7 @@ class Ride < ApplicationRecord
 
   after_update :send_claimed_email
   after_update :send_archived_email, if: :saved_change_to_archived_at?
+  after_update :send_completed_emails, if: :saved_change_to_completed?
 
   def send_claimed_email
     if saved_change_to_claimed?
@@ -26,6 +27,13 @@ class Ride < ApplicationRecord
   def send_archived_email
     unless archived_at == nil
       RidesMailer.archived_ride_email(self).deliver_later
+    end
+  end
+
+  def send_completed_emails
+    unless completed == false
+      RidesMailer.driver_completed_email(self).deliver_later
+      RidesMailer.requester_completed_email(self).deliver_later
     end
   end
 
