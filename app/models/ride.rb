@@ -11,6 +11,7 @@ class Ride < ApplicationRecord
   validates :origin, :destination, :pickup_time, :number_of_passengers, presence: true
 
   after_update :send_claimed_email
+  after_update :send_archived_email, if: :saved_change_to_archived_at?
 
   def send_claimed_email
     if saved_change_to_claimed?
@@ -19,6 +20,12 @@ class Ride < ApplicationRecord
       else
         RidesMailer.ride_unclaimed_email(self).deliver_later
       end
+    end
+  end
+
+  def send_archived_email
+    unless archived_at == nil
+      RidesMailer.archived_ride_email(self).deliver_later
     end
   end
 

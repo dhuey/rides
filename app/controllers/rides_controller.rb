@@ -47,7 +47,11 @@ class RidesController < ApplicationController
 
   def destroy
     @ride = Ride.find(params[:id])
-    @ride.update(archived_at: DateTime.current)
+    if current_user.admin?
+      @ride.update_column(:archived_at, DateTime.current)
+    else
+      @ride.update(archived_at: DateTime.current)
+    end
     redirect_to rides_path, notice: "We deleted your ride."
   end
 

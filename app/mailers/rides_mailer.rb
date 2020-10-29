@@ -10,4 +10,10 @@ class RidesMailer < ApplicationMailer
     @user = @ride.requester
     mail(to: @user.email, subject: 'Your driver is no longer available')
   end
+
+  def archived_ride_email(ride)
+    @ride = ride
+    @user = @ride.requester
+    mail(to: @user.email, subject: 'Your ride has been deleted')
+  end
 end
