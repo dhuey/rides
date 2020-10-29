@@ -13,8 +13,12 @@ class Ride < ApplicationRecord
   after_update :send_claimed_email
 
   def send_claimed_email
-    if saved_change_to_claimed? && claimed == true
-      RidesMailer.ride_claimed_email(self).deliver_later
+    if saved_change_to_claimed?
+      if claimed == true
+        RidesMailer.ride_claimed_email(self).deliver_later
+      else
+        RidesMailer.ride_unclaimed_email(self).deliver_later
+      end
     end
   end
 
