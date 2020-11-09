@@ -28,4 +28,12 @@ class RidesMailer < ApplicationMailer
     @user = @ride.requester
     mail(to: @user.email, subject: 'Your ride was completed!')
   end
+
+  def ride_incomplete_email(ride)
+    @ride = ride
+    @user = @ride.driver
+    if ride.claimed?
+      mail(to: @user.email, subject: 'You have an incomplete ride')
+    end
+  end
 end

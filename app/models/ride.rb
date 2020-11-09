@@ -18,6 +18,7 @@ class Ride < ApplicationRecord
     if saved_change_to_claimed?
       if claimed == true
         RidesMailer.ride_claimed_email(self).deliver_later
+        self.schedule_ride_incomplete_email
       else
         RidesMailer.ride_unclaimed_email(self).deliver_later
       end
@@ -76,4 +77,9 @@ class Ride < ApplicationRecord
   def unarchived?
     archived_at == nil
   end
+
+  def schedule_ride_incomplete_email
+    RidesMailer.ride_incomplete_email(self).deliver_later
+  end
+  handle_asynchronously :schedule_ride_incomplete_email, :run_at => Proc.new {|ride| ride.pickup_time + 24.hours}, :queue => "ride_incomplete_email"
 end

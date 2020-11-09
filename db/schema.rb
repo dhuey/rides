@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_185547) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+    t.index ["queue"], name: "delayed_jobs_queue"
   end
 
   create_table "rides", force: :cascade do |t|
