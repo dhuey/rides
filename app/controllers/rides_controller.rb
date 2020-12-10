@@ -30,14 +30,8 @@ class RidesController < ApplicationController
 
   def update
     @ride = Ride.find(params[:id])
-    if @ride.claimed == false && params[:ride].dig(:claimed) == "true"
-      send_claimed_email = true
-    end
     if @ride.update(ride_params)
       redirect_to ride_path(@ride), notice: "We updated your ride!"
-      if send_claimed_email == true
-        RidesMailer.ride_claimed_email(@ride).deliver_later
-      end
     else
       if current_user.international?
         render "edit", alert: "We couldn't update your ride. Let's try again."
@@ -53,7 +47,11 @@ class RidesController < ApplicationController
 
   def destroy
     @ride = Ride.find(params[:id])
-    @ride.update(archived_at: DateTime.current)
+    if current_user.admin?
+      @ride.update_column(:archived_at, DateTime.current)
+    else
+      @ride.update(archived_at: DateTime.current)
+    end
     redirect_to rides_path, notice: "We deleted your ride."
   end
 

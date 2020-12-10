@@ -10,8 +10,36 @@ class Ride < ApplicationRecord
   validate :pickup_time_cannot_be_in_the_past
   validates :origin, :destination, :pickup_time, :number_of_passengers, presence: true
 
+  after_update :send_claimed_email
+  after_update :send_archived_email, if: :saved_change_to_archived_at?
+  after_update :send_completed_emails, if: :saved_change_to_completed?
+
+  def send_claimed_email
+    if saved_change_to_claimed?
+      if claimed == true
+        RidesMailer.ride_claimed_email(self).deliver_later
+        self.schedule_ride_incomplete_email
+      else
+        RidesMailer.ride_unclaimed_email(self).deliver_later
+      end
+    end
+  end
+
+  def send_archived_email
+    unless archived_at == nil
+      RidesMailer.archived_ride_email(self).deliver_later
+    end
+  end
+
+  def send_completed_emails
+    unless completed == false
+      RidesMailer.driver_completed_email(self).deliver_later
+      RidesMailer.requester_completed_email(self).deliver_later
+    end
+  end
+
   def pickup_time_cannot_be_in_the_past
-    unless claimed? || completed? || archived_at?
+    unless claimed_changed? || completed_changed? || archived_at_changed?
       if pickup_time.present? && pickup_time < DateTime.current
         errors.add(:pickup_time, "can't be in the past")
       end
@@ -49,4 +77,9 @@ class Ride < ApplicationRecord
   def unarchived?
     archived_at == nil
   end
+
+  def schedule_ride_incomplete_email
+    RidesMailer.ride_incomplete_email(self).deliver_later
+  end
+  handle_asynchronously :schedule_ride_incomplete_email, :run_at => Proc.new {|ride| ride.pickup_time + 24.hours}, :queue => "ride_incomplete_email"
 end
