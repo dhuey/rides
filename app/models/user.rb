@@ -66,6 +66,11 @@ class User < ApplicationRecord
     unless self.first_name? && self.last_name? && self.phone_number?
       return false
     end
+
+    if self.international == nil
+      return false
+    end
+
     if self.international?
       unless self.nationality?
         return false
