@@ -79,7 +79,9 @@ class Ride < ApplicationRecord
   end
 
   def schedule_ride_incomplete_email
-    RidesMailer.ride_incomplete_email(self).deliver_later
+    if self.completed==false
+      RidesMailer.ride_incomplete_email(self).deliver_later
+    end
   end
   handle_asynchronously :schedule_ride_incomplete_email, :run_at => Proc.new {|ride| ride.pickup_time + 24.hours}, :queue => "ride_incomplete_email"
 end
