@@ -59,4 +59,44 @@ RSpec.describe Ride, type: :model do
       expect(Ride.last.requester_gender).to eq @international.gender
     end
   end
+
+  describe "#unclaimed?" do
+    it "is true for unclaimed rides" do
+      expect(ride.unclaimed?).to be true
+    end
+
+    it "is false for claimed rides" do
+      expect(claimed_ride.unclaimed?).to be false
+    end
+  end
+
+  describe "#incomplete?" do
+    it "is true for incomplete rides" do
+      expect(ride.incomplete?).to be true
+    end
+
+    it "is false for complete rides" do
+      expect(completed_ride.incomplete?).to be false
+    end
+  end
+
+  describe "#archived?" do
+    it "is true for archived rides" do
+      expect(archived_ride.archived?).to be true
+    end
+
+    it "is false for nonarchived rides" do
+      expect(ride.archived?).to be false
+    end
+  end
+
+  describe "#unarchived?" do
+    it "is true for unarchived rides" do
+      expect(ride.unarchived?).to be true
+    end
+
+    it "is false for archived rides" do
+      expect(archived_ride.unarchived?).to be false
+    end
+  end
 end
