@@ -39,4 +39,24 @@ RSpec.describe Ride, type: :model do
       expect(ride).to be_valid
     end
   end
+
+  describe "#create_with_requester" do
+    before do
+      @international = FactoryBot.create(:international)
+      new_ride = Ride.new(origin: "A", destination: "B", pickup_time: DateTime.now + 1.minute, number_of_passengers: 1)
+      new_ride.create_with_requester(@international)
+    end
+
+    it "creates a ride" do
+      expect(Ride.last.origin).to eq "A"
+    end
+
+    it "assigns the proper user" do
+      expect(Ride.last.requester).to eq @international
+    end
+
+    it "assigns the proper requester_gender" do
+      expect(Ride.last.requester_gender).to eq @international.gender
+    end
+  end
 end
