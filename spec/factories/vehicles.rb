@@ -5,6 +5,6 @@ FactoryBot.define do
     make { "Jeep" }
     model { "Grand Cherokee" }
     color { "White" }
-    sequence(:license_plate) { |n| "0ABC #{n}" }
+    sequence(:license_plate) { |n| "ABC #{n}" }
   end
 end
