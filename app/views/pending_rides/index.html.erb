@@ -6,7 +6,7 @@
   <% @rides.each do |ride| %>
     <%= link_to(ride_path(ride)) do %>
       <div class="row ride-box">
-        <div class="col-2 align-self-center">
+        <div class="col-2 align-self-center ride-image">
           <%= image_tag ride.requester.display_profile_picture, size: "70", class: "round" %>
         </div>
         <div class="col">
