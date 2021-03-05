@@ -20,12 +20,12 @@ module RidesHelper
   def ride_image(ride)
     if current_user.international?
       if ride.completed? || ride.claimed?
-        image_tag ride.driver.display_profile_picture, size: "70", class: "round"
+        image_tag ride.driver.display_profile_picture, class: "round"
       else
-        image_tag "no-profile.jpg", size: "70", class: "round"
+        image_tag "no-profile.jpg", class: "round"
       end
     else
-      image_tag ride.requester.display_profile_picture, size: "70", class: "round"
+      image_tag ride.requester.display_profile_picture, class: "round"
     end
   end
 

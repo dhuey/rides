@@ -17,8 +17,11 @@
 }
 
 .ride-image {
-  margin-right: .5em;
+  img {
+    width: 90%;
+  }
 }
+
 .ride-box:hover {
   background-color: #f4f4f4;
 }
