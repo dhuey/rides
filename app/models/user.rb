@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :timeoutable, :trackable, :validatable
 
   has_many :vehicles, dependent: :destroy
+  has_one_attached :profile_picture
 
   validates :first_name, :last_name, :phone_number, :gender, presence: true, if: :active?
   validates :email, presence: true, uniqueness: true
@@ -81,5 +82,13 @@ class User < ApplicationRecord
       end
     end
     true
+  end
+
+  def display_profile_picture
+    if self.profile_picture.attached?
+      self.profile_picture
+    else
+      "no-profile.jpg"
+    end
   end
 end
