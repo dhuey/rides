@@ -37,10 +37,12 @@ gem 'delayed_job_active_record'
 
 group :production do
   gem 'sendgrid-ruby'
+  gem "aws-sdk-s3", require: false
 end
 
 group :staging do
   gem 'letter_opener_web'
+  gem "aws-sdk-s3", require: false
 end
 
 group :development do
