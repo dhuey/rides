@@ -86,7 +86,7 @@ class User < ApplicationRecord
 
   def display_profile_picture
     if self.profile_picture.attached?
-      self.profile_picture
+      self.profile_picture.variant(resize_to_fill: [200, 200])
     else
       "no-profile.jpg"
     end
