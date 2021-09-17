@@ -20,12 +20,12 @@
 
 <p><strong>Passengers:</strong> <%= "#{@ride.number_of_passengers}" %></p>
 <p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
-
+<br><br>
 <% if @ride.claimed? %>
-  <p><strong>Driver: </strong> <%= link_to "#{@ride.driver.full_name}", user_path(@ride.driver)  %></p>
   <div class="text-center">
     <%= image_tag @ride.driver.display_profile_picture, size: "100", class: "round" %>
   </div><br>
+  <p><strong>Driver: </strong> <%= link_to "#{@ride.driver.full_name}", user_path(@ride.driver)  %></p>
     <% if @ride.vehicle.present? %>
       <p><strong>Vehicle: </strong> <%= "#{@ride.vehicle.year} #{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model}" %></p>
       <p><strong>License Plate: </strong> <%= "#{@ride.vehicle.license_plate}" %></p>
