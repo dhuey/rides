@@ -1,6 +1,14 @@
 <%= form_for @user do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
   <div class="field">
+    <div class="text-center mb-2">
+      <%= image_tag(@user.display_profile_picture, size: "100", class: "round") %><br>
+    </div>
+    <%= f.label :profile_picture, class: "sign-up-label" %>
+    <%= f.file_field :profile_picture, class: "sign-up-field" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email, class: "sign-up-label" %>
     <%= f.email_field :email, autocomplete: "email", class: "login-field sign-up-field" %>
   </div>

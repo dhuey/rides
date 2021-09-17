@@ -7,13 +7,19 @@
 }
 
 .ride-box {
-  border: 1px solid $accent-color;
-  border-left: 0px;
-  border-right: 0px;
+  // border: 1px solid $accent-color;
+  // border-left: 0px;
+  // border-right: 0px;
   color: black;
-  margin-bottom: -1px;
+  margin-bottom: 2em;
   padding-left: .5em;
   padding-right: .5em;
+}
+
+.ride-image {
+  img {
+    width: 90%;
+  }
 }
 
 .ride-box:hover {
@@ -24,19 +30,16 @@
   display: inline-block;
   float: left;
   white-space: nowrap;
-  padding-left: 4em;
 }
 
 .ride-select-arrow {
   float: right;
   text-align: right;
   color: $accent-color;
-  height: 1em;
 }
 
 .ride-desc {
   color: $accent-color;
-  padding-left: 4em;
 }
 
 .ride-label > p {

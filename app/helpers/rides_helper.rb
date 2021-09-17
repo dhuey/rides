@@ -17,6 +17,18 @@ module RidesHelper
     end
   end
 
+  def ride_image(ride)
+    if current_user.international?
+      if ride.completed? || ride.claimed?
+        image_tag ride.driver.display_profile_picture, class: "round"
+      else
+        image_tag "no-profile.jpg", class: "round"
+      end
+    else
+      image_tag ride.requester.display_profile_picture, class: "round"
+    end
+  end
+
   def driver_back_button
     if request.referrer && URI(request.referrer).path == "/pending_rides"
       link_to "< Rides awaiting a driver", pending_rides_path
