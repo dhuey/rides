@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2021_03_05_010537) do
     t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "requester_gender", default: "male", null: false
+    t.string "requester_gender", null: false
     t.bigint "vehicle_id"
     t.datetime "archived_at"
     t.index ["driver_id"], name: "index_rides_on_driver_id"

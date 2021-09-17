@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :finish_profile
 
+  def not_found
+    respond_to do |format|
+      format.html { redirect_to root_url, :alert => "Page Not Found" }
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
