@@ -8,7 +8,10 @@
 <p><%= "#{@ride.formatted_pickup_time}" %></p>
 
 <% if current_user.driver? %>
-  <p><strong>Requester:</strong> <%= "#{@ride.requester.full_name}" %></p>
+  <div class="text-center">
+    <%= image_tag @ride.requester.display_profile_picture, size: "100", class: "round" %>
+  </div><br>
+  <p><strong>Requester:</strong> <%= link_to "#{@ride.requester.full_name}", user_path(@ride.requester) %></p>
   <p><strong>Phone:</strong> <%= "#{@ride.requester.phone_number}" %></p>
   <% if @ride.requester.alternate_contact_method? && @ride.requester.alternate_contact_name? %>
     <p><strong>Alt contact:</strong> <i><%= @ride.requester.alternate_contact_method %> -</i> <%= @ride.requester.alternate_contact_name %></p>
@@ -19,7 +22,10 @@
 <p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
 
 <% if @ride.claimed? %>
-  <p><strong>Driver: </strong> <%="#{@ride.driver.full_name}" %></p>
+  <p><strong>Driver: </strong> <%= link_to "#{@ride.driver.full_name}", user_path(@ride.driver)  %></p>
+  <div class="text-center">
+    <%= image_tag @ride.driver.display_profile_picture, size: "100", class: "round" %>
+  </div><br>
     <% if @ride.vehicle.present? %>
       <p><strong>Vehicle: </strong> <%= "#{@ride.vehicle.year} #{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model}" %></p>
       <p><strong>License Plate: </strong> <%= "#{@ride.vehicle.license_plate}" %></p>
