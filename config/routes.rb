@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   end
 
   resources :signup_processes
-  match '*a', to: 'application#not_found', via: :get
+  # match '*a', to: 'application#not_found', via: :get
 end
