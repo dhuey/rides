@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root to: "dashboard#index"
   resources :rides
   get "pending_rides", to: "pending_rides#index"
   get "terms_and_conditions", to: "terms_and_conditions#index"
