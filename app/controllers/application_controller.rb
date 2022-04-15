@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def not_found
     respond_to do |format|
-      format.html { redirect_to root_url, :alert => "Page Not Found" }
+      format.html { redirect_to dashboard_url, :alert => "Page Not Found" }
     end
   end
 

@@ -28,7 +28,7 @@ class SignupProcessesController < ApplicationController
   # def check_for_finished_profile
   #   raise current_user.signup_completed?.inspect
   #   if current_user && current_user.signup_completed?
-  #     redirect_to root_path, alert: "You have already completed the sign up process"
+  #     redirect_to dashboard_path, alert: "You have already completed the sign up process"
   #   end
   # end
 end
