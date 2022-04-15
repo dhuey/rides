@@ -1,4 +1,4 @@
-class SignupProcessesController < ApplicationController
+class App::SignupProcessesController < ApplicationController
   before_action :authenticate_user!
   # before_action :check_for_finished_profile
 

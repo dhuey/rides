@@ -1,4 +1,4 @@
-class PendingRidesController < ApplicationController
+class App::PendingRidesController < ApplicationController
   before_action :authenticate_user!
   before_action :check_verification
 

@@ -1,4 +1,4 @@
-class UnverifiedDriversController < ApplicationController
+class App::UnverifiedDriversController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_admin
 

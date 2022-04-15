@@ -1,4 +1,4 @@
-class RidesController < ApplicationController
+class App::RidesController < ApplicationController
   before_action :authenticate_user!
 
   def index
