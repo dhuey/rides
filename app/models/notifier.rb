@@ -19,7 +19,7 @@ class Notifier
       request.content_type = "application/json"
       request.body = JSON.dump({
         "bot_id" => ENV["MALE_GROUPME"],
-        "text" => "A new ride for #{@number_of_passengers} passenger(s) has been requested for #{@pickup_time}. #{Rails.application.routes.url_helpers.ride_url(@ride)}"
+        "text" => "A new ride for #{@number_of_passengers} passenger(s) has been requested for #{@pickup_time}. #{Rails.application.routes.url_helpers.app_ride_url(@ride)}"
       })
 
       req_options = {
@@ -35,7 +35,7 @@ class Notifier
       request.content_type = "application/json"
       request.body = JSON.dump({
         "bot_id" => ENV["FEMALE_GROUPME"],
-        "text" => "A new ride for #{@number_of_passengers} passenger(s) has been requested for #{@pickup_time}. #{Rails.application.routes.url_helpers.ride_url(@ride)}"
+        "text" => "A new ride for #{@number_of_passengers} passenger(s) has been requested for #{@pickup_time}. #{Rails.application.routes.url_helpers.app_ride_url(@ride)}"
       })
 
       req_options = {

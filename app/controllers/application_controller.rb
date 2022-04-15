@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def not_found
     respond_to do |format|
-      format.html { redirect_to dashboard_url, :alert => "Page Not Found" }
+      format.html { redirect_to app_dashboard_url, :alert => "Page Not Found" }
     end
   end
 
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def finish_profile
     if current_user
       unless current_user.signup_completed?
-        redirect_to signup_processes_path(current_user)
+        redirect_to app_signup_processes_path(current_user)
       end
     end
   end

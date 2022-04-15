@@ -1,7 +1,7 @@
 <h1 class="text-center display-title">International LINK Rides</h1>
 <p class="text-center">Let&rsquo;s get you logged in:</p>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: app_user_session_path(resource_name)) do |f| %>
   <div class="field">
     <div class="d-flex justify-content-center"><%= f.email_field :email, autocomplete: "email", placeholder:"email address", class: "login-field" %></div>
   </div>

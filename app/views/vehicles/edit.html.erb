@@ -1,5 +1,5 @@
 <div class="sign-up-form">
-  <%= link_to "< #{@vehicle.make} #{@vehicle.model}", user_vehicle_path(@user, @vehicle) %>
+  <%= link_to "< #{@vehicle.make} #{@vehicle.model}", app_user_vehicle_path(@user, @vehicle) %>
   <h1 class="text-center">Edit your vehicle</h1>
   <%= render "form" %>
 </div>

@@ -3,19 +3,19 @@
   <% if user.vehicles.any? %>
     <ul>
       <% user.vehicles.each do |vehicle| %>
-        <li><%= link_to "#{vehicle.year} #{vehicle.color} #{vehicle.make} #{vehicle.model}", user_vehicle_path(user, vehicle) %></li>
+        <li><%= link_to "#{vehicle.year} #{vehicle.color} #{vehicle.make} #{vehicle.model}", app_user_vehicle_path(user, vehicle) %></li>
       <% end %>
     </ul>
   <% else %>
     <p><em>You haven't added any vehicles yet. Click the button below to get started!</em></p>
-    <%= button_to "Add a vehicle", new_user_vehicle_path(user), method: :get, class: "advance-btn" %>
+    <%= button_to "Add a vehicle", new_app_user_vehicle_path(user), method: :get, class: "advance-btn" %>
   <% end %>
 <% elsif current_user.admin? %>
   <h3>Vehicles</h3>
   <% if user.vehicles.any? %>
     <ul>
       <% user.vehicles.each do |vehicle| %>
-        <li><%= link_to "#{vehicle.year} #{vehicle.color} #{vehicle.make} #{vehicle.model}", user_vehicle_path(user, vehicle) %></li>
+        <li><%= link_to "#{vehicle.year} #{vehicle.color} #{vehicle.make} #{vehicle.model}", app_user_vehicle_path(user, vehicle) %></li>
       <% end %>
     </ul>
   <% else %>

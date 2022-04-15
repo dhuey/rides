@@ -1,8 +1,8 @@
-<%= link_to "< Your profile", user_path(@user) %>
+<%= link_to "< Your profile", app_user_path(@user) %>
 <h1><%= "#{@user.first_name}'s #{@vehicle.make} #{@vehicle.model}" %></h1>
 <p>Year: <%= @vehicle.year %></p>
 <p>Color: <%= @vehicle.color %></p>
 <p>License plate: <%= @vehicle.license_plate %></p>
 
-<%= button_to "Edit vehicle", edit_user_vehicle_path(@user, @vehicle), method: :get, class: "blue" %>
-<%= button_to "Delete vehicle", user_vehicle_path(@user, @vehicle), method: :delete, class: "red" %>
+<%= button_to "Edit vehicle", edit_app_user_vehicle_path(@user, @vehicle), method: :get, class: "blue" %>
+<%= button_to "Delete vehicle", app_user_vehicle_path(@user, @vehicle), method: :delete, class: "red" %>

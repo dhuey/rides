@@ -25,10 +25,10 @@ module UsersHelper
   end
 
   def user_back_button(user)
-    if request.referrer && URI(request.referrer).path == "/unverified_drivers"
-      link_to "< Unverified drivers", unverified_drivers_path
+    if request.referrer && URI(request.referrer).path == "/app/unverified_drivers"
+      link_to "< Unverified drivers", app_unverified_drivers_path
     else
-      link_to "< Your profile", user_path(user)
+      link_to "< Your profile", app_user_path(user)
     end
   end
 end

@@ -1,7 +1,7 @@
 <h1 class="text-center display-title">Sign up</h1>
 <p class="text-center">First, let&rsquo;s get some basic information:</p>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: app_user_registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="sign-up-form">
     <div class="field">

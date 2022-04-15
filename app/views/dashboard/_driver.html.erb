@@ -1,6 +1,6 @@
 <% if current_user.unverified? %>
   <p>We're currently reviewing your driver profile. You'll be able to access all of LINK Rides once your profile is verified. Thanks for your patience!</p>
 <% else %>
-  <%= button_to "Rides awaiting a driver", pending_rides_path, method: :get, class: "advance-btn" %>
-  <%= button_to "Your rides", rides_path, method: :get, class: "advance-btn" %>
+  <%= button_to "Rides awaiting a driver", app_pending_rides_path, method: :get, class: "advance-btn" %>
+  <%= button_to "Your rides", app_rides_path, method: :get, class: "advance-btn" %>
 <% end %>

@@ -1,9 +1,9 @@
-<%= link_to "< Admin dashboard", admin_dashboard_path %>
+<%= link_to "< Admin dashboard", app_admin_dashboard_path %>
 <h1 class="text-center">Unverified Drivers</h1>
 <div class="text-center">
   <% if @unverified_drivers.any? %>
     <% @unverified_drivers.each do |driver| %>
-      <%= link_to "#{driver.full_name} (#{driver.ministry})", edit_user_path(driver) %><br>
+      <%= link_to "#{driver.full_name} (#{driver.ministry})", edit_app_user_path(driver) %><br>
     <% end %>
   <% else %>
     <p><em>There are no unverified drivers. Hooray!</em></p>

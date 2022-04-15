@@ -6,7 +6,7 @@
   <body>
     <h1>Hello <%= @user.first_name %>,</h1>
 
-    <p>Your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %> has been completed. We're so glad we were able to serve you!</p>
+    <p>Your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", app_ride_url(@ride))%> for <%= @ride.formatted_pickup_time %> has been completed. We're so glad we were able to serve you!</p>
 
     <p>Please reply to this email if you have any feedback on your LINK Rides experience. We'd love to hear from you!</p>
 

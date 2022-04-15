@@ -53,7 +53,7 @@
     <% end %>
 
     <div class="field" style="margin-top: .8em; line-height: 1em;">
-        <%= f.label :accept_tac, "I have read and agree to the #{link_to("Terms and Conditions", terms_and_conditions_path, target: :_blank)}".html_safe, class: "sign-up-label tac-label" %>
+        <%= f.label :accept_tac, "I have read and agree to the #{link_to("Terms and Conditions", app_terms_and_conditions_path, target: :_blank)}".html_safe, class: "sign-up-label tac-label" %>
         <%= f.check_box :accept_tac %>
       </div>
 

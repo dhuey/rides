@@ -1,7 +1,7 @@
 <h1 class="text-center display-title">Resend confirmation instructions</h1>
 <p class="text-center">Enter your email and we&rsquo;ll resend your confirmation instructions:</p>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+<%= form_for(resource, as: resource_name, url: app_user_confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">

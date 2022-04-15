@@ -22,7 +22,7 @@ class RidesController < ApplicationController
     if @ride.create_with_requester(current_user)
       notifier = Notifier.new(@ride)
       notifier.request_ride
-      redirect_to ride_path(@ride), notice: "We created your ride! Sit back and relax."
+      redirect_to app_ride_path(@ride), notice: "We created your ride! Sit back and relax."
     else
       render "new", alert: "We couldn't create your ride. Let's try again."
     end
@@ -31,12 +31,12 @@ class RidesController < ApplicationController
   def update
     @ride = Ride.find(params[:id])
     if @ride.update(ride_params)
-      redirect_to ride_path(@ride), notice: "We updated your ride!"
+      redirect_to app_ride_path(@ride), notice: "We updated your ride!"
     else
       if current_user.international?
         render "edit", alert: "We couldn't update your ride. Let's try again."
       else
-        redirect_to ride_path(@ride), alert: "Sorry, we messed up. Try that again later."
+        redirect_to app_ride_path(@ride), alert: "Sorry, we messed up. Try that again later."
       end
     end
   end
@@ -52,7 +52,7 @@ class RidesController < ApplicationController
     else
       @ride.update(archived_at: DateTime.current)
     end
-    redirect_to rides_path, notice: "We deleted your ride."
+    redirect_to app_rides_path, notice: "We deleted your ride."
   end
 
   private

@@ -6,7 +6,7 @@
   <body>
     <h1>Hello <%= @user.first_name %>,</h1>
 
-    <p>The driver for your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %> is no longer available. But don't worry! Your ride is still active and we will do our best to find you a new driver.</p>
+    <p>The driver for your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", app_ride_url(@ride))%> for <%= @ride.formatted_pickup_time %> is no longer available. But don't worry! Your ride is still active and we will do our best to find you a new driver.</p>
 
     <p>We apologize for the inconvenience!</p>
 

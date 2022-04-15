@@ -1,4 +1,4 @@
-<%= link_to "< Home", dashboard_path %>
+<%= link_to "< Home", app_dashboard_path %>
 <h1><%= @user.full_name %></h1>
 <div class="text-center">
   <%= image_tag @user.display_profile_picture, size: "100", class: "round" %>
@@ -18,8 +18,8 @@
 <% end %>
 
 <% if @user == current_user || current_user.admin? %>
-  <%= button_to "Edit Profile", edit_user_path(@user), method: :get, class: "blue" %>
+  <%= button_to "Edit Profile", edit_app_user_path(@user), method: :get, class: "blue" %>
 <% end %>
 <% if @user == current_user && current_user.vehicles.any? %>
-  <%= button_to "Add a vehicle", new_user_vehicle_path(@user), method: :get, class: "blue vehicle-button" %>
+  <%= button_to "Add a vehicle", new_app_user_vehicle_path(@user), method: :get, class: "blue vehicle-button" %>
 <% end %>

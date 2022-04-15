@@ -6,7 +6,7 @@
   <body>
     <h1>Hello <%= @user.first_name %>,</h1>
 
-    <p><%= @ride.driver.full_name %> has claimed your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %></p>
+    <p><%= @ride.driver.full_name %> has claimed your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", app_ride_url(@ride))%> for <%= @ride.formatted_pickup_time %></p>
 
     <p><%= @ride.driver.gender == "male" ? "He" : "She" %> will be driving a <%= "#{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model} with license plate number: #{@ride.vehicle.license_plate}." %></p>
 

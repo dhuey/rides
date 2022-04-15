@@ -6,7 +6,7 @@
   <body>
     <h1>Hello <%= @user.first_name %>,</h1>
 
-    <p>Your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %> has been deleted. We hope you were able to get where you need to go!</p>
+    <p>Your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", app_ride_url(@ride))%> for <%= @ride.formatted_pickup_time %> has been deleted. We hope you were able to get where you need to go!</p>
 
     <p>Would you mind taking a moment to reply to this email and let us know why you deleted your ride?</p>
 

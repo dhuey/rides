@@ -1,5 +1,5 @@
 <div class="sign-up-form">
-  <%= link_to "< #{@ride.origin} to #{@ride.destination} ", ride_path(@ride) %>
+  <%= link_to "< #{@ride.origin} to #{@ride.destination} ", app_ride_path(@ride) %>
   <h1 class="text-center">Edit ride</h1>
   <%= render "form" %>
 </div>

@@ -30,10 +30,10 @@ module RidesHelper
   end
 
   def driver_back_button
-    if request.referrer && URI(request.referrer).path == "/pending_rides"
-      link_to "< Rides awaiting a driver", pending_rides_path
+    if request.referrer && URI(request.referrer).path == "/app/pending_rides"
+      link_to "< Rides awaiting a driver", app_pending_rides_path
     else
-      link_to "< Your rides", rides_path
+      link_to "< Your rides", app_rides_path
     end
   end
 
