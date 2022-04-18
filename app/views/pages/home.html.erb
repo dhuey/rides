@@ -1,4 +1,4 @@
-<section class="hero-section">
+<section class="hero-section container">
   <div class="row align-items-center">
     <div class="col-lg-4 order-2 order-lg-1 hero-info">
       <h1>Free Rides For International Students</h1>
@@ -17,17 +17,76 @@
   </div>
 </section>
 
-<section id="about">
-  <div class="row align-items-center">
+<section class="container section" id="about">
+  <div class="row align-items-center justify-content-center">
     <div class="col-lg-6">
       <%= image_tag(asset_path("link-rides-about.svg"), class: "hero-image") %>
     </div>
-    <div class="col-lg-4 offset-lg-1 hero-info">
+    <div class="col-lg-5 offset-lg-1 hero-info">
       <div class="info-box">
         <h2>What Is LINK Rides?</h2>
-        <p>
+        <p class="hero-subtitle">
           LINK Rides is a ride-sharing platform designed to connect international students with volunteer drivers in the Manhattan, KS community. Rather than relying on public transportation, we prefer to foster friendships by serving our new neighbors and meeting their needs.
         </p>
       </div>
     </div>
+</section>
+
+<section class="for container-fluid">
+  <div class="container">
+    <div class="row align-items-center justify-content-center" id="international-students">
+      <div class="col-lg-5 hero-info">
+        <h2>LINK Rides Is For...<br>
+          <span class="info-box for-span">International Students</span>
+        </h2>
+        <ul class="hero-subtitle">
+          <li>Get to where you need to go&mdash;for free</li>
+          <li>Make a new friend in your new home town</li>
+          <li>Drivers are pre-approved by our team</li>
+        </ul>
+        <%= link_to(new_user_registration_path) do %>
+          <div class="secondary-button border-none">
+            Sign Up For Free
+          </div>
+        <% end %>
+      </div>
+      <div class="col-lg-6 offset-lg-1">
+        <iframe
+          src="https://www.youtube.com/embed/MAKFfbXxRKw"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="row align-items-center section" id="drivers">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <iframe
+          src="https://www.youtube.com/embed/MAKFfbXxRKw"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="col lg-5 offset-lg-1 order-1 order-lg-2">
+        <h2>LINK Rides Is For...
+          <span class="info-box for-span">Drivers</span>
+        </h2>
+        <ul class="hero-subtitle">
+          <li>Serve international students in your community</li>
+          <li>Make a new friend from a different culture</li>
+          <li>Get support from the LINK Rides team</li>
+        </ul>
+        <%= link_to(new_user_registration_path) do %>
+          <div class="secondary-button border-none">
+            Apply To Be A Driver
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </section>
