@@ -58,7 +58,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    autoprefixer-rails (10.3.3.0)
+    autoprefixer-rails (10.4.2.0)
       execjs (~> 2)
     aws-eventstream (1.1.1)
     aws-partitions (1.431.0)
@@ -81,9 +81,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.9.0)
       msgpack (~> 1.0)
-    bootstrap (4.3.1)
+    bootstrap (5.1.3)
       autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
+      popper_js (>= 2.9.3, < 3)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
@@ -127,6 +127,8 @@ GEM
     ffi (1.15.4-java)
     ffi (1.15.4-x64-mingw32)
     ffi (1.15.4-x86-mingw32)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (0.5.2)
       activesupport (>= 5.0)
     i18n (1.8.10)
@@ -160,15 +162,12 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
     method_source (1.0.0)
-    mimemagic (0.3.3)
     mini_magick (4.11.0)
     mini_mime (1.1.1)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     msgpack (1.4.2-java)
-    msgpack (1.3.1-x64-mingw32)
-    msgpack (1.3.1-x86-mingw32)
     nio4r (2.5.8)
     nio4r (2.5.8-java)
     nokogiri (1.12.4)
@@ -177,16 +176,14 @@ GEM
     nokogiri (1.12.4-java)
       racc (~> 1.4)
     nokogiri (1.12.4-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
       racc (~> 1.4)
     nokogiri (1.12.4-x86-mingw32)
-      mini_portile2 (~> 2.4.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pg (1.2.3-x86-mingw32)
-    popper_js (1.16.0)
+    popper_js (2.9.3)
     public_suffix (4.0.6)
     puma (3.12.6)
     puma (3.12.6-java)
@@ -334,13 +331,14 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.4.2)
-  bootstrap (~> 4.3.1)
+  bootstrap (~> 5.1.3)
   byebug
   capybara
   database_cleaner
   delayed_job_active_record
   devise
   factory_bot_rails
+  font-awesome-rails
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   jquery-rails
