@@ -90,3 +90,17 @@
     </div>
   </div>
 </section>
+
+<section class="section container">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-4 text-center">
+      <%= image_tag(asset_path("link-rides-driving.svg"), class: "cta-image") %>
+      <h2 class="h1 cta">Ready To Get Started?</h2>
+      <%= link_to(new_user_registration_path) do %>
+        <div class="primary-button">
+          Sign Up For Free
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

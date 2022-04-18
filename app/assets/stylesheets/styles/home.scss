@@ -54,9 +54,21 @@
   display: inline-block;
 }
 
+#drivers {
+  margin-bottom: 0rem;
+}
+
 iframe {
   width: 100%;
   aspect-ratio: 16/9;
+}
+
+.cta-image {
+  margin-bottom: 2rem;
+}
+
+.cta {
+  margin-bottom: 2rem;
 }
 
 @include media-breakpoint-down(lg) {
