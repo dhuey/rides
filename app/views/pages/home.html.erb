@@ -1,5 +1,18 @@
 <section class="hero-section">
-  <row>
-    <h1>Free Rides For International Students</h1>
-  </row>
+  <div class="row align-items-center">
+    <div class="col-lg-4 order-2 order-lg-1 hero-info">
+      <h1>Free Rides For International Students</h1>
+      <p class="hero-subtitle">
+        Get where you need to go, and make a new friend along the way.
+      </p>
+      <%= link_to(new_user_registration_path) do %>
+        <div class="primary-button">
+          Sign Up For Free
+        </div>
+      <% end %>
+    </div>
+    <div class="col-lg-6 offset-lg-2 order-1 order-lg-2">
+      <%= image_tag(asset_path("link-rides-hero.svg"), class: "hero-image") %>
+    </div>
+  </div>
 </section>
