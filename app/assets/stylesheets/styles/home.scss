@@ -34,6 +34,10 @@
   font-size: 24px
 }
 
+#about {
+  margin: 12rem 0px;
+}
+
 @include media-breakpoint-down(lg) {
   .mobile-nav-links > a {
     width: 100%;

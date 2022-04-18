@@ -2,6 +2,8 @@ $brand-color: #0059C1;
 $accent-color: #0060FF;
 $light-grey: #F5F5F5;
 $brand-gradient: linear-gradient(to bottom right, $brand-color, $accent-color);
+$standard-shadow: 2px 3px 8px rgba(0, 0, 0, 0.16);
+$standard-border-radius: 14px;
 
 $font: museo-sans-rounded, sans-serif;
 body {
@@ -14,13 +16,17 @@ a {
   text-decoration: none;
 }
 
+p {
+  font-weight: 100;
+}
+
 .primary-button {
   background-image: $brand-gradient;
   color: white;
   padding: 1rem 4rem;
   text-decoration: none;
-  border-radius: 14px;
-  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.16);
+  border-radius: $standard-border-radius;
+  box-shadow: $standard-shadow;
   min-height: 44px;
   transition: transform 300ms ease-in-out;
   text-align: center;
@@ -29,6 +35,13 @@ a {
 .primary-button:hover {
   color: white;
   transform: scale(1.05);
+}
+
+.info-box {
+  padding: 2rem;
+  background-color: $light-grey;
+  box-shadow: $standard-shadow;
+  border-radius: $standard-border-radius;
 }
 
 #error_explanation {
