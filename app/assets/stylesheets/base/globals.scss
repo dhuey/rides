@@ -162,6 +162,18 @@ input[type=file] {
   display: none;
 }
 
+label {
+  margin-bottom: .2em;
+  font-size: .8em;
+  line-height: .95em;
+}
+
+.sign-up-form {
+  width: 90%;
+  max-width: 350px;
+  margin: auto;
+}
+
 .profile-image-container {
   position: relative;
 }
@@ -182,6 +194,18 @@ input[type=file] {
   bottom: 1rem;
   left: 36%;
   cursor: pointer;
+}
+
+.login-form {
+  margin-top: 1rem;
+}
+
+.login-links {
+  margin: 2rem auto;
+}
+
+.login-links > a {
+  margin: 1rem 0rem;
 }
 
 .alert {
@@ -227,18 +251,6 @@ input[type=file] {
 .small-text {
   font-size: .8em;
   line-height: .95em;
-}
-
-label {
-  margin-bottom: .2em;
-  font-size: .8em;
-  line-height: .95em;
-}
-
-.sign-up-form {
-  width: 90%;
-  max-width: 350px;
-  margin: auto;
 }
 
 .display-title {
