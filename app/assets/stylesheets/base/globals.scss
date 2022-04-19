@@ -19,6 +19,7 @@ a {
 
 a:hover {
   color: $brand-color;
+  text-decoration: none;
 }
 
 p {
@@ -66,6 +67,12 @@ li {
   transform: scale(1.05);
 }
 
+.back-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-bottom: 4rem;
+}
+
 .info-box {
   padding: 2rem;
   background-color: $light-grey;
@@ -78,29 +85,60 @@ li {
   border: none;
 }
 
+.app-container {
+  padding-bottom: 8rem;
+  margin-top: 2rem;
+  max-width: 768px;
+}
+
+.app-header-image {
+  width: 80%;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
 #error_explanation {
 padding: 1em;
 color: #721c24;
 background-color: #f8d7da;
-border: 2px solid;
-border-color: #f5c6cb;
+box-shadow: $standard-shadow;
+border-radius: $standard-border-radius;
+margin: 2rem;
+width: 90%;
 }
 
 ::-webkit-input-placeholder {
    font-style: italic;
+   font-weight: 100;
 }
 :-moz-placeholder {
    font-style: italic;
+   font-weight: 100;
 }
 ::-moz-placeholder {
    font-style: italic;
+   font-weight: 100;
 }
 :-ms-input-placeholder {
    font-style: italic;
+   font-weight: 100;
 }
 
-a:hover {
-  text-decoration: none;
+input[type=text], input[type=url], input[type=email], input[type=password], textarea {
+  color: black;
+  background-color: white;
+  box-shadow: $standard-shadow;
+  border-radius: $standard-border-radius;
+  border: none;
+  padding: 0.25rem 2rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+}
+
+input[type=submit] {
+  border: none;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .alert {

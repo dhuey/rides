@@ -61,14 +61,7 @@
 
     <%= yield %>
 
-    <%= image_tag(asset_path("link-rides-footer.svg")) %>
-
-    <footer class="container-fluid justify-content-center text-center">
-        <%= image_tag(asset_path("link-logo-black.svg")) %>
-      <div class="row justify-content-center">
-        <p>Images by <%= link_to "stories / Freepik", "http://freepik.com", class: "footer-link" %></p>
-      </div>
-    </footer>
+    <%= render "pages/footer" %>
 
   </body>
 </html>
