@@ -77,6 +77,19 @@ footer {
   margin-top: -2px;
 }
 
+footer > img {
+  width: 50%;
+  max-width: 400px;
+}
+
+footer p {
+  font-weight: 500;
+}
+
+.brand-logo {
+  min-height: 72px;
+}
+
 @include media-breakpoint-down(lg) {
   .mobile-nav-links > a {
     width: 100%;

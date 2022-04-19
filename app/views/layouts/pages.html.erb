@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div>
           <a class="navbar-brand" href=<%= "#{root_path}" %>>
-            <em>LINK Rides</em>
+            <%= image_tag(asset_path("link-logo-black.svg"), class: "brand-logo") %>
           </a>
         </div>
         <button class="navbar-toggler"
@@ -63,8 +63,11 @@
 
     <%= image_tag(asset_path("link-rides-footer.svg")) %>
 
-    <footer class="container-fluid justify-content-center">
-      this is the footer
+    <footer class="container-fluid justify-content-center text-center">
+        <%= image_tag(asset_path("link-logo-black.svg")) %>
+      <div class="row justify-content-center">
+        <p>Images by <%= link_to "stories / Freepik", "http://freepik.com", class: "footer-link" %></p>
+      </div>
     </footer>
 
   </body>
