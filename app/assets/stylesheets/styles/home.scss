@@ -71,6 +71,12 @@ iframe {
   margin-bottom: 2rem;
 }
 
+footer {
+  padding: 8rem 0rem;
+  background-color: #EBEBEB;
+  margin-top: -2px;
+}
+
 @include media-breakpoint-down(lg) {
   .mobile-nav-links > a {
     width: 100%;
