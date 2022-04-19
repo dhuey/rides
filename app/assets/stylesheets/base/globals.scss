@@ -158,6 +158,32 @@ input[type=radio] {
   display: none;
 }
 
+input[type=file] {
+  display: none;
+}
+
+.profile-image-container {
+  position: relative;
+}
+
+.profile-upload {
+  cursor: pointer;
+  margin: 1rem auto;
+  box-shadow: $standard-shadow;
+}
+
+.profile-uploader-button {
+  padding: 8px;
+  border: none;
+  border-radius: 50%;
+  background-color: $light-grey;
+  box-shadow: $standard-shadow;
+  position: absolute;
+  bottom: 1rem;
+  left: 36%;
+  cursor: pointer;
+}
+
 .alert {
   width: 100%;
 }

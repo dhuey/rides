@@ -47,7 +47,10 @@ document.addEventListener("turbolinks:load", () => {
   document.addEventListener('click', e => {
     let radioAncestor = e.target.closest('.type-select');
     if (radioAncestor && !radioAncestor.classList.contains('type-selected')) {
-      document.querySelector('.type-selected').classList.remove('type-selected');
+      if (document.querySelector('.type-selected')) {
+        document.querySelector('.type-selected').classList.remove('type-selected');
+      }
+
       radioAncestor.classList.add('type-selected');
     }
   })

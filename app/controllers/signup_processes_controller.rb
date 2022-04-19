@@ -22,7 +22,7 @@ class SignupProcessesController < ApplicationController
 
   def signup_process_params
     params.require(:user).permit(:first_name, :last_name, :gender, :status, :phone_number, :accept_tac, :valid_driver,
-      :nationality, :ministry, :international, :alternate_contact_method, :alternate_contact_name, :email_interest)
+      :nationality, :ministry, :international, :alternate_contact_method, :alternate_contact_name, :email_interest, :profile_picture)
   end
 
   # def check_for_finished_profile

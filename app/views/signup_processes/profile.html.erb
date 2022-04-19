@@ -21,39 +21,50 @@
 <%= form_for(@user, url: wizard_path) do |f| %>
   <div class="sign-up-form">
     <%= render "devise/shared/error_messages", resource: @user %>
-      <%= f.label :first_name, class: "sign-up-label" %>
+      <div class="row text-center profile-image-container">
+        <%= f.label :profile_picture do %>
+          <%= javascript_pack_tag "profileUploader", 'data-turbolinks-track': 'reload', defer: true %>
+          <%= image_tag(@user.display_profile_picture, size: "100", class: "round profile-upload", id: "profile-image") %>
+          <div class="profile-uploader-button">
+            <%= fa_icon "pencil" %>
+          </div>
+        <% end %>
+      </div><br>
+      <%= f.file_field :profile_picture, class: "sign-up-field"%>
+
+      <%= f.label :first_name %>
       <%= f.text_field :first_name, class: "sign-up-field" %>
 
-      <%= f.label :last_name, class: "sign-up-label" %>
+      <%= f.label :last_name %>
       <%= f.text_field :last_name, class: "sign-up-field" %>
 
-      <%= f.label :gender, class: "sign-up-label" %><br>
+      <%= f.label :gender %><br>
       <%= f.select :gender, options_for_select([["Male", "male"], ["Female", "female"]]), {include_blank: "Please select one"}, {class: "sign-up-field"} %><br>
 
-      <%= f.label :phone_number, class: "sign-up-label" %>
+      <%= f.label :phone_number %>
       <%= f.phone_field :phone_number, class: "sign-up-field" %>
 
     <% if @user.international? %>
-      <%= f.label :nationality, class: "sign-up-label" %>
+      <%= f.label :nationality %>
       <%= f.text_field :nationality, class: "sign-up-field" %>
 
-      <%= f.label :alternate_contact_method, class: "sign-up-label" %><br>
+      <%= f.label :alternate_contact_method %><br>
       <%= f.select :alternate_contact_method, options_for_select([["WeChat", "WeChat"], ["Facebook", "Facebook"], ["Whatsapp", "Whatsapp"], ["Instagram", "Instagram"], ["Line", "Line"]]), {include_blank: "Please select one"}, {class: "sign-up-field"} %><br>
 
-      <%= f.label :alternate_contact_name, class: "sign-up-label" %>
+      <%= f.label :alternate_contact_name %>
       <%= f.text_field :alternate_contact_name, class: "sign-up-field" %>
 
-      <%= f.label :email_interest, "I would like to receive information about events for international students", class: "sign-up-label light-label" %>
+      <%= f.label :email_interest, "I would like to receive information about events for international students", class: "light-label" %>
       <%= f.check_box :email_interest %>
     <% else %>
-      <%= f.label :ministry, class: "sign-up-label" %>
+      <%= f.label :ministry %>
       <%= f.text_field :ministry, class: "sign-up-field" %>
 
-      <%= f.label :valid_driver, "I certify that I have a valid driver's license and car insurance, and that my license has not been suspended in the past two years", class: "sign-up-label light-label" %>
+      <%= f.label :valid_driver, "I certify that I have a valid driver's license and car insurance, and that my license has not been suspended in the past two years", class: "light-label" %>
       <%= f.check_box :valid_driver %>
     <% end %>
 
-        <%= f.label :accept_tac, "I have read and agree to the #{link_to("Terms and Conditions", terms_and_conditions_path, target: :_blank)}".html_safe, class: "sign-up-label light-label" %>
+        <%= f.label :accept_tac, "I have read and agree to the #{link_to("Terms and Conditions", terms_and_conditions_path, target: :_blank)}".html_safe, class: "light-label" %>
         <%= f.check_box :accept_tac, class: "inline" %>
 
     <div>
