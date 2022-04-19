@@ -124,7 +124,7 @@ width: 90%;
    font-weight: 100;
 }
 
-input[type=text], input[type=url], input[type=email], input[type=password], textarea {
+input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], select, textarea {
   color: black;
   background-color: white;
   box-shadow: $standard-shadow;
@@ -139,6 +139,23 @@ input[type=submit] {
   border: none;
   width: 100%;
   margin-top: 2rem;
+}
+
+input[type=checkbox] {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.light-label {
+  font-weight: 100;
+}
+
+input[type=checkbox].inline {
+  display: inline-block;
+}
+
+input[type=radio] {
+  display: none;
 }
 
 .alert {
@@ -207,11 +224,6 @@ label {
   display: none;
 }
 
-select {
-  margin-bottom: .8em;
-  margin-left: .4em;
-}
-
 .green {
   color: green;
   @include wide-button;
@@ -253,12 +265,13 @@ select {
 }
 
 .type-select {
-  border-radius: 1em;
-  padding-top: .9em;
-  margin-bottom: 1em;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: transform 300ms ease-in-out, color 300ms, background-color 300ms;
 }
+
 .type-select:hover {
-  background-color: $light-grey;
+  transform: scale(1.05);
 }
 
 .type-selected {
@@ -266,18 +279,13 @@ select {
   color: white;
 }
 
-.type-selected:hover {
-  background-color: $brand-color
-}
-
 .type-select input {
   position: absolute;
   opacity: 0;
-  cursor: pointer;
   height: 0;
   width: 0;
 }
 
-.tac-label {
-  margin-bottom: 2em;
+.type-select label {
+  cursor: pointer;
 }
