@@ -52,7 +52,7 @@ class RidesController < ApplicationController
     else
       @ride.update(archived_at: DateTime.current)
     end
-    redirect_to rides_path, notice: "We deleted your ride."
+    redirect_to dashboard_path, notice: "We deleted your ride."
   end
 
   private

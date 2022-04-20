@@ -228,6 +228,14 @@ label {
   max-width: 300px;
 }
 
+.announcement-box {
+  color: $brand-color;
+  text-align: center;
+  padding: 2rem;
+  border: 2px solid $brand-color;
+  border-radius: $standard-border-radius;
+}
+
 @include media-breakpoint-down(lg) {
   h3 {
     font-size: 16px;

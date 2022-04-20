@@ -27,6 +27,17 @@
   }
 }
 
+.ride-detail-profile {
+  text-align: center;
+}
+
+.ride-detail-profile a {
+  color: black;
+}
+
+.ride-detail-profile img {
+  box-shadow: $standard-shadow;
+}
 
 .ride-image {
   img {

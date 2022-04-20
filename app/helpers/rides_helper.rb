@@ -29,19 +29,19 @@ module RidesHelper
     end
   end
 
-  def driver_back_button
-    if request.referrer && URI(request.referrer).path == "/pending_rides"
-      link_to "< Rides awaiting a driver", pending_rides_path
+  def ride_back_button
+    if current_user.driver? && request.referrer && URI(request.referrer).path == "/app/pending_rides"
+      link_to "Back", pending_rides_path, class: "primary-button back-button"
     else
-      link_to "< Your rides", rides_path
+      link_to "Back", dashboard_path, class: "primary-button back-button"
     end
   end
 
   def driver_claim_button
     if current_user.vehicles.any?
-      link_to "Claim ride", "javascript:;", class: "blue-link", id: "which-vehicle"
+      link_to "Claim ride", "javascript:;", class: "primary-button app-button", id: "which-vehicle"
     else
-      link_to "Claim ride", "javascript:;", class: "blue-link", id: "no-vehicle"
+      link_to "Claim ride", "javascript:;", class: "primary-button app-button", id: "no-vehicle"
     end
   end
 end

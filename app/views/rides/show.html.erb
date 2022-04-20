@@ -1,84 +1,129 @@
-<% if current_user.international? %>
-  <%= link_to "< Your rides", rides_path %>
-<% else %>
- <%= driver_back_button %>
-<% end %>
+<div class="row">
+  <div class="col">
+    <%= ride_back_button %>
+  </div>
+</div>
 
-<h1><%= "#{@ride.origin} to #{@ride.destination}" %></h1>
-<p><%= "#{@ride.formatted_pickup_time}" %></p>
+<div class="row justify-content-center">
+  <%= image_tag(asset_path("link-rides-about.svg"), class: "app-header-image") %>
+</div>
 
-<% if current_user.driver? %>
-  <div class="text-center">
-    <%= image_tag @ride.requester.display_profile_picture, size: "100", class: "round" %>
-  </div><br>
-  <p><strong>Requester:</strong> <%= link_to "#{@ride.requester.full_name}", user_path(@ride.requester) %></p>
-  <p><strong>Phone:</strong> <%= "#{@ride.requester.phone_number}" %></p>
-  <% if @ride.requester.alternate_contact_method? && @ride.requester.alternate_contact_name? %>
-    <p><strong>Alt contact:</strong> <i><%= @ride.requester.alternate_contact_method %> -</i> <%= @ride.requester.alternate_contact_name %></p>
-  <% end %>
-<% end %>
-
-<p><strong>Passengers:</strong> <%= "#{@ride.number_of_passengers}" %></p>
-<p><strong>Notes:</strong> <%= "#{@ride.notes? ? @ride.notes : "None"}" %></p>
-<br><br>
-<% if @ride.claimed? %>
-  <div class="text-center">
-    <%= image_tag @ride.driver.display_profile_picture, size: "100", class: "round" %>
-  </div><br>
-  <p><strong>Driver: </strong> <%= link_to "#{@ride.driver.full_name}", user_path(@ride.driver)  %></p>
-    <% if @ride.vehicle.present? %>
-      <p><strong>Vehicle: </strong> <%= "#{@ride.vehicle.year} #{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model}" %></p>
-      <p><strong>License Plate: </strong> <%= "#{@ride.vehicle.license_plate}" %></p>
-    <% end %>
-
-<% end %>
+<div class="row text-center">
+  <h1>Ride Details</h1>
+</div>
 
 <% if @ride.archived? %>
-  <p><em>This ride has been archived.</em></p>
-
-<% elsif @ride.requester_id == current_user.id && @ride.incomplete? %>
-  <%= button_to "Edit ride", edit_ride_path(@ride), method: :get, class: "blue" %>
-  <%= button_to "Delete ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
-
-<% elsif current_user.driver? %>
-  <% if @ride.unclaimed? %>
-    <%= javascript_pack_tag "rides", 'data-turbolinks-track': 'reload', defer: true %>
-    <%= driver_claim_button %>
-    <% if current_user.vehicles.any? %>
-      <div id="vehicle-select">
-        <%= form_for @ride, method: :patch do |f| %>
-          <%= f.hidden_field :driver_id, value: current_user.id %>
-          <%= f.hidden_field :claimed, value: true %>
-          <div class="field">
-            <%= f.label :vehicle_id, "Which vehicle will you be driving?" %>
-            <%= f.select :vehicle_id, options_from_collection_for_select(current_user.vehicles, :id, :easy_name) %>
-          </div>
-          <%= f.submit "Claim ride with this vehicle", class: "advance-btn" %>
-        <% end %>
-      </div>
-    <% else %>
-      <div id="vehicle-add">
-        <p><em>You haven't added any vehicles yet. Click the button below to get started!</em></p>
-        <%= button_to "Add a vehicle", new_user_vehicle_path(current_user), method: :get, class: "advance-btn" %>
-      </div>
-    <% end %>
-  <% else %>
-    <% if current_user == @ride.driver && @ride.incomplete? %>
-      <%= button_to "Complete ride", ride_path(@ride, ride: { completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
-      <%= button_to "Unclaim ride", ride_path(@ride, ride: { claimed: false, driver_id: nil, vehicle_id: nil }), class: "red", method: :patch %>
-
-    <% end %>
-  <% end %>
+  <div class="row announcement-box m-3">
+    <h2>This Ride Has Been Archived</h2>
+  </div>
 <% end %>
 
 <% if @ride.completed %>
-  <p><em>This ride has been completed</em></p>
+  <div class="row announcement-box m-3">
+    <h2>This Ride Has Been Completed</h2>
+  </div>
 <% end %>
 
-<% if current_user.admin? && @ride.claimed? && @ride.incomplete? && current_user.id != @ride.driver_id %>
-  <%= button_to "Complete ride (admin override)", ride_path(@ride, ride: { completed: true }), method: :patch, class: "green", data: { confirm: "Are you sure you want to complete this ride?" } %>
-<% end %>
+<!-- User Info Boxes -->
 
-<% if current_user.admin? && @ride.unarchived? %>
-  <%= button_to "Delete ride (admin override)", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "red" %>
+<div class="row mx-3">
+  <h2>Requester</h2>
+</div>
+
+<div class="row info-box mx-3 justify-content-center">
+  <div class="ride-detail-profile">
+    <%= link_to user_path(@ride.requester) do %>
+      <%= image_tag @ride.requester.display_profile_picture, size: "100", class: "round mb-3" %>
+      <h3><%= @ride.requester.full_name.titleize %></h3>
+    <% end %>
+  </div>
+  <div class="col-sm-8">
+    <p class="mt-3 mb-1 text-center"><strong><%= "#{@ride.origin.titleize}" %></strong></p>
+    <p class="mb-1 text-center">to</p>
+    <p class="mb-5 text-center"><strong><%= "#{@ride.destination.titleize}" %></strong></p>
+
+    <p><strong>Pickup Time: </strong><%= @ride.formatted_pickup_time %></p>
+    <p><strong>Passengers: </strong><%= @ride.number_of_passengers %></p>
+
+    <% if @ride.notes? %>
+      <p><strong>Notes: </strong><%= @ride.notes %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row mx-3 mt-5">
+  <h2>Driver</h2>
+</div>
+
+<div class="row info-box mx-3 justify-content-center">
+  <% if @ride.claimed? %>
+    <div class="ride-detail-profile">
+      <%= link_to user_path(@ride.driver) do %>
+        <%= image_tag @ride.driver.display_profile_picture, size: "100", class: "round mb-3" %>
+        <h3><%= @ride.driver.full_name.titleize %></h3>
+      <% end %>
+    </div>
+
+    <% if @ride.vehicle.present? %>
+      <div class="col-sm-8">
+        <p class="mt-3"><strong>Vehicle: </strong> <%= "#{@ride.vehicle.color.titleize} #{@ride.vehicle.year} #{@ride.vehicle.make.titleize} #{@ride.vehicle.model.titleize}" %></p>
+        <p><strong>License Plate: </strong> <%= "#{@ride.vehicle.license_plate}" %></p>
+      </div>
+    <% end %>
+
+  <% else %>
+    <div class="ride-detail-profile">
+      <%= image_tag asset_path("no-profile.jpg"), size: "100", class: "round mb-3" %>
+      <h3>This ride is still awaiting a driver.</h3>
+    </div>
+
+  <% end %>
+</div>
+
+<!-- Buttons -->
+
+<% unless @ride.archived? %>
+  <div class="row justify-content-center mt-5">
+    <% if @ride.requester_id == current_user.id && @ride.incomplete? %>
+      <%= link_to "Edit Ride", edit_ride_path(@ride), method: :get, class: "primary-button app-button mb-3" %>
+      <%= link_to "Delete Ride", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "secondary-button app-button" %>
+
+    <% elsif current_user.driver? %>
+      <% if @ride.unclaimed? %>
+        <%= javascript_pack_tag "rides", 'data-turbolinks-track': 'reload', defer: true %>
+        <%= driver_claim_button %>
+
+        <% if current_user.vehicles.any? %>
+          <div id="vehicle-select" class="text-center">
+            <%= form_for @ride, method: :patch do |f| %>
+              <%= f.hidden_field :driver_id, value: current_user.id %>
+              <%= f.hidden_field :claimed, value: true %>
+                <%= f.label :vehicle_id, "Which vehicle will you be driving?" %>
+                <%= f.select :vehicle_id, options_from_collection_for_select(current_user.vehicles, :id, :easy_name) %>
+              <%= f.submit "Claim Ride With This Vehicle", class: "primary-button app-button" %>
+            <% end %>
+          </div>
+        <% else %>
+          <div id="vehicle-add" class="text-center">
+            <p><em>You haven't added any vehicles yet. Click the button below to get started!</em></p>
+            <%= link_to "Add A Vehicle", new_user_vehicle_path(current_user), method: :get, class: "primary-button app-button" %>
+          </div>
+        <% end %>
+
+      <% else %>
+        <% if current_user == @ride.driver && @ride.incomplete? %>
+          <%= link_to "Complete Ride", ride_path(@ride, ride: { completed: true }), method: :patch, class: "primary-button app-button", data: { confirm: "Are you sure you want to complete this ride?" } %>
+          <%= link_to "Unclaim Ride", ride_path(@ride, ride: { claimed: false, driver_id: nil, vehicle_id: nil }), class: "secondary-button app-button mt-3", method: :patch %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if current_user.admin? && @ride.claimed? && @ride.incomplete? && current_user.id != @ride.driver_id %>
+      <%= link_to "Complete Ride (Admin Override)", ride_path(@ride, ride: { completed: true }), method: :patch, class: "primary-button app-button", data: { confirm: "Are you sure you want to complete this ride?" } %>
+    <% end %>
+
+    <% if current_user.admin? && @ride.unarchived? %>
+      <%= link_to "Delete Ride (Admin Override)", ride_path(@ride), method: :delete, data: { confirm: "Are you sure you want to delete this ride?" }, class: "secondary-button app-button mt-3" %>
+    <% end %>
+  </div>
 <% end %>

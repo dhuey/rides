@@ -2,7 +2,8 @@ class Vehicle < ApplicationRecord
   belongs_to :user
   has_many :ride
   def easy_name
-    "#{self.year} #{self.color} #{self.make} #{self.model}"
+    new_name = "#{self.color} #{self.year} #{self.make} #{self.model}"
+    new_name.titleize
   end
 
   def active_rides?
