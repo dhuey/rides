@@ -30,6 +30,10 @@ li {
   font-weight: 100;
 }
 
+h3 {
+  font-size: 20px;
+}
+
 .primary-button {
   background-image: $brand-gradient;
   color: white;
@@ -198,6 +202,36 @@ label {
 
 .login-form {
   margin-top: 1rem;
+}
+
+.dashboard-img {
+  margin-top: 2rem
+}
+
+.dashboard-profile {
+  margin-top: -4rem;
+  margin-bottom: 2rem;
+  box-shadow: $standard-shadow;
+}
+
+.app-button {
+  width: 90%;
+  display: inline-block;
+  max-width: 400px;
+}
+
+.app-info {
+  margin: 0rem 1rem;
+}
+
+.not-found-img {
+  max-width: 300px;
+}
+
+@include media-breakpoint-down(lg) {
+  h3 {
+    font-size: 16px;
+  }
 }
 
 .alert {

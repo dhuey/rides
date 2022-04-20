@@ -7,18 +7,32 @@
 }
 
 .ride-box {
-  // border: 1px solid $accent-color;
-  // border-left: 0px;
-  // border-right: 0px;
-  color: black;
-  margin-bottom: 2em;
-  padding-left: .5em;
-  padding-right: .5em;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  max-height: 150px;
+  transition: transform 300ms ease-in-out;
 }
+
+.ride-box:hover {
+  transform: scale(1.05);
+}
+
+@include media-breakpoint-down(sm) {
+  .ride-box {
+    padding: 1rem;
+  }
+
+  .ride-box p {
+    font-size: 14px;
+  }
+}
+
 
 .ride-image {
   img {
     width: 90%;
+    max-width: 100px;
+    max-height: 100px;
   }
 }
 

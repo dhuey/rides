@@ -1,2 +1,7 @@
-<%= button_to "Request a ride", new_ride_path, method: :get, class: "advance-btn" %>
-<%= button_to "Your rides", rides_path, method: :get, class: "advance-btn" %>
+<div class="row text-center mt-3">
+  <%= link_to new_ride_path do %>
+    <div class="primary-button app-button">
+      Request A Ride
+    </div>
+  <% end %>
+</div>
