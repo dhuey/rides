@@ -9,9 +9,11 @@ module RidesHelper
         "Your ride for #{ride.formatted_pickup_time} is still awaiting a driver."
       end
     else
-      if ride.completed?
+      if not ride.claimed?
+        "#{ride.requester.full_name} requested a ride for #{pluralize(ride.number_of_passengers, "passenger")} for #{ride.formatted_pickup_time}"
+      elsif ride.completed?
         "You gave #{ride.requester.full_name} a ride on #{ride.formatted_pickup_time}."
-      else
+      elsif ride.claimed && current_user.id == ride.driver.id
         "You are scheduled to give #{ride.requester.full_name} a ride on #{ride.formatted_pickup_time}."
       end
     end
@@ -43,5 +45,13 @@ module RidesHelper
     else
       link_to "Claim Ride", "javascript:;", class: "primary-button app-button", id: "no-vehicle"
     end
+  end
+
+  def no_pending_rides
+    "There aren't any pending rides right now. Check back later!"
+  end
+
+  def no_previous_rides
+    "Sorry, it looks like you haven't #{current_user.international? ? "requested" : "given"} any rides yet."
   end
 end
