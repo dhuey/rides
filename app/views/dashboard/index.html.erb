@@ -9,7 +9,7 @@
 </div>
 
 <div class="row text-center">
-  <h1>Welcome, <%= current_user.first_name %></h1>
+  <h1>Welcome, <%= current_user.first_name.capitalize %></h1>
 </div>
 
 <% if current_user.driver? %>
@@ -36,7 +36,7 @@
         </div>
         <div class="col">
           <div class="row">
-            <h3><%= "#{ride.origin} to #{ride.destination}" %></h3>
+            <h3><%= "#{ride.origin.titleize} To #{ride.destination.titleize}" %></h3>
           </div>
           <div class="row">
             <p><%= ride_message(ride) %></p>
