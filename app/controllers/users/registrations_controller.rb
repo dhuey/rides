@@ -12,7 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
 
     resource.save
-    yield resource if block_given?
+
+    yield (resource) if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
@@ -27,7 +28,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
+
+      redirect_to new_user_registration_path, alert: redirected_error_alert(resource)
     end
   end
 
@@ -72,5 +74,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     signup_processes_path(resource)
+  end
+
+  def redirected_error_alert(resource)
+    errors = resource.errors.full_messages.each {|message| message}
+
+    errors.join(", ")
   end
 end
