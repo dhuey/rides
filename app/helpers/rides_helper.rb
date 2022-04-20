@@ -39,9 +39,9 @@ module RidesHelper
 
   def driver_claim_button
     if current_user.vehicles.any?
-      link_to "Claim ride", "javascript:;", class: "primary-button app-button", id: "which-vehicle"
+      link_to "Claim Ride", "javascript:;", class: "primary-button app-button", id: "which-vehicle"
     else
-      link_to "Claim ride", "javascript:;", class: "primary-button app-button", id: "no-vehicle"
+      link_to "Claim Ride", "javascript:;", class: "primary-button app-button", id: "no-vehicle"
     end
   end
 end
