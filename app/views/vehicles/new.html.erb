@@ -1,5 +1,11 @@
-<div class="sign-up-form">
-  <%= link_to "< Your profile", user_path(@user) %>
-  <h1 class="text-center">Add a vehicle</h1>
-  <%= render "form" %>
+<div class="row">
+  <div class="col">
+    <%= link_to "Back", user_path(@user), class: "primary-button back-button" %>
+  </div>
 </div>
+
+<div class="row text-center">
+  <h1>Add A Vehicle</h1>
+</div>
+
+<%= render "form", button: "Submit" %>

@@ -1,31 +1,21 @@
-<%= form_for @vehicle, url: @form_path, method: @form_action  do |f| %>
-  <%= render "devise/shared/error_messages", resource: @vehicle %>
-  <div class="field">
-    <%= f.label :year, class: "sign-up-label" %>
-    <%= f.text_field :year, autocomplete: "email", class: "login-field sign-up-field" %>
-  </div>
+<div class="row sign-up-form">
+  <%= form_for @vehicle, url: @form_path, method: @form_action  do |f| %>
+    <%= render "devise/shared/error_messages", resource: @vehicle %>
+      <%= f.label :year, class: "sign-up-label" %>
+      <%= f.text_field :year, autocomplete: "email", class: "sign-up-field" %>
 
-  <div class="field">
-    <%= f.label :color, class: "sign-up-label" %>
-    <%= f.text_field :color, class: "login-field sign-up-field" %>
-  </div>
+      <%= f.label :color, class: "sign-up-label" %>
+      <%= f.text_field :color, class: "sign-up-field" %>
 
-  <div class="field">
-    <%= f.label :make, class: "sign-up-label" %>
-    <%= f.text_field :make, class: "login-field sign-up-field" %>
-  </div>
+      <%= f.label :make, class: "sign-up-label" %>
+      <%= f.text_field :make, class: "sign-up-field" %>
 
-  <div class="field">
-    <%= f.label :model, class: "sign-up-label" %>
-    <%= f.text_field :model, class: "login-field sign-up-field" %>
-  </div>
+      <%= f.label :model, class: "sign-up-label" %>
+      <%= f.text_field :model, class: "sign-up-field" %>
 
-  <div class="field">
-    <%= f.label :license_plate, class: "sign-up-label" %>
-    <%= f.text_field :license_plate, class: "login-field sign-up-field" %>
-  </div>
+      <%= f.label :license_plate, class: "sign-up-label" %>
+      <%= f.text_field :license_plate, class: "sign-up-field" %>
 
-  <div class="actions d-flex justify-content-center">
-    <%= f.submit "Save", class: "advance-btn" %>
-  </div>
-<% end %>
+      <%= f.submit button, class: "primary-button app-button" %>
+  <% end %>
+</div>

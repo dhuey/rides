@@ -1,8 +1,22 @@
-<%= link_to "< Your profile", user_path(@user) %>
-<h1><%= "#{@user.first_name}'s #{@vehicle.make} #{@vehicle.model}" %></h1>
-<p>Year: <%= @vehicle.year %></p>
-<p>Color: <%= @vehicle.color %></p>
-<p>License plate: <%= @vehicle.license_plate %></p>
+<div class="row">
+  <div class="col">
+    <%= link_to "Back", user_path(@user), class: "primary-button back-button" %>
+  </div>
+</div>
 
-<%= button_to "Edit vehicle", edit_user_vehicle_path(@user, @vehicle), method: :get, class: "blue" %>
-<%= button_to "Delete vehicle", user_vehicle_path(@user, @vehicle), method: :delete, class: "red" %>
+<div class="row text-center mx-3 mb-5">
+  <h1><%= "#{@user.first_name.capitalize}'s #{@vehicle.color.titleize} #{@vehicle.make.titleize} #{@vehicle.model.titleize}" %></h1>
+</div>
+
+<div class="row justify-content-center info-box app-info">
+  <div class="col-sm-8">
+    <p><strong>Year:</strong> <%= @vehicle.year %></p>
+  <p><strong>Color:</strong> <%= @vehicle.color.titleize %></p>
+  <p><strong>License Plate:</strong> <%= @vehicle.license_plate %></p>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+  <%= link_to "Edit Vehicle", edit_user_vehicle_path(@user, @vehicle), method: :get, class: "primary-button app-button" %>
+  <%= link_to "Delete Vehicle", user_vehicle_path(@user, @vehicle), method: :delete, class: "secondary-button app-button mt-3" %>
+</div>
