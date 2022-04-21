@@ -1,19 +1,19 @@
 <div class="row sign-up-form">
   <%= form_for @vehicle, url: @form_path, method: @form_action  do |f| %>
     <%= render "devise/shared/error_messages", resource: @vehicle %>
-      <%= f.label :year, class: "sign-up-label" %>
+      <%= f.label :year %>
       <%= f.text_field :year, autocomplete: "email", class: "sign-up-field" %>
 
-      <%= f.label :color, class: "sign-up-label" %>
+      <%= f.label :color %>
       <%= f.text_field :color, class: "sign-up-field" %>
 
-      <%= f.label :make, class: "sign-up-label" %>
+      <%= f.label :make %>
       <%= f.text_field :make, class: "sign-up-field" %>
 
-      <%= f.label :model, class: "sign-up-label" %>
+      <%= f.label :model %>
       <%= f.text_field :model, class: "sign-up-field" %>
 
-      <%= f.label :license_plate, class: "sign-up-label" %>
+      <%= f.label :license_plate %>
       <%= f.text_field :license_plate, class: "sign-up-field" %>
 
       <%= f.submit button, class: "primary-button app-button" %>

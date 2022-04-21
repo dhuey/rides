@@ -22,16 +22,16 @@
 
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <%= f.label :email, class: "sign-up-label" %>
+    <%= f.label :email %>
     <%= f.email_field :email, autocomplete: "email", class: "sign-up-field" %>
 
-    <%= f.label :password, class: "sign-up-label" %>
+    <%= f.label :password %>
       <% if @minimum_password_length %>
       <em><span class="small-text">(<%= @minimum_password_length %> characters minimum)</span></em>
       <% end %>
     <%= f.password_field :password, autocomplete: "new-password", class: "sign-up-field" %>
 
-    <%= f.label :password_confirmation, class: "sign-up-label" %>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "sign-up-field" %>
 
     <div class="actions d-flex justify-content-center">

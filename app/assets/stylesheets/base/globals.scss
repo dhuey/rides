@@ -244,104 +244,17 @@ label {
   border-radius: $standard-border-radius;
 }
 
-@include media-breakpoint-down(lg) {
-  h3 {
-    font-size: 16px;
-  }
-}
-
 .alert {
   width: 100%;
-}
-
-.advance-btn {
-  display: inline-block;
-  color: white;
-  background-color: $brand-color;
-  border-radius: 1em;
-  border: none;
-  padding: .2em 1.2em;
-  margin-bottom: 1em;
-  font-weight: bold;
-  height: 42px;
-}
-
-.advance-btn:hover, .advance-btn:active {
-  background-color: #1F50C3;
-}
-
-.login-field {
-  border: 1px solid $accent-color;
-  border-radius: 1em;
-  padding-left: 1em;
-  background-color: white;
-  text-align: center;
-  width: 90%;
-  max-width: 350px;
-  margin-bottom: .8em;
-  min-height: 28px;
 }
 
 .sign-up-field {
   width: 100% !important;
 }
-.remember {
-  margin-bottom: 1em;
-  margin-left: .4em;
-}
 
 .small-text {
   font-size: .8em;
   line-height: .95em;
-}
-
-.display-title {
-  margin-top: 3em;
-  margin-bottom: .6em;
-}
-
-.display-none {
-  display: none;
-}
-
-.green {
-  color: green;
-  @include wide-button;
-}
-
-.red {
-  color: red;
-  @include wide-button;
-  margin-top: -1px;
-}
-
-.blue {
-  color: $brand-color;
-  @include wide-button;
-}
-
-.blue-link {
-  @include wide-button;
-  color: $brand-color;
-  display: block;
-  text-align: center;
-  padding-top: .5em;
-}
-
-.green:hover {
-  background-color: #f4f4f4;
-}
-
-.blue:hover {
-  background-color: #f4f4f4;
-}
-
-.red:hover {
-  background-color: #f4f4f4;
-}
-
-.next-link {
-  padding-top: .5em;
 }
 
 .type-select {
@@ -368,4 +281,10 @@ label {
 
 .type-select label {
   cursor: pointer;
+}
+
+@include media-breakpoint-down(lg) {
+  h3 {
+    font-size: 16px;
+  }
 }

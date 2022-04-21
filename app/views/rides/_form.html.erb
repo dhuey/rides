@@ -3,24 +3,24 @@
   <%= form_for @ride do |f| %>
     <%= render "devise/shared/error_messages", resource: @ride %>
 
-      <%= f.label :origin, "Where are you now?", class: "sign-up-label" %>
+      <%= f.label :origin, "Where are you now?" %>
       <%= f.text_field :origin, class: "sign-up-field" %>
 
 
-      <%= f.label :destination, "Where do you need to go?", class: "sign-up-label" %>
+      <%= f.label :destination, "Where do you need to go?" %>
       <%= f.text_field :destination, class: "sign-up-field" %>
 
     <div id="time-wrap">
-      <%= f.label :pickup_time, "What time do you need a ride?", class: "sign-up-label" %>
+      <%= f.label :pickup_time, "What time do you need a ride?" %>
       <%= f.text_field :pickup_time, class: "timepicker sign-up-field", autocomplete: "off" %>
     </div>
 
 
-      <%= f.label :number_of_passengers, "How many passengers?", class: "sign-up-label" %>
+      <%= f.label :number_of_passengers, "How many passengers?" %>
       <%= f.text_field :number_of_passengers, class: "sign-up-field" %>
 
 
-      <%= f.label :notes, "Anything else we need to know?", class: "sign-up-label" %>
+      <%= f.label :notes, "Anything else we need to know?" %>
       <%= f.text_area :notes, class: "sign-up-field" %>
 
       <%= f.submit "Submit", class: "primary-button" %>

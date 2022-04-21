@@ -23,16 +23,16 @@
 
   <div class="row info-box mx-3 justify-content-center user-box">
     <div class="col-sm-8">
-      <%= f.label :email, class: "sign-up-label" %>
+      <%= f.label :email %>
       <%= f.email_field :email, autocomplete: "email", class: "sign-up-field" %>
 
-      <%= f.label :phone_number, class: "sign-up-label" %>
+      <%= f.label :phone_number %>
       <%= f.phone_field :phone_number, class: "sign-up-field" %>
 
-      <%= f.label :alternate_contact_method, class: "sign-up-label" %>
+      <%= f.label :alternate_contact_method %>
       <%= f.select :alternate_contact_method, options_for_select(contact_methods(@user)), class: "sign-up-field" %>
 
-      <%= f.label :alternate_contact_name, class: "sign-up-label" %>
+      <%= f.label :alternate_contact_name %>
       <%= f.text_field :alternate_contact_name, class: "sign-up-field" %>
     </div>
   </div>
@@ -47,7 +47,7 @@
       <p>Joined LINK Rides on <%= @user.create_date %></p>
 
       <% if @user.driver? %>
-        <%= f.label :ministry, class: "sign-up-label" %>
+        <%= f.label :ministry %>
         <%= f.text_field :ministry, class: "sign-up-field" %>
       <% else %>
         <%= f.label :email_interest, "I would like to receive information about events for international students", class: "light-label" %>
@@ -55,7 +55,7 @@
       <% end %>
 
       <% if current_user.admin? %>
-        <%= f.label :gender, class: "sign-up-label" %>
+        <%= f.label :gender %>
         <%= f.select :gender, options_for_select([["#{@user.gender.capitalize}", "#{@user.gender}"], ["#{opposite_gender(@user).capitalize}", "#{opposite_gender(@user)}"]]), class: "sign-up-field" %><br>
 
         <%= f.label :driver_verified, "Driver verified?", class: "light-label" %>
