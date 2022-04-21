@@ -10,6 +10,7 @@ LINK Rides is a ride-sharing web application designed to connect international s
 * Bootstrap CSS framework
 * SASS
 * PostgreSQL for the database
+* Rspec for testing
 * A pinch of custom JavaScript
 * A few calls to the GroupMe Bots API
 
@@ -39,6 +40,11 @@ Additionally, you'll need to reach out to myself, [Dalton Huey](https://github.c
 * Postgres and a PostgreSQL server
 * Node
 * Yarn
+
+##### A word about emails
+LINK Rides uses the `letter_opener` gem to handle viewing emails in the development and staging environments. In a local development environment, `letter_opener` will open a new tab with the email content whenever an email is sent.
+
+In the staging environment, emails can be viewed at http://link-rides-staging.herokuapp.com/letter_opener in a mock inbox.
 
 ### 📖 The Story
 In my time working with International LINK, and ministry that serves international students, I was tasked with creating a personal project. I noticed that the public transportation system in Manhattan was lacking, and that many international students came to our city and struggled to get around.
