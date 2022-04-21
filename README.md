@@ -2,6 +2,7 @@
 LINK Rides is a ride-sharing web application designed to connect international students in Manhattan, Kansas with volunteer drivers. It has over 200 users and has been the platform responsible for over 100 rides given to international students in the Manhattan, Kansas community.
 
 **Production:** [link-rides.com](https://link-rides.com)
+
 **Staging:** [link-rides-staging.herokuapp.com](http://link-rides-staging.herokuapp.com)
 
 ---
