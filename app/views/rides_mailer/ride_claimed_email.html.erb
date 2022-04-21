@@ -1,6 +1,6 @@
 <tr><td><h1>Hello <%= @user.first_name %>,</h1></td></tr>
 
-  <tr><td style="padding:12px 0px;"><%= @ride.driver.full_name %> has claimed your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %></td></tr>
+  <tr><td style="padding:12px 0px;"><%= @ride.driver.full_name %> has claimed your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %>.</td></tr>
 
   <tr><td style="padding:12px 0px;"><%= @ride.driver.gender == "male" ? "He" : "She" %> will be driving a <%= "#{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model} with license plate number: #{@ride.vehicle.license_plate}." %></td></tr>
 
