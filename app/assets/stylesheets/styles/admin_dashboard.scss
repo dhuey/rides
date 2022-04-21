@@ -2,14 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .admin-section {
-  border: 3px solid $accent-color;
-  margin-bottom: .5em;
+  margin-bottom: 2em;
   min-height: 42px;
-  padding-top: .2em;
 }
 
 .admin-number {
   font-weight: bold;
   font-size: 3em;
-  margin-top: -1em;
 }

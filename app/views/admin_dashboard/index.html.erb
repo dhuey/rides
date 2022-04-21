@@ -1,27 +1,35 @@
-<%= link_to "< Home", dashboard_path %>
-<h1 class="text-center">Admin Dashboard</h1>
+<div class="row">
+  <div class="col">
+    <%= link_to "Back", dashboard_path, class: "primary-button back-button" %>
+  </div>
+</div>
 
-<div class="admin-section text-center">
-  <span><em>Pending rides</em></span><br>
+<div class="row text-center">
+  <h1>Admin Dashboard</h1>
+</div>
+
+
+<div class="row admin-section info-box text-center">
+  <h2>Pending Rides</h2><br>
   <span class="admin-number"><%= pending_rides_count %></span>
 </div>
-<div class="admin-section text-center">
-  <span><em>Unverified drivers</em></span><br>
+<div class="row admin-section info-box text-center">
+  <h2>Unverified Drivers</h2><br>
   <span class="admin-number"><%= link_to "#{valid_unverified_drivers_count}", unverified_drivers_path %></span>
 </div>
-<div class="admin-section text-center">
-  <span><em>International users</em></span><br>
+<div class="row admin-section info-box text-center">
+  <h2>International Users</h2><br>
   <span class="admin-number"><%= international_users_count %></span>
 </div>
-<div class="admin-section text-center">
-  <span><em>New international users last 7 days</em></span><br>
+<div class="row admin-section info-box text-center">
+  <h2>New International Users Last 7 Days</h2><br>
   <span class="admin-number"><%= new_international_users_count %></span>
 </div>
-<div class="admin-section text-center">
-  <span><em>Completed rides last 7 days</em></span><br>
+<div class="row admin-section info-box text-center">
+  <h2>Completed Rides Last 7 Days</h2><br>
   <span class="admin-number"><%= completed_rides_this_week_count %></span>
 </div>
-<div class="admin-section text-center">
-  <span><em>Completed rides to date</em></span><br>
+<div class="row admin-section info-box text-center">
+  <h2>Completed Rides To Date</h2><br>
   <span class="admin-number"><%= completed_rides_count %></span>
 </div>
