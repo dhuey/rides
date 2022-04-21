@@ -52,7 +52,7 @@ Additionally, you'll need to reach out to myself, [Dalton Huey](https://github.c
 * Node
 * Yarn
 
-##### A word about emails
+#### A word about emails
 LINK Rides uses the `letter_opener` gem to handle viewing emails in the development and staging environments. In a local development environment, `letter_opener` will open a new tab with the email content whenever an email is sent.
 
 In the staging environment, emails can be viewed at http://link-rides-staging.herokuapp.com/letter_opener in a mock inbox.
