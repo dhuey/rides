@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Hey <%= @user.first_name %>,</h1>
+<tr><td><h1>Hey <%= @user.first_name %>,</h1></td></tr>
 
-    <p>We noticed you had claimed a ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.requester.full_name %>, but that the ride wasn't completed in our system. Could you use the link above to complete the ride? Or, if you didn't end up giving the ride, could you take a moment to reply to this email and let us know what happened? We'd really appreciate it.</p>
+<tr><td style="padding: 12px 0px;">We noticed you had claimed a ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.requester.full_name %>, but that the ride wasn't completed in our system. Could you use the link above to complete the ride? Or, if you didn't end up giving the ride, could you take a moment to reply to this email and let us know what happened? We'd really appreciate it.</td>
 
-    <p>Thank you so much for serving internationals in our community!</p>
+<tr><td style="padding: 12px 0px;">Thank you so much for serving internationals in our community!</td>
 
-    <p>Best,<br>
-      LINK Rides</p>
-  </body>
-</html>
+<tr><td style="padding: 12px 0px;">Best,<br>
+  LINK Rides</td>

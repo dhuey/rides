@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Hello <%= @user.first_name %>,</h1>
+<tr><td><h1>Hello <%= @user.first_name %>,</h1></td></tr>
 
-    <p><%= @ride.driver.full_name %> has claimed your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %></p>
+  <tr><td style="padding:12px 0px;"><%= @ride.driver.full_name %> has claimed your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %></td></tr>
 
-    <p><%= @ride.driver.gender == "male" ? "He" : "She" %> will be driving a <%= "#{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model} with license plate number: #{@ride.vehicle.license_plate}." %></p>
+  <tr><td style="padding:12px 0px;"><%= @ride.driver.gender == "male" ? "He" : "She" %> will be driving a <%= "#{@ride.vehicle.color} #{@ride.vehicle.make} #{@ride.vehicle.model} with license plate number: #{@ride.vehicle.license_plate}." %></td></tr>
 
-    <p>We hope you all have a good time!</p>
+  <tr><td style="padding:12px 0px;">We hope you all have a good time!</td></tr>
 
-    <p>Best,<br>
-      LINK Rides</p>
-  </body>
-</html>
+  <tr><td style="padding:12px 0px;">Best,<br>
+    LINK Rides</td></tr>

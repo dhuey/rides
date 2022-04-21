@@ -1,5 +1,7 @@
-<p>Welcome to LINK Rides, <%= @email %>!</p>
+<tr><td><h1>Welcome to LINK Rides, <%= @email %>!</h1></td></tr>
 
-<p>You can confirm your account email through the link below:</p>
+<tr><td style="padding: 12px 0px;">You can confirm your account email through the link below:</td></tr>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<tr><td style="padding: 12px 0px;"><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></td></tr>
+
+<tr><td style="padding: 12px 0px;">Best,<br>LINK Rides</td></tr>

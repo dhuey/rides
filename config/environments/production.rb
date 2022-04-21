@@ -67,6 +67,7 @@ Rails.application.configure do
     :host => "link-rides.com",
     :protocol => 'https'
   }
+  config.action_mailer.asset_host = "https://link-rides.com"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.sendgrid.net',
