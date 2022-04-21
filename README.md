@@ -4,6 +4,7 @@ LINK Rides is a ride-sharing web application designed to connect international s
 **Production:** [link-rides.com](https://link-rides.com)
 **Staging:** [link-rides-staging.herokuapp.com](http://link-rides-staging.herokuapp.com)
 
+---
 
 ### 🛠 Tech Stack
 * Ruby on Rails
@@ -18,7 +19,9 @@ LINK Rides is a ride-sharing web application designed to connect international s
 * A pinch of custom JavaScript
 * A few calls to the GroupMe Bots API
 
-#### How It Works
+---
+
+### ⚙️ How It Works
 When a user signs up, they indicate whether they are an international student or a driver. When an international student requests a ride, we call the GroupMe API and post a message in the corresponding GroupMe chat (male or female)*. After being manually verified by the LINK Rides admin team, drivers are inducted into the GroupMe and allowed to see these ride request messages.
 
 From there, a driver clicks on the link in the GroupMe and is taken to the ride details page. If they decide to claim** the ride, they will either select which vehicle they will be driving or be prompted to create a new one. Once the ride is claimed, the international student will receive an email notification detailing who their driver is and what vehicle they will be driving.
@@ -31,7 +34,10 @@ After the ride has been given, drivers go back to LINK Rides and mark the ride a
 
 **A claimed ride means that the ride now "belongs" to the driver, and is no longer claimable by other drivers.
 
-#### For Developers
+
+---
+
+### 🖥 For Developers
 LINK Rides operates on a fairly standard Ruby on Rails development environment.
 
 We're currently running `Ruby v2.6.5` and `Rails 6.0.0`.
@@ -49,6 +55,8 @@ Additionally, you'll need to reach out to myself, [Dalton Huey](https://github.c
 LINK Rides uses the `letter_opener` gem to handle viewing emails in the development and staging environments. In a local development environment, `letter_opener` will open a new tab with the email content whenever an email is sent.
 
 In the staging environment, emails can be viewed at http://link-rides-staging.herokuapp.com/letter_opener in a mock inbox.
+
+---
 
 ### 📖 The Story
 In my time working with International LINK, and ministry that serves international students, I was tasked with creating a personal project. I noticed that the public transportation system in Manhattan was lacking, and that many international students came to our city and struggled to get around.
