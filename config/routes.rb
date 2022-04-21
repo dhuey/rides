@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-    resources :rides
+    resources :rides, except: [:index]
     get "dashboard", to: "dashboard#index"
     get "pending_rides", to: "pending_rides#index"
     get "terms_and_conditions", to: "terms_and_conditions#index"
