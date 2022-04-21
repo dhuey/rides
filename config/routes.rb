@@ -22,9 +22,11 @@ Rails.application.routes.draw do
     end
 
     resources :signup_processes
+
+    match '*a', to: 'application#app_not_found', via: :get
   end
 
-
-
-  # match '*a', to: 'application#not_found', via: :get
+  get '/404', to: 'errors#not_found', via: :all
+  get '/500', to: 'errors#internal_server', via: :all
+  get '/422', to: 'errors#unprocessable', via: :all
 end
