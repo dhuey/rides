@@ -26,7 +26,7 @@
           <%= javascript_pack_tag "profileUploader", 'data-turbolinks-track': 'reload', defer: true %>
           <%= image_tag(@user.display_profile_picture, size: "100", class: "round profile-upload", id: "profile-image") %>
           <div class="profile-uploader-button">
-            <%= icon("fa-solid" "pencil" %>
+            <%= icon("fa-solid", "pencil") %>
           </div>
         <% end %>
       </div><br>
@@ -44,8 +44,7 @@
       <%= f.label :phone_number %>
       <%= f.phone_field :phone_number, class: "sign-up-field" %>
 
-    <% if @user.international? %>
-      <%= f.label :nationality %>
+      <%= f.label :nationality, "Home country" %>
       <%= f.text_field :nationality, class: "sign-up-field" %>
 
       <%= f.label :alternate_contact_method %><br>
@@ -54,6 +53,7 @@
       <%= f.label :alternate_contact_name %>
       <%= f.text_field :alternate_contact_name, class: "sign-up-field" %>
 
+    <% if @user.international? %>
       <%= f.label :email_interest, "I would like to receive information about events for international students", class: "light-label" %>
       <%= f.check_box :email_interest %>
     <% else %>
