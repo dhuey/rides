@@ -5,6 +5,16 @@
   margin-top: -1px;
 }
 
-.round {
-  border-radius: 50%;
+.user-box i {
+  margin-right: 1rem;
+}
+
+.user-profile-button {
+  left: 44%
+}
+
+@include media-breakpoint-down(sm) {
+  .user-profile-button {
+    left: 42%;
+  }
 }

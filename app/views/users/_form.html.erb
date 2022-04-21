@@ -1,61 +1,73 @@
 <%= form_for @user do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
-  <div class="field">
-    <div class="text-center mb-2">
-      <%= image_tag(@user.display_profile_picture, size: "100", class: "round") %><br>
+
+  <div class="row text-center profile-image-container">
+    <%= f.label :profile_picture do %>
+      <%= javascript_pack_tag "profileUploader", 'data-turbolinks-track': 'reload', defer: true %>
+      <%= image_tag(@user.display_profile_picture, size: "100", class: "round profile-upload", id: "profile-image") %>
+      <div class="profile-uploader-button user-profile-button">
+        <%= icon("fa-solid", "pencil") %>
+      </div>
+    <% end %>
+    <br>
+    <%= f.file_field :profile_picture, class: "sign-up-field"%>
+  </div>
+
+  <div class="row text-center">
+    <h1><%= @user.full_name %></h1>
+  </div>
+
+  <div class="row mx-3">
+    <h2>Contact</h2>
+  </div>
+
+  <div class="row info-box mx-3 justify-content-center user-box">
+    <div class="col-sm-8">
+      <%= f.label :email, class: "sign-up-label" %>
+      <%= f.email_field :email, autocomplete: "email", class: "sign-up-field" %>
+
+      <%= f.label :phone_number, class: "sign-up-label" %>
+      <%= f.phone_field :phone_number, class: "sign-up-field" %>
+
+      <%= f.label :alternate_contact_method, class: "sign-up-label" %>
+      <%= f.select :alternate_contact_method, options_for_select(contact_methods(@user)), class: "sign-up-field" %>
+
+      <%= f.label :alternate_contact_name, class: "sign-up-label" %>
+      <%= f.text_field :alternate_contact_name, class: "sign-up-field" %>
     </div>
-    <%= f.label :profile_picture, class: "sign-up-label" %>
-    <%= f.file_field :profile_picture, class: "sign-up-field" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email, class: "sign-up-label" %>
-    <%= f.email_field :email, autocomplete: "email", class: "login-field sign-up-field" %>
+  <div class="row mx-3 mt-5">
+    <h2>About</h2>
   </div>
+  <div class="row info-box mx-3 justify-content-center user-box">
+    <div class="col-sm-8">
+      <p><strong>Home Country:</strong> <%= @user.nationality.titleize || "None Set" %></p>
+      <p><strong>Total Rides:</strong> <%= @user.rides.count %></p>
+      <p>Joined LINK Rides on <%= @user.create_date %></p>
 
-  <div class="field">
-    <%= f.label :phone_number, class: "sign-up-label" %>
-    <%= f.phone_field :phone_number, class: "login-field sign-up-field" %>
-  </div>
+      <% if @user.driver? %>
+        <%= f.label :ministry, class: "sign-up-label" %>
+        <%= f.text_field :ministry, class: "sign-up-field" %>
+      <% else %>
+        <%= f.label :email_interest, "I would like to receive information about events for international students", class: "light-label" %>
+        <%= f.check_box :email_interest %>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :alternate_contact_method, class: "sign-up-label" %>
-    <%= f.select :alternate_contact_method, options_for_select(contact_methods(@user)), class: "login-field sign-up-field" %>
-  </div>
+      <% if current_user.admin? %>
+        <%= f.label :gender, class: "sign-up-label" %>
+        <%= f.select :gender, options_for_select([["#{@user.gender.capitalize}", "#{@user.gender}"], ["#{opposite_gender(@user).capitalize}", "#{opposite_gender(@user)}"]]), class: "sign-up-field" %><br>
 
-  <div class="field">
-    <%= f.label :alternate_contact_name, class: "sign-up-label" %>
-    <%= f.text_field :alternate_contact_name, class: "login-field sign-up-field" %>
-  </div>
+        <%= f.label :driver_verified, "Driver verified?", class: "light-label" %>
+        <%= f.check_box :driver_verified, class: "inline" %><br>
 
-  <% if @user.driver? %>
-    <div class="field">
-      <%= f.label :ministry, class: "sign-up-label" %>
-      <%= f.text_field :ministry, class: "login-field sign-up-field" %>
+        <%= f.label :admin, "Administrator?", class: "light-label" %>
+        <%= f.check_box :admin, class: "inline" %>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="field" style="margin-top: .8em; line-height: 1em;">
-    <%= f.label :email_interest, "I would like to receive information about events for international students", class: "sign-up-label" %>
-    <%= f.check_box :email_interest %>
   </div>
 
-  <% if @current_user.admin? %>
-    <div class="field">
-      <%= f.label :gender, class: "sign-up-label" %>
-      <%= f.select :gender, options_for_select([["#{@user.gender.capitalize}", "#{@user.gender}"], ["#{opposite_gender(@user).capitalize}", "#{opposite_gender(@user)}"]])%>
-    </div>
-    <div class="field" style="margin-top: .8em; line-height: 1em;">
-      <%= f.label :driver_verified, "Driver verified?", class: "sign-up-label" %>
-      <%= f.check_box :driver_verified %>
-    </div>
-    <div class="field" style="margin-top: .8em; line-height: 1em;">
-      <%= f.label :admin, "Administrator?", class: "sign-up-label" %>
-      <%= f.check_box :admin %>
-    </div>
-  <% end %>
-
-  <div class="actions d-flex justify-content-center">
-    <%= f.submit "Save", class: "advance-btn" %>
+  <div class="row justify-content-center mx-3">
+    <%= f.submit "Save", class: "primary-button app-button" %>
   </div>
 <% end %>

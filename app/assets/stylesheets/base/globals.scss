@@ -85,6 +85,14 @@ h3 {
   color: black;
 }
 
+.info-box i {
+  color: $brand-color;
+}
+
+.round {
+  border-radius: 50%;
+}
+
 .border-none {
   border: none;
 }

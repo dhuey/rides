@@ -1,5 +1,7 @@
-<div class="sign-up-form">
-  <%= user_back_button(@user) %>
-  <h1 class="text-center">Edit your profile</h1>
-  <%= render "form" %>
+<div class="row">
+  <div class="col">
+    <%= link_to "Cancel", user_path(@user), class: "primary-button back-button" %>
+  </div>
 </div>
+
+<%= render "form" %>

@@ -92,4 +92,12 @@ class User < ApplicationRecord
       "no-profile.jpg"
     end
   end
+
+  def rides
+    Ride.where(driver_id: self.id).or(Ride.where(requester_id: self.id))
+  end
+
+  def create_date
+    self.created_at.strftime("%b %d, %Y")
+  end
 end
