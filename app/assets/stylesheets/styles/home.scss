@@ -60,7 +60,6 @@
 
 iframe {
   width: 100%;
-  aspect-ratio: 16/9;
 }
 
 .cta-image {
@@ -114,3 +113,5 @@ footer p {
     margin-top: 4rem;
   }
 }
+
+@include media-breakpoint-up(x)
