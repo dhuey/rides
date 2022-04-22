@@ -35,11 +35,6 @@ module UsersHelper
         dashboard_path
       end
     end
-    # if request.referrer && URI(request.referrer).path == ("/app/users/#{params[:id]}/edit" || "app/users"
-    #   dashboard_path
-    # else
-    #   :back
-    # end
   end
 
   def alt_contact_icon(user)
