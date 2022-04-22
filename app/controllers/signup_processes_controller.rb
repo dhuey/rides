@@ -25,6 +25,9 @@ class SignupProcessesController < ApplicationController
       :nationality, :ministry, :international, :alternate_contact_method, :alternate_contact_name, :email_interest, :profile_picture)
   end
 
+  def finish_wizard_path
+    dashboard_path
+  end
   # def check_for_finished_profile
   #   raise current_user.signup_completed?.inspect
   #   if current_user && current_user.signup_completed?
