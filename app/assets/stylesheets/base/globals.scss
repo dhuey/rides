@@ -145,6 +145,7 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
   padding: 0.25rem 2rem;
   font-weight: 100;
   margin-bottom: 1rem;
+  -webkit-appearance: none;
 }
 
 input[type=submit] {
