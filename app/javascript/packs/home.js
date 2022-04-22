@@ -16,15 +16,20 @@ const resizeIframe = (iframe) => {
   iframe.style.height = newHeight;
 };
 
-// Need this because turbolinks:load isn't firing on initial page load
-document.addEventListener("DOMContentLoaded", () => {
+const setPageElements = () => {
+  navLinks.classList.remove("show");
+  navl.classList.remove("mobile-nav-links");
   resizeIframe(internationalVideo);
   resizeIframe(driverVideo);
+}
+
+// Need this because turbolinks:load isn't firing on initial page load
+document.addEventListener("DOMContentLoaded", () => {
+  setPageElements();
 });
 
 document.addEventListener("turbo:render", () => {
-  resizeIframe(internationalVideo);
-  resizeIframe(driverVideo);
+  setPageElements();
 });
 
 window.addEventListener("resize", () => {

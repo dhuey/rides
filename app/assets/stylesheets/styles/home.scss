@@ -21,6 +21,10 @@
   box-shadow: none;
 }
 
+#navbar-toggle-button {
+  min-height: 44px;
+}
+
 .hero-section {
   margin-top: 12rem;
 }
@@ -86,7 +90,7 @@ footer p {
 }
 
 .brand-logo {
-  min-height: 72px;
+  min-height: 72px !important;
 }
 
 @include media-breakpoint-down(lg) {
