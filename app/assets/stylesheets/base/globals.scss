@@ -181,6 +181,9 @@ label {
   line-height: .95em;
 }
 
+.shadow {
+  box-shadow: $standard-shadow;
+}
 .sign-up-form {
   width: 90%;
   max-width: 350px;
