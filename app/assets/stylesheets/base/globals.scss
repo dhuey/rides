@@ -261,9 +261,15 @@ label {
   line-height: .95em;
 }
 
+.type-label {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+}
+
 .type-select {
+  display: block;
   cursor: pointer;
-  margin-bottom: 2rem;
   transition: transform 300ms ease-in-out, color 300ms, background-color 300ms;
 }
 

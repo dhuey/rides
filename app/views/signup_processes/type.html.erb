@@ -14,24 +14,25 @@
     <%= render "devise/shared/error_messages", resource: @user %>
     <%= f.hidden_field :user, { :value => @current_user } %>
 
-    <div class="row info-box type-select text-center">
-      <%= f.radio_button :international, true, class: "type-radio" %>
-      <%= f.label :international, value: true do %>
+
+    <%= f.radio_button :international, true, class: "type-radio", data: { id: "international_true" } %>
+    <%= f.label :international, value: true do %>
+      <div class="row info-box type-select text-center" data-selected-id="international_true">
         <span class="h2">Yes</span><br>
         <span>I am an international student</span>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
-    <div class="row info-box type-select text-center">
-      <%= f.radio_button :international, false, class: "type-radio" %>
-      <%= f.label :international, value: false do %>
+
+    <%= f.radio_button :international, false, class: "type-radio", data: { id: "international_false" } %>
+    <%= f.label :international, value: false do %>
+      <div class="row info-box type-select text-center" data-selected-id="international_false">
         <span class="h2">No</span><br>
         <span>I am a driver</span>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
-    <div class="actions d-flex justify-content-center">
-      <%= f.submit "Next", class: "primary-button" %>
-    </div>
+      <%= f.submit "Next", class: "primary-button app-button" %>
+
   </div>
 <% end %>

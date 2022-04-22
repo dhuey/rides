@@ -33,14 +33,21 @@ document.addEventListener("turbolinks:load", () => {
     appendTo: window.document.querySelector('#time-wrap')
   })
 
+  const typeButtons = document.querySelectorAll('.type-select');
+
+  typeButtons.forEach(typeButton => { typeButton.parentElement.classList.add('type-label') });
+
   let checkedRadio = document.querySelector('.type-radio:checked');
   if (checkedRadio) {
-    checkedRadio.parentElement.classList.add('type-selected');
+    let labelDiv = document.querySelector(`[data-selected-id=${checkedRadio.dataset.id}]`)
+    labelDiv.classList.add('type-selected');
   };
 
   document.addEventListener("turbolinks:render", () => {
+    typeButtons.forEach(typeButton => { typeButton.parentElement.classList.add('type-label') });
+
     if (checkedRadio) {
-      checkedRadio.parentElement.classList.add('type-selected');
+      checkedRadio.classList.add('type-selected');
     }
   })
 
