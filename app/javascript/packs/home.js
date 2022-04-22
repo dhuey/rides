@@ -18,7 +18,7 @@ const resizeIframe = (iframe) => {
 
 const setPageElements = () => {
   navLinks.classList.remove("show");
-  navl.classList.remove("mobile-nav-links");
+  navLinks.classList.remove("mobile-nav-links");
   resizeIframe(internationalVideo);
   resizeIframe(driverVideo);
 }
