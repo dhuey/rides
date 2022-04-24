@@ -28,7 +28,8 @@ class User < ApplicationRecord
   end
 
   def full_name
-    "#{first_name} #{last_name}"
+    new_name = "#{first_name} #{last_name}"
+    new_name.titleize
   end
 
   def unverified?
@@ -90,5 +91,13 @@ class User < ApplicationRecord
     else
       "no-profile.jpg"
     end
+  end
+
+  def rides
+    Ride.where(driver_id: self.id).or(Ride.where(requester_id: self.id))
+  end
+
+  def create_date
+    self.created_at.strftime("%b %d, %Y")
   end
 end

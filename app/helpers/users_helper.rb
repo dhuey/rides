@@ -24,11 +24,39 @@ module UsersHelper
     end
   end
 
-  def user_back_button(user)
-    if request.referrer && URI(request.referrer).path == "/unverified_drivers"
-      link_to "< Unverified drivers", unverified_drivers_path
+  def user_back_button_path
+    if request.referrer
+      case URI(request.referrer).path
+      when "app/unverified_drivers"
+        unverified_drivers_path
+      when /app\/rides\/\d+/
+        :back
+      else
+        dashboard_path
+      end
+    end
+  end
+
+  def alt_contact_icon(user)
+    case user.alternate_contact_method
+    when "WeChat"
+      "weixin"
+    when "Facebook"
+      "facebook"
+    when "Instagram"
+      "instagram"
+    when "Line"
+      "line"
+    when "Whatsapp"
+      "whatsapp"
+    end
+  end
+
+  def no_vehicles_message(user)
+    if current_user == user
+      "You haven't added any vehicles yet. Click the button below to get started!"
     else
-      link_to "< Your profile", user_path(user)
+      "This user hasn't added any vehicles yet."
     end
   end
 end

@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <%= image_tag(asset_path("link-rides-hero.svg"), class: "app-header-image dashboard-img") %>
+</div>
+
+<div class="row profile-image-container text-center">
+  <%= link_to current_user do %>
+    <%= image_tag(current_user.display_profile_picture, size: "100", class: "round dashboard-profile") %>
+  <% end %>
+</div>
+
+<div class="row text-center">
+  <h1>Welcome, <%= current_user.first_name.capitalize %></h1>
+</div>
+
+<% if current_user.driver? %>
+  <%= render 'driver' %>
+<% else %>
+  <%= render 'international' %>
+<% end %>
+
+<div class="row mt-5 mx-3">
+  <h2>Your Rides</h2>
+</div>
+
+<%= render 'rides/rides_list', no_rides_message: no_previous_rides %>

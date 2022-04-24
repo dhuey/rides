@@ -1,5 +1,11 @@
-<div class="sign-up-form">
-  <%= link_to "< #{@vehicle.make} #{@vehicle.model}", user_vehicle_path(@user, @vehicle) %>
-  <h1 class="text-center">Edit your vehicle</h1>
-  <%= render "form" %>
+<div class="row">
+  <div class="col">
+    <%= link_to "Cancel", user_vehicle_path(@user, @vehicle), class: "primary-button back-button" %>
+  </div>
 </div>
+
+<div class="row text-center">
+  <h1>Edit Vehicle</h1>
+</div>
+
+<%= render "form", button: "Save" %>

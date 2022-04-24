@@ -1,0 +1,24 @@
+<% unless @rides.present? %>
+  <div class="row info-box justify-content-center text-center app-info">
+    <h3><%= no_rides_message %></h3>
+    <%= image_tag(asset_path("link-rides-about.svg"), class: "app-header-image not-found-img") %>
+  </div>
+<% else %>
+  <% @rides.each do |ride| %>
+    <%= link_to(ride_path(ride)) do %>
+      <div class="row info-box ride-box mx-3 justify-content-center align-items-center">
+        <div class="col-3 ride-image p-0">
+          <%= ride_image(ride) %>
+        </div>
+        <div class="col">
+          <div class="row">
+            <h3><%= "#{ride.origin.titleize} To #{ride.destination.titleize}" %></h3>
+          </div>
+          <div class="row">
+            <p><%= ride_message(ride) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

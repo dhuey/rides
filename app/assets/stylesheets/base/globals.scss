@@ -1,81 +1,178 @@
-$brand-color: #2766F4;
-$accent-color: #707070;
-$light-grey: #dddddd;
+$brand-color: #0059C1;
+$accent-color: #0060FF;
+$light-grey: #F5F5F5;
+$brand-gradient: linear-gradient(to bottom right, $brand-color, $accent-color);
+$standard-shadow: 2px 3px 8px rgba(0, 0, 0, 0.16);
+$standard-border-radius: 14px;
+$font: museo-sans-rounded, sans-serif;
 
 body {
-  width: 95%;
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+}
+
+a {
+  text-decoration: none;
+  color: $accent-color;
+}
+
+a:hover {
+  color: $brand-color;
+  text-decoration: none;
+}
+
+p {
+  font-weight: 100;
+}
+
+li {
+  font-weight: 100;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.primary-button {
+  background-image: $brand-gradient;
+  color: white;
+  padding: 1rem 4rem;
+  text-decoration: none;
+  border-radius: $standard-border-radius;
+  box-shadow: $standard-shadow;
+  min-height: 44px;
+  transition: transform 300ms ease-in-out;
+  text-align: center;
+  font-weight: 700;
+}
+
+.primary-button:hover {
+  color: white;
+  transform: scale(1.05);
+}
+
+.secondary-button {
+  color: $brand-color;
+  background-color: white;
+  padding: 1rem 4rem;
+  text-decoration: none;
+  border-radius: $standard-border-radius;
+  box-shadow: $standard-shadow;
+  min-height: 44px;
+  transition: transform 300ms ease-in-out;
+  text-align: center;
+  border: 1px solid $brand-color;
+  font-weight: 700;
+}
+
+.secondary-button:hover {
+  color: $brand-color;
+  transform: scale(1.05);
+}
+
+.back-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-bottom: 4rem;
+}
+
+.info-box {
+  padding: 2rem;
+  background-color: $light-grey;
+  box-shadow: $standard-shadow;
+  border-radius: $standard-border-radius;
+  color: black;
+}
+
+.info-box i {
+  color: $brand-color;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.border-none {
+  border: none;
+}
+
+.app-container {
+  padding-bottom: 8rem;
+  margin-top: 2rem;
+  max-width: 768px;
+}
+
+.app-header-image {
+  width: 80%;
   max-width: 500px;
-  margin: auto;
+  margin-bottom: 2rem;
 }
 
 #error_explanation {
 padding: 1em;
 color: #721c24;
 background-color: #f8d7da;
-border: 2px solid;
-border-color: #f5c6cb;
+box-shadow: $standard-shadow;
+border-radius: $standard-border-radius;
+margin: 2rem;
+width: 90%;
 }
 
 ::-webkit-input-placeholder {
    font-style: italic;
+   font-weight: 100;
 }
 :-moz-placeholder {
    font-style: italic;
+   font-weight: 100;
 }
 ::-moz-placeholder {
    font-style: italic;
+   font-weight: 100;
 }
 :-ms-input-placeholder {
    font-style: italic;
+   font-weight: 100;
 }
 
-a:hover {
-  text-decoration: none;
-}
-
-.alert {
-  width: 100%;
-}
-
-.advance-btn {
-  display: inline-block;
-  color: white;
-  background-color: $brand-color;
-  border-radius: 1em;
-  border: none;
-  padding: .2em 1.2em;
-  margin-bottom: 1em;
-  font-weight: bold;
-  height: 42px;
-}
-
-.advance-btn:hover, .advance-btn:active {
-  background-color: #1F50C3;
-}
-
-.login-field {
-  border: 1px solid $accent-color;
-  border-radius: 1em;
-  padding-left: 1em;
+input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], select, textarea {
+  color: black;
   background-color: white;
-  text-align: center;
-  width: 90%;
-  max-width: 350px;
-  margin-bottom: .8em;
-  min-height: 28px;
+  box-shadow: $standard-shadow;
+  border-radius: $standard-border-radius;
+  border: solid 1px $light-grey;
+  padding: 0.25rem 2rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+  -webkit-appearance: none;
 }
 
-.sign-up-field {
-  width: 100% !important;
-}
-.remember {
-  margin-bottom: 1em;
-  margin-left: .4em;
+input[type=submit] {
+  border: none;
+  width: 100%;
+  margin-top: 2rem;
 }
 
-.small-text {
-  font-size: .8em;
-  line-height: .95em;
+input[type=checkbox] {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.light-label {
+  font-weight: 100;
+}
+
+input[type=checkbox].inline {
+  display: inline-block;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+input[type=file] {
+  display: none;
 }
 
 label {
@@ -84,73 +181,100 @@ label {
   line-height: .95em;
 }
 
+.shadow {
+  box-shadow: $standard-shadow;
+}
 .sign-up-form {
   width: 90%;
   max-width: 350px;
   margin: auto;
 }
 
-.display-title {
-  margin-top: 3em;
-  margin-bottom: .6em;
+.profile-image-container {
+  position: relative;
 }
 
-.display-none {
-  display: none;
+.profile-upload {
+  cursor: pointer;
+  margin: 1rem auto;
+  box-shadow: $standard-shadow;
 }
 
-select {
-  margin-bottom: .8em;
-  margin-left: .4em;
+.profile-uploader-button {
+  padding: 8px;
+  border: none;
+  border-radius: 50%;
+  background-color: $light-grey;
+  box-shadow: $standard-shadow;
+  position: absolute;
+  bottom: 1rem;
+  left: 36%;
+  cursor: pointer;
 }
 
-.green {
-  color: green;
-  @include wide-button;
+.login-form {
+  margin-top: 1rem;
 }
 
-.red {
-  color: red;
-  @include wide-button;
-  margin-top: -1px;
+.dashboard-img {
+  margin-top: 2rem
 }
 
-.blue {
+.dashboard-profile {
+  margin-top: -4rem;
+  margin-bottom: 2rem;
+  box-shadow: $standard-shadow;
+}
+
+.app-button {
+  width: 90%;
+  display: inline-block;
+  max-width: 400px;
+}
+
+.app-info {
+  margin: 0rem 1rem;
+}
+
+.not-found-img {
+  max-width: 300px;
+}
+
+.announcement-box {
   color: $brand-color;
-  @include wide-button;
-}
-
-.blue-link {
-  @include wide-button;
-  color: $brand-color;
-  display: block;
   text-align: center;
-  padding-top: .5em;
+  padding: 2rem;
+  border: 2px solid $brand-color;
+  border-radius: $standard-border-radius;
 }
 
-.green:hover {
-  background-color: #f4f4f4;
+.alert {
+  width: 100%;
 }
 
-.blue:hover {
-  background-color: #f4f4f4;
+.sign-up-field {
+  width: 100% !important;
 }
 
-.red:hover {
-  background-color: #f4f4f4;
+.small-text {
+  font-size: .8em;
+  line-height: .95em;
 }
 
-.next-link {
-  padding-top: .5em;
+.type-label {
+  display: block;
+  width: 100%;
+  padding: 1rem;
 }
 
 .type-select {
-  border-radius: 1em;
-  padding-top: .9em;
-  margin-bottom: 1em;
+  display: block;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out, color 300ms, background-color 300ms;
 }
+
 .type-select:hover {
-  background-color: $light-grey;
+  transform: scale(1.05);
 }
 
 .type-selected {
@@ -158,18 +282,19 @@ select {
   color: white;
 }
 
-.type-selected:hover {
-  background-color: $brand-color
-}
-
 .type-select input {
   position: absolute;
   opacity: 0;
-  cursor: pointer;
   height: 0;
   width: 0;
 }
 
-.tac-label {
-  margin-bottom: 2em;
+.type-select label {
+  cursor: pointer;
+}
+
+@include media-breakpoint-down(lg) {
+  h3 {
+    font-size: 16px;
+  }
 }

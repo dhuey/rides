@@ -9,9 +9,11 @@ module RidesHelper
         "Your ride for #{ride.formatted_pickup_time} is still awaiting a driver."
       end
     else
-      if ride.completed?
+      if not ride.claimed?
+        "#{ride.requester.full_name} requested a ride for #{pluralize(ride.number_of_passengers, "passenger")} for #{ride.formatted_pickup_time}"
+      elsif ride.completed?
         "You gave #{ride.requester.full_name} a ride on #{ride.formatted_pickup_time}."
-      else
+      elsif ride.claimed && current_user.id == ride.driver.id
         "You are scheduled to give #{ride.requester.full_name} a ride on #{ride.formatted_pickup_time}."
       end
     end
@@ -29,19 +31,27 @@ module RidesHelper
     end
   end
 
-  def driver_back_button
-    if request.referrer && URI(request.referrer).path == "/pending_rides"
-      link_to "< Rides awaiting a driver", pending_rides_path
+  def ride_back_button
+    if current_user.driver? && request.referrer && URI(request.referrer).path == "/app/pending_rides"
+      link_to "Back", pending_rides_path, class: "primary-button back-button"
     else
-      link_to "< Your rides", rides_path
+      link_to "Back", dashboard_path, class: "primary-button back-button"
     end
   end
 
   def driver_claim_button
     if current_user.vehicles.any?
-      link_to "Claim ride", "javascript:;", class: "blue-link", id: "which-vehicle"
+      link_to "Claim Ride", "javascript:;", class: "primary-button app-button", id: "which-vehicle"
     else
-      link_to "Claim ride", "javascript:;", class: "blue-link", id: "no-vehicle"
+      link_to "Claim Ride", "javascript:;", class: "primary-button app-button", id: "no-vehicle"
     end
+  end
+
+  def no_pending_rides
+    "There aren't any pending rides right now. Check back later!"
+  end
+
+  def no_previous_rides
+    "Sorry, it looks like you haven't #{current_user.international? ? "requested" : "given"} any rides yet."
   end
 end

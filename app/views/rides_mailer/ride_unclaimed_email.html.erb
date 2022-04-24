@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
+<tr>
+  <td>
     <h1>Hello <%= @user.first_name %>,</h1>
+  </td>
+</tr>
 
-    <p>The driver for your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %> is no longer available. But don't worry! Your ride is still active and we will do our best to find you a new driver.</p>
+<tr>
+  <td style="padding:12px 0px;">
+    The driver for your ride from <%= link_to("#{@ride.origin} to #{@ride.destination}", ride_url(@ride))%> for <%= @ride.formatted_pickup_time %> is no longer available. But don't worry! Your ride is still active and we will do our best to find you a new driver.
+  </td>
+</tr>
 
-    <p>We apologize for the inconvenience!</p>
+<tr>
+  <td style="padding:12px 0px;">
+    We apologize for the inconvenience!
+  </td>
+</tr>
 
-    <p>Best,<br>
-      LINK Rides</p>
-  </body>
-</html>
+<tr>
+  <td style="padding:12px 0px;">
+    Best,<br>
+    LINK Rides
+  </td>
+</tr>

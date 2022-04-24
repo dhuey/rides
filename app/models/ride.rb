@@ -10,18 +10,16 @@ class Ride < ApplicationRecord
   validate :pickup_time_cannot_be_in_the_past
   validates :origin, :destination, :pickup_time, :number_of_passengers, presence: true
 
-  after_update :send_claimed_email
-  after_update :send_archived_email, if: :saved_change_to_archived_at?
-  after_update :send_completed_emails, if: :saved_change_to_completed?
+  after_commit :send_claimed_email, if: :saved_change_to_claimed?
+  after_commit :send_archived_email, if: :saved_change_to_archived_at?
+  after_commit :send_completed_emails, if: :saved_change_to_completed?
 
   def send_claimed_email
-    if saved_change_to_claimed?
-      if claimed == true
-        RidesMailer.ride_claimed_email(self).deliver_later
-        self.schedule_ride_incomplete_email
-      else
-        RidesMailer.ride_unclaimed_email(self).deliver_later
-      end
+    if claimed == true
+      RidesMailer.ride_claimed_email(self).deliver_later
+      self.schedule_ride_incomplete_email
+    else
+      RidesMailer.ride_unclaimed_email(self).deliver_later
     end
   end
 

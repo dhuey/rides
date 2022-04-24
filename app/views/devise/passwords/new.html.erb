@@ -1,16 +1,29 @@
-<h1 class="text-center display-title">Forgot your password?</h1>
+<div class="row">
+  <%= link_to new_user_session_path do %>
+    <div class="primary-button back-button">
+      Back
+    </div>
+  <% end %>
+</div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="row justify-content-center">
+  <%= image_tag(asset_path("link-rides-driving.svg"), class: "app-header-image") %>
+</div>
 
-  <div class="field">
-    <div class="d-flex justify-content-center text-center"><%= f.label :email, "Enter your email address and we'll send you password reset instructions", class: "small-text" %></div>
-    <div class="d-flex justify-content-center"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email address", class: "login-field" %></div>
-  </div>
+<div class="row text-center">
+  <h1>Forgot your password?</h1>
+</div>
 
-  <div class="actions d-flex justify-content-center">
-    <%= f.submit "Send instructions", class: "advance-btn" %>
-  </div>
-<% end %>
+<div class="row text-center">
+  <p>Enter your email address and we'll send you password reset instructions</p>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="row sign-up-form">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class: "sign-up-field" %>
+
+    <%= f.submit "Send instructions", class: "primary-button" %>
+  <% end %>
+</div>

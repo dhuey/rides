@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= favicon_link_tag asset_path('favicon.ico') %>
-    <title>Link Rides</title>
+    <title>LINK Rides</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://use.typekit.net/dxy1jiy.css">
+    <script src="https://kit.fontawesome.com/1a5e0c4ee9.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,7 +17,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container app-container">
       <div class="row">
         <% if notice %>
           <div class="alert alert-success text-center" role="alert">
@@ -30,5 +33,7 @@
       <%= yield %>
 
     </div>
+
+    <%= render "pages/footer" %>
   </body>
 </html>

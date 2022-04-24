@@ -1,29 +1,38 @@
-<h1 class="text-center display-title">Sign up</h1>
-<p class="text-center">Next, are you an international student?</em></p>
+<div class="row justify-content-center">
+  <%= image_tag(asset_path("link-rides-about.svg"), class: "app-header-image") %>
+</div>
+<div class="row text-center">
+  <h1>Sign Up For LINK Rides</h1>
+</div>
+<div class="row justify-content-center">
+  <%= image_tag(asset_path("sign-up-progress-02.svg"), class: "signup-progress") %>
+</div>
+<p class="text-center">Next, are you an international student?</p>
 
 <%= form_for(@user, url: wizard_path) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @user %>
   <div class="sign-up-form">
+    <%= render "devise/shared/error_messages", resource: @user %>
     <%= f.hidden_field :user, { :value => @current_user } %>
 
-    <div class="type-select text-center">
-      <%= f.radio_button :international, true, class: "type-radio" %>
-      <%= f.label :international, value: true do %>
-        <h2 class="text-center">Yes</h2>
-        <p class="text-center">I am an international student</p>
-      <% end %>
-    </div>
 
-    <div class="type-select text-center">
-      <%= f.radio_button :international, false, class: "type-radio" %>
-      <%= f.label :international, value: false do %>
-        <h2 class="text-center">No</h2>
-        <p class="text-center">I am a driver</p>
-      <% end %>
-    </div>
+    <%= f.radio_button :international, true, class: "type-radio", data: { id: "international_true" } %>
+    <%= f.label :international, value: true do %>
+      <div class="row info-box type-select text-center" data-selected-id="international_true">
+        <span class="h2">Yes</span><br>
+        <span>I am an international student</span>
+      </div>
+    <% end %>
 
-    <div class="actions d-flex justify-content-center">
-      <%= f.submit "Next ->", class: "advance-btn" %>
-    </div>
+
+    <%= f.radio_button :international, false, class: "type-radio", data: { id: "international_false" } %>
+    <%= f.label :international, value: false do %>
+      <div class="row info-box type-select text-center" data-selected-id="international_false">
+        <span class="h2">No</span><br>
+        <span>I am a driver</span>
+      </div>
+    <% end %>
+
+      <%= f.submit "Next", class: "primary-button app-button" %>
+
   </div>
 <% end %>

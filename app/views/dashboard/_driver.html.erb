@@ -1,0 +1,13 @@
+<% if current_user.unverified? %>
+  <p>We're currently reviewing your driver profile. You'll be able to access all of LINK Rides once your profile is verified. Thanks for your patience!</p>
+<% else %>
+  <div class="row justify-content-center">
+    <%= link_to "Rides Awaiting A Driver", pending_rides_path, method: :get, class: "primary-button app-button" %>
+  </div>
+
+  <% if current_user.admin? %>
+    <div class="row justify-content-center mt-3">
+      <%= link_to "Admin Dashboard", admin_dashboard_path, method: :get, class: "secondary-button app-button" %>
+    </div>
+  <% end %>
+<% end %>

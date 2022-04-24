@@ -1,25 +1,36 @@
-<h1 class="text-center display-title">International LINK Rides</h1>
-<p class="text-center">Let&rsquo;s get you logged in:</p>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <div class="d-flex justify-content-center"><%= f.email_field :email, autocomplete: "email", placeholder:"email address", class: "login-field" %></div>
-  </div>
-
-  <div class="field">
-    <div class="d-flex justify-content-center"><%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "login-field" %></div>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field display-none">
-      <div class="d-flex justify-content-center"><%= f.check_box :remember_me, default: true %> <%= f.label :remember_me, class: "small-text remember" %></div>
+<div class="row">
+  <%= link_to root_path do %>
+    <div class="primary-button back-button">
+      Back
     </div>
   <% end %>
+</div>
 
-  <div class="actions d-flex justify-content-center">
-    <%= f.submit "Log in", class: "advance-btn" %>
-  </div>
-<% end %>
+<div class="row justify-content-center">
+  <%= image_tag(asset_path("link-rides-driving.svg"), class: "app-header-image") %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="row text-center">
+  <h1>Login To LINK Rides</h1>
+</div>
 
+<div class="row sign-up-form login-form">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.email_field :email, autocomplete: "email", placeholder:"Email Address", class: "sign-up-field text-center" %>
+
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "sign-up-field text-center" %>
+
+    <%= f.submit "Log In", class: "primary-button" %>
+  <% end %>
+
+  <%= link_to new_password_path(resource_name) do %>
+    <div class="secondary-button my-3">
+      Forgot Your Password?
+    </div>
+  <% end %>
+</div>
+
+<div class="row text-center mt-3">
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "small-text" %>
+</div>

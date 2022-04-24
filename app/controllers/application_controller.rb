@@ -2,10 +2,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :finish_profile
 
-  def not_found
+  def app_not_found
     respond_to do |format|
-      format.html { redirect_to root_url, :alert => "Page Not Found" }
+      format.html { redirect_to dashboard_url, :alert => "Page Not Found" }
     end
+  end
+
+  def not_found
+
+  end
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || dashboard_url
   end
 
   protected

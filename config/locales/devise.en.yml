@@ -20,13 +20,13 @@ en:
       confirmation_instructions:
         subject: "Verify your account on LINK Rides"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Reset password instructions for LINK Rides"
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:
-        subject: "Email Changed"
+        subject: "LINK Rides Email Changed"
       password_change:
-        subject: "Password Changed"
+        subject: "LINK Rides Password Changed"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."

@@ -1,24 +1,11 @@
-<%= link_to "< Home", root_path %><br>
-<h1>Rides awaiting a driver</h1>
-<% unless @rides.present? %>
-  <p>No rides available</p>
-<% else %>
-  <% @rides.each do |ride| %>
-    <%= link_to(ride_path(ride)) do %>
-      <div class="row ride-box">
-        <div class="col-2 align-self-center ride-image p-0">
-          <%= image_tag ride.requester.display_profile_picture, class: "round" %>
-        </div>
-        <div class="col">
-          <div class="row">
-            <div class="col-10"><strong><%= "#{ride.origin} to #{ride.destination}" %></strong></div>
-            <div class="col-2 ride-select-arrow">></div>
-          </div>
-          <div class="row">
-            <div class="col-12 ride-desc"><%= "#{ride.requester.full_name} requested a ride for #{pluralize(ride.number_of_passengers, "passenger")} for #{ride.formatted_pickup_time}" %></div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="col">
+    <%= link_to "Back", dashboard_path, class: "primary-button back-button" %>
+  </div>
+</div>
+
+<div class="row text-center">
+  <h1>Rides Awaiting A Driver</h1>
+</div>
+
+<%= render "rides/rides_list", no_rides_message: no_pending_rides %>

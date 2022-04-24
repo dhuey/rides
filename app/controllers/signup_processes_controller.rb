@@ -22,13 +22,16 @@ class SignupProcessesController < ApplicationController
 
   def signup_process_params
     params.require(:user).permit(:first_name, :last_name, :gender, :status, :phone_number, :accept_tac, :valid_driver,
-      :nationality, :ministry, :international, :alternate_contact_method, :alternate_contact_name, :email_interest)
+      :nationality, :ministry, :international, :alternate_contact_method, :alternate_contact_name, :email_interest, :profile_picture)
   end
 
+  def finish_wizard_path
+    dashboard_path
+  end
   # def check_for_finished_profile
   #   raise current_user.signup_completed?.inspect
   #   if current_user && current_user.signup_completed?
-  #     redirect_to root_path, alert: "You have already completed the sign up process"
+  #     redirect_to dashboard_path, alert: "You have already completed the sign up process"
   #   end
   # end
 end

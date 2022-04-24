@@ -1,52 +1,46 @@
-// Place all the styles related to the Rides controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.ride-title {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+.ride-box {
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  max-height: 150px;
+  transition: transform 300ms ease-in-out;
 }
 
-.ride-box {
-  // border: 1px solid $accent-color;
-  // border-left: 0px;
-  // border-right: 0px;
+.ride-box:hover {
+  transform: scale(1.05);
+}
+
+@include media-breakpoint-down(sm) {
+  .ride-box {
+    padding: 1rem;
+  }
+
+  .ride-box p {
+    font-size: 14px;
+  }
+}
+
+.ride-detail-profile {
+  text-align: center;
+}
+
+.ride-detail-profile a {
   color: black;
-  margin-bottom: 2em;
-  padding-left: .5em;
-  padding-right: .5em;
+}
+
+.ride-detail-profile img {
+  box-shadow: $standard-shadow;
 }
 
 .ride-image {
   img {
     width: 90%;
+    max-width: 100px;
+    max-height: 100px;
   }
 }
 
 .ride-box:hover {
   background-color: #f4f4f4;
-}
-
-.ride-label {
-  display: inline-block;
-  float: left;
-  white-space: nowrap;
-}
-
-.ride-select-arrow {
-  float: right;
-  text-align: right;
-  color: $accent-color;
-}
-
-.ride-desc {
-  color: $accent-color;
-}
-
-.ride-label > p {
-  margin-bottom: .1em;
-}
-.ride-time > p {
-  margin-bottom: .1em;
 }
 
 #vehicle-select {
@@ -55,18 +49,6 @@
 
 #vehicle-add {
   display: none;
-}
-
-.blue-link {
-  @include wide-button;
-  color: $brand-color;
-  display: block;
-  text-align: center;
-  padding-top: .5em;
-}
-
-.blue-link:hover {
-  background-color: #f4f4f4;
 }
 
 .flatpickr-calendar {

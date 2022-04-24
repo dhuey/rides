@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    unless current_user == @user || current_user.admin?
+      redirect_to user_path(@user), alert: "You are not authorized to view this page."
+    end
   end
 
   def update

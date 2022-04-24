@@ -1,10 +1,13 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.vehicle-button {
-  margin-top: -1px;
+.user-box i {
+  margin-right: 1rem;
 }
 
-.round {
-  border-radius: 50%;
+.user-profile-button {
+  left: 44%
+}
+
+@include media-breakpoint-down(sm) {
+  .user-profile-button {
+    left: 42%;
+  }
 }
