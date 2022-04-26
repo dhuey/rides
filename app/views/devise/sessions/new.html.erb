@@ -14,6 +14,12 @@
   <h1>Login To LINK Rides</h1>
 </div>
 
+<% if Rails.env.staging? %>
+  <div class="row text-center mx-3">
+    <p>Here for a demo? Login with either international@gmail.com or driver@gmail.com with password: linkridesdemo</p>
+  </div>
+<% end %>
+
 <div class="row sign-up-form login-form">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
