@@ -1,0 +1,16 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+//@import "font-awesome";
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require_self
+@import "base/mixins";
+// @import "base/normalize";
+@import "base/globals";
+@import "styles/home";
+@import "styles/signup_processes";
+@import "styles/rides";
+@import "styles/dashboard";
+@import "styles/users";
+@import "styles/admin_dashboard";
