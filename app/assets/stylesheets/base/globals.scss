@@ -298,3 +298,12 @@ label {
     font-size: 16px;
   }
 }
+
+.footer-link-button {
+  border: none;
+  color: $accent-color;
+}
+
+.footer-link-button:hover {
+  color: $brand-color;
+}

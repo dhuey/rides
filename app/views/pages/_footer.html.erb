@@ -6,7 +6,7 @@
     <p>Images by <%= link_to "stories / Freepik", "http://freepik.com", class: "footer-link" %></p>
     <% if current_user %>
         <p><%= link_to "Your profile", user_path(current_user), method: :get, class: "footer-link" %></p>
-        <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "footer-link" %></p>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "footer-link footer-link-button" %>
     <% end %>
     </div>
 </footer>
