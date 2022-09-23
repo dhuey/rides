@@ -3,7 +3,6 @@
 
   <div class="row text-center profile-image-container">
     <%= f.label :profile_picture do %>
-      <%= javascript_pack_tag "profileUploader", 'data-turbolinks-track': 'reload', defer: true %>
       <%= image_tag(@user.display_profile_picture, size: "100", class: "round profile-upload", id: "profile-image") %>
       <div class="profile-uploader-button user-profile-button">
         <%= icon("fa-solid", "pencil") %>

@@ -352,6 +352,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   sendgrid-ruby
+  sprockets-rails
   stimulus-rails
   turbo-rails
   tzinfo-data

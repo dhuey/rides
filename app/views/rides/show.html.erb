@@ -90,7 +90,6 @@
 
     <% elsif current_user.driver? %>
       <% if @ride.unclaimed? %>
-        <%= javascript_pack_tag "rides", 'data-turbolinks-track': 'reload', defer: true %>
         <%= driver_claim_button %>
 
         <% if current_user.vehicles.any? %>
