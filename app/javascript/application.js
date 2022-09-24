@@ -1,24 +1,18 @@
 import "@hotwired/turbo-rails";
 import "@popperjs/core";
-// import * as bootstrap from "bootstrap";
 import flatpickr from "flatpickr";
 import "./home.js";
 import "./profileUploader.js";
 import "./rides.js";
 import "jquery";
-// require("flatpickr/dist/flatpickr.css");
-if (document.readyState === "interactive") {
-  const event = document.createEvent("Event");
-  event.initEvent("turbo:load", true, true);
-  document.dispatchEvent(event);
-}
 
-document.addEventListener("turbo:load", () => {
+const loadDatePicker = () => {
   var coeff = 1000 * 60 * 5;
   var date = new Date(); //or use any other date
   var rounded = new Date(Math.ceil(date.getTime() / coeff) * coeff);
+  const timePicker = document.getElementById("timepicker");
 
-  flatpickr(".timepicker", {
+  flatpickr(timePicker, {
     enableTime: true,
     dateFormat: "M d, Y at h:i K",
     minDate: "today",
@@ -26,7 +20,10 @@ document.addEventListener("turbo:load", () => {
     defaultMinute: rounded.getMinutes(),
     appendTo: window.document.querySelector("#time-wrap"),
   });
+};
 
+document.addEventListener("turbo:load", () => {
+  loadDatePicker();
   const typeButtons = document.querySelectorAll(".type-select");
 
   typeButtons.forEach((typeButton) => {

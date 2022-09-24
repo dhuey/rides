@@ -11,6 +11,7 @@ module Rides
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.active_support.cache_format_version = 7.0
+    config.time_zone = 'Central Time (US & Canada)'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

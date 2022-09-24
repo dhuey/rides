@@ -43,6 +43,7 @@ gem 'debug', platforms: %i[ mri mingw x64_mingw ]
 gem 'bootstrap', '~> 5.1.3'
 gem 'devise'
 gem 'font-awesome-sass'
+gem 'flatpickr'
 gem 'jquery-rails'
 gem 'rollbar'
 gem 'wicked'

@@ -1,6 +1,6 @@
 <div class="row sign-up-form">
 
-  <%= form_for @ride do |f| %>
+  <%= form_for @ride, url: @form_path, method: @form_action do |f| %>
     <%= render "devise/shared/error_messages", resource: @ride %>
 
       <%= f.label :origin, "Where are you now?" %>
@@ -12,7 +12,7 @@
 
     <div id="time-wrap">
       <%= f.label :pickup_time, "What time do you need a ride?" %>
-      <%= f.text_field :pickup_time, class: "timepicker sign-up-field", autocomplete: "off" %>
+      <%= f.text_field :pickup_time, class: "sign-up-field", id: "timepicker", autocomplete: "off" %>
     </div>
 
 

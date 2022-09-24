@@ -38,7 +38,7 @@ class Ride < ApplicationRecord
 
   def pickup_time_cannot_be_in_the_past
     unless claimed_changed? || completed_changed? || archived_at_changed?
-      if pickup_time.present? && pickup_time < DateTime.current
+      if pickup_time.present? && pickup_time < Time.zone.now
         errors.add(:pickup_time, "can't be in the past")
       end
     end
