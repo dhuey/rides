@@ -1,6 +1,9 @@
 default: &default
   adapter: postgresql
+  host: localhost
   encoding: unicode
+  username: <%= ENV.fetch("DB_USER") %> 
+  password: <%= ENV.fetch("DB_PW") %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -20,3 +23,4 @@ staging:
 production:
   <<: *default
   database: rides_production
+  host: postgres

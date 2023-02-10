@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+  rails:
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    command: rails server -e production -b 0.0.0.0
+
+  delayed_job:
+    build: .
+    restart: always
+    depends_on:
+      - postgres
+      - rails
+    command: bundle exec rake jobs:work

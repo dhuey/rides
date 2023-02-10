@@ -27,6 +27,7 @@
 /public/packs
 /public/packs-test
 /node_modules
+/docker
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
@@ -34,3 +35,8 @@ sendgrid.env
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+.env
+
+# Ignore application configuration
+/config/application.yml
