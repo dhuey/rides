@@ -10,6 +10,6 @@ services:
       POSTGRES_DB: rides_development
     volumes:
       - "./docker/.postgres:/var/lib/postgresql/data"
-    user: 1000:1000
+    # user: 1000:1000
     ports:
       - "5432:5432"
