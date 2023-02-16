@@ -3,8 +3,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg &
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
 RUN apt-get update -qq && apt-get install -y nodejs yarn vim postgresql-client imagemagick
 WORKDIR /home/dhuey/rides
-COPY Gemfile /home/dhuey/rides/Gemfile
-COPY Gemfile.lock /home/dhuey/rides/Gemfile.lock
+COPY ./Gemfile /home/dhuey/rides/Gemfile
+COPY ./Gemfile.lock /home/dhuey/rides/Gemfile.lock
 COPY . /home/dhuey/rides
 RUN gem install bundler
 RUN bundle install --without development test
