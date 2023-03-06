@@ -6,8 +6,8 @@ services:
     image: postgres:14.5
     restart: always
     environment:
-      POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: rides_development
+      POSTGRES_PASSWORD: ${DB_PW}
+      POSTGRES_DB: ${DB_NAME}
     volumes:
       - "./docker/.postgres:/var/lib/postgresql/data"
     ports:
@@ -17,6 +17,9 @@ services:
     restart: always
     ports:
       - "3000:3000"
+    environments:
+      DB_USER: ${DB_USER}
+      DB_PW: ${DB_PW}
     depends_on:
       - postgres
     command: rails server -e production -b 0.0.0.0
